@@ -69,7 +69,7 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public Decanato findDecanato(Integer id) {
+    public Decanato findDecanato(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Decanato.class, id);
