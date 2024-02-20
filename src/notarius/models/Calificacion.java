@@ -24,7 +24,8 @@ public class Calificacion implements Serializable {
     private float terceraNota;
     private float notaFinal;
     private char status;
-
+ 
+    
     public Calificacion() {
     }
 

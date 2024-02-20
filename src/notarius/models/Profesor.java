@@ -14,14 +14,14 @@ public class Profesor extends Usuario implements Serializable{
     @GeneratedValue(strategy=GenerationType.AUTO)
     private String idProfesor; 
     @Basic
-    private Asignatura asignaturas;
+    private Materia materias;
 
     public Profesor() {
     }
 
-    public Profesor(String idProfesor, Asignatura asignaturas) {
+    public Profesor(String idProfesor, Materia materias) {
         this.idProfesor = idProfesor;
-        this.asignaturas = asignaturas;
+        this.materias = materias;
     }
 
     public String getIdProfesor() {
@@ -32,12 +32,12 @@ public class Profesor extends Usuario implements Serializable{
         this.idProfesor = idProfesor;
     }
 
-    public Asignatura getAsignaturas() {
-        return asignaturas;
+    public Materia getMaterias() {
+        return materias;
     }
 
-    public void setAsignaturas(Asignatura asignaturas) {
-        this.asignaturas = asignaturas;
+    public void setMaterias(Materia materias) {
+        this.materias = materias;
     }
     
     

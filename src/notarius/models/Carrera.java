@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 
 @Entity
@@ -14,17 +15,20 @@ public class Carrera implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int idCarrera;
+    @ManyToMany
+    private Materia materias;
     @Basic
     private String nombreCarrera;
-    private Asignatura asignaturas;
+    private String nombreDecanato;
 
     public Carrera() {
     }
 
-    public Carrera(int idCarrera, String nombreCarrera, Asignatura asignaturas) {
+    public Carrera(int idCarrera, String nombreCarrera, Materia materias, String nombreDecanato) {
         this.idCarrera = idCarrera;
         this.nombreCarrera = nombreCarrera;
-        this.asignaturas = asignaturas;
+        this.materias = materias;
+        this.nombreDecanato = nombreDecanato;
     }
 
     public int getIdCarrera() {
@@ -43,12 +47,20 @@ public class Carrera implements Serializable {
         this.nombreCarrera = nombreCarrera;
     }
 
-    public Asignatura getAsignaturas() {
-        return asignaturas;
+    public Materia getMaterias() {
+        return materias;
     }
 
-    public void setAsignaturas(Asignatura asignaturas) {
-        this.asignaturas = asignaturas;
+    public void setMaterias(Materia materias) {
+        this.materias = materias;
+    }
+
+    public String getDecanato() {
+        return nombreDecanato;
+    }
+
+    public void setDecanato(String nombreDecanato) {
+        this.nombreDecanato = nombreDecanato;
     }
     
     

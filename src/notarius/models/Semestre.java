@@ -16,14 +16,21 @@ public class Semestre implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int idSemestre;
     @Temporal(TemporalType.DATE)
-    private Date semana;
+    private Date fechaInicio;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaCierre;
+    private int semana;
+    private String periodo;
 
     public Semestre() {
     }
 
-    public Semestre(int idSemestre, Date semana) {
+    public Semestre(int idSemestre, Date fechaInicio, Date fechaCierre, int semana, String periodo) {
         this.idSemestre = idSemestre;
+        this.fechaInicio = fechaInicio;
+        this.fechaCierre = fechaCierre;
         this.semana = semana;
+        this.periodo = periodo;
     }
 
     public int getIdSemestre() {
@@ -34,13 +41,40 @@ public class Semestre implements Serializable {
         this.idSemestre = idSemestre;
     }
 
-    public Date getSemana() {
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Date getFechaCierre() {
+        return fechaCierre;
+    }
+
+    public void setFechaCierre(Date fechaCierre) {
+        this.fechaCierre = fechaCierre;
+    }
+
+    public int getSemana() {
         return semana;
     }
 
-    public void setSemana(Date semana) {
+    public void setSemana(int semana) {
         this.semana = semana;
     }
+
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+
+    
+   
 
 
     
