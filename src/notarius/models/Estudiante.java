@@ -16,12 +16,12 @@ public class Estudiante extends Usuario{
     private Carrera carrera;
     private Seccion seccion;
     private double promedio;
-    private Semestre semestre;
+    private int semestre;
 
     public Estudiante() {
     }
 
-    public Estudiante(String idEstudiante, Carrera carrera, Seccion seccion, double promedio, Semestre semestre) {
+    public Estudiante(String idEstudiante, Carrera carrera, Seccion seccion, double promedio, int semestre) {
         this.idEstudiante = idEstudiante;
         this.carrera = carrera;
         this.seccion = seccion;
@@ -61,11 +61,11 @@ public class Estudiante extends Usuario{
         this.promedio = promedio;
     }
 
-    public Semestre getSemestre() {
+    public int  getSemestre() {
         return semestre;
     }
 
-    public void setSemestre(Semestre semestre) {
+    public void setSemestre(int semestre) {
         this.semestre = semestre;
     }
     
