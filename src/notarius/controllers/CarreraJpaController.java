@@ -4,12 +4,10 @@
  */
 package notarius.controllers;
 
-import java.io.Serializable;
-
 /**
  *
  * @author hanumonke
  */
-public class SemestreJpaController implements Serializable {
+public class CarreraJpaController {
     
 }
