@@ -1,5 +1,6 @@
 
 package notarius.models;
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Seccion {
+public class Seccion implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)  //cambiar esto de la frecuencia??
     private int numero;
