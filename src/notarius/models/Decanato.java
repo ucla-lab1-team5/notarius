@@ -1,28 +1,35 @@
 
 package notarius.models;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Decanato{
+public class Decanato implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int idDecanato; 
-    @Basic
+    @OneToMany
     private Carrera carreras;
+    @Basic
     private String nombre;
+    private String descripcion;
+    
+  
     
 
     public Decanato() {
     }
 
-    public Decanato(int idDecanato, String nombre, Carrera carreras) {
+    public Decanato(int idDecanato, String nombre, String descripcion, Carrera carreras) {
         this.idDecanato = idDecanato;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.carreras = carreras;
     }
 
@@ -42,6 +49,15 @@ public class Decanato{
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    
     public Carrera getCarreras() {
         return carreras;
     }
