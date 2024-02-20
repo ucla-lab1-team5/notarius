@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/controllers/DecanatoJpaController.java</file>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/controllers/PersistenceController.java</file>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/models/Decanato.java</file>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/META-INF/persistence.xml</file>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/Notarius.java</file>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/JPA_CONTROLLER_GIST.java</file>
+            <file>file:/C:/Users/antho/OneDrive/Escritorio/proyectosJavaTODOCODE/notarius/src/notarius/models/Persona.java</file>
+            <file>file:/C:/Users/antho/OneDrive/Escritorio/proyectosJavaTODOCODE/notarius/src/notarius/models/Estudiante2.java</file>
+            <file>file:/C:/Users/antho/OneDrive/Escritorio/proyectosJavaTODOCODE/notarius/src/notarius/models/Profesor.java</file>
+            <file>file:/C:/Users/antho/OneDrive/Escritorio/proyectosJavaTODOCODE/notarius/src/notarius/models/Profesor2.java</file>
+            <file>file:/C:/Users/antho/OneDrive/Escritorio/proyectosJavaTODOCODE/notarius/src/notarius/models/Seccion.java</file>
         </group>
     </open-files>
 </project-private>
