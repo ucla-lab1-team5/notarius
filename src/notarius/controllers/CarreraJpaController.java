@@ -9,5 +9,8 @@ package notarius.controllers;
  * @author hanumonke
  */
 public class CarreraJpaController {
+
+    public CarreraJpaController() {
+    }
     
 }
