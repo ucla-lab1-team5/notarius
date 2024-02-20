@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Estudiante extends Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private String idEstudiante;
+    private Usuario idUsuario;
     @Basic
     private Carrera carrera;
     private Seccion seccion;
@@ -22,20 +22,20 @@ public class Estudiante extends Usuario implements Serializable{
     public Estudiante() {
     }
 
-    public Estudiante(String idEstudiante, Carrera carrera, Seccion seccion, double promedio, int semestre) {
-        this.idEstudiante = idEstudiante;
+    public Estudiante(Usuario idUsuario, Carrera carrera, Seccion seccion, double promedio, int semestre) {
+        this.idUsuario = idUsuario;
         this.carrera = carrera;
         this.seccion = seccion;
         this.promedio = promedio;
         this.semestre = semestre;
     }
 
-    public String getIdEstudiante() {
-        return idEstudiante;
+    public Usuario getIdEstudiante() {
+        return idUsuario;
     }
 
-    public void setIdEstudiante(String idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public void setIdEstudiante(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public Carrera getCarrera() {

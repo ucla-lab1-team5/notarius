@@ -6,17 +6,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Seccion implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)  //cambiar esto de la frecuencia??
     private int numero;
+    @OneToMany
+    private Calificacion calificaciones;
     @Basic
-    private Estudiante estudiantes;
-    private Profesor profesor;
+    private String nombreMateria;
+    private String profesorUsuarioId;
+    private String nombreDecanato;
+    private String carrera;
+    private int periodo;
 
     public Seccion() {
+    }
+
+    public Seccion(int numero, Calificacion calificaciones, String nombreMateria, String profesorUsuarioId, String nombreDecanato, String carrera, int periodo) {
+        this.numero = numero;
+        this.calificaciones = calificaciones;
+        this.nombreMateria = nombreMateria;
+        this.profesorUsuarioId = profesorUsuarioId;
+        this.nombreDecanato = nombreDecanato;
+        this.carrera = carrera;
+        this.periodo = periodo;
     }
 
     public double ObtenerPromedio( ){
@@ -32,12 +48,6 @@ public class Seccion implements Serializable {
       public void DebajoPromedio( ){          //PUBLIC STRING
     
     }
-      
-    public Seccion(int numero, Estudiante estudiantes, Profesor profesor) {
-        this.numero = numero;
-        this.estudiantes = estudiantes;
-        this.profesor = profesor;
-    }
 
     public int getNumero() {
         return numero;
@@ -47,21 +57,54 @@ public class Seccion implements Serializable {
         this.numero = numero;
     }
 
-    public Estudiante getEstudiantes() {
-        return estudiantes;
+    public Calificacion getCalificaciones() {
+        return calificaciones;
     }
 
-    public void setEstudiantes(Estudiante estudiantes) {
-        this.estudiantes = estudiantes;
+    public void setCalificaciones(Calificacion calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
-    public Profesor getProfesor() {
-        return profesor;
+    public String getNombreMateria() {
+        return nombreMateria;
     }
 
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
+    public void setNombreMateria(String nombreMateria) {
+        this.nombreMateria = nombreMateria;
     }
+
+    public String getProfesorUsuarioId() {
+        return profesorUsuarioId;
+    }
+
+    public void setProfesorUsuarioId(String profesorUsuarioId) {
+        this.profesorUsuarioId = profesorUsuarioId;
+    }
+
+    public String getNombreDecanato() {
+        return nombreDecanato;
+    }
+
+    public void setNombreDecanato(String nombreDecanato) {
+        this.nombreDecanato = nombreDecanato;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
+      
     
     
     
