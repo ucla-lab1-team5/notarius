@@ -8,6 +8,6 @@ package notarius.controllers;
  *
  * @author hanumonke
  */
-public class DecanatoJpaController {
+public class CarreraJpaController {
     
 }
