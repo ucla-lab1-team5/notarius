@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
@@ -27,10 +26,6 @@ public class ProfesorJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
-    public ProfesorJpaController() {
-        emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -40,7 +35,6 @@ public class ProfesorJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-
             em.persist(profesor);
             em.getTransaction().commit();
         } finally {
@@ -73,7 +67,7 @@ public class ProfesorJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();

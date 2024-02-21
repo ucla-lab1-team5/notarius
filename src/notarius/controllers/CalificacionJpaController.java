@@ -10,12 +10,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Calificacion;
-import notarius.models.Estudiante;
 
 /**
  *
@@ -32,12 +30,6 @@ public class CalificacionJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public CalificacionJpaController() {
-        
-        emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-
-    
     public void create(Calificacion calificacion) {
         EntityManager em = null;
         try {
@@ -75,7 +67,7 @@ public class CalificacionJpaController implements Serializable {
         }
     }
 
-    public void destroy(Estudiante id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
