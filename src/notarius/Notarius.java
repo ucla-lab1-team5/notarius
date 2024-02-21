@@ -4,10 +4,6 @@ package notarius;
 import notarius.controllers.Controller;
 import notarius.models.Decanato;
 
-
-
-
-
 public class Notarius {
     public static void main(String args[]) {
        
@@ -22,7 +18,7 @@ public class Notarius {
      dcyt.setUbicacion("Obelisco");
      
      //guardamos el decanato en la db
-     control.registrarDecanato(dcyt, control.defaultAdmin.getId());
+     control.registrarDecanato(dcyt);
      
      //creamos un segundo decanato
      Decanato dah = new Decanato();
@@ -30,12 +26,12 @@ public class Notarius {
      dah.setUbicacion("Carrera 16 entre Calles 26 y 27");
      
      //guardamos el segundo decanato en la db
-     control.registrarDecanato(dah, control.defaultAdmin.getId());
+     control.registrarDecanato(dah);
      
-     control.eliminarDecanato(dcyt.getIdDecanato(), control.defaultAdmin.getId());
+     control.eliminarDecanato(dcyt.getIdDecanato());
      
      dah.setUbicacion("Centro de Barquisimeto");
      
-     control.editarDecanato(dah, control.defaultAdmin.getId());
+     control.editarDecanato(dah);
     }
 }

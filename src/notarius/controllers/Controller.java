@@ -63,49 +63,31 @@ public class Controller {
         this.usuarioService.create(defaultAdmin);
     }
 //FUNCIONES ADMINISTRADOR
-    public void checkAdminPass(long validAdminId) throws Exception {
-        Usuario validAdmin = Controller.this.usuarioService.findUsuario(validAdminId);
-        if (!validAdmin.isEs_admin()) {
-            //aca deberia tirar una excepcion per no se como y no tengo luz, mientras lanzo error por la consola
-            String errorMsg = "ERROR: el usuario de id " + "'" + validAdminId + "'" +" no tiene permisos para realizar esta accion";
-            Exception adminPermissionError = new Exception(errorMsg);
-            throw adminPermissionError;
-        } 
-        
-        
-}
+
+  
     //GESTION DECANATO
     
-    public void registrarDecanato(Decanato dec, long validAdminId) {
-        try
-        {
-            checkAdminPass(validAdminId);
-        } catch (Exception ex)
-        {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void registrarDecanato(Decanato dec) {
         Controller.this.decanatoService.create(dec);
     }
-    public void editarDecanato(Decanato dec, long validAdminId) {
+    public void editarDecanato(Decanato dec) {
         try
-        {   
-            checkAdminPass(validAdminId);
+        {
             Controller.this.decanatoService.edit(dec);
         } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
-    public void eliminarDecanato(int decId, long validAdminId) {
-         
+    public void eliminarDecanato(int decId){
         try
         {
-            checkAdminPass(validAdminId);
             Controller.this.decanatoService.destroy(decId);
-        } catch (Exception ex)
+        } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
     
     //TODO AGREGAR PERMISOS AL RESTO DE TABLAS
@@ -203,11 +185,9 @@ public class Controller {
     }
     
     //GESTION ADMINISTRADOR
-    public void registrarAdministrador(Usuario admin, long validAdminId) {
+    public void registrarAdministrador(Usuario admin) {
         try
         {
-            //agregar logica de permisos
-            checkAdminPass(validAdminId);
             Controller.this.usuarioService.create(admin);
         } catch (Exception ex)
         {
@@ -216,9 +196,7 @@ public class Controller {
         
         
     }
-    public void editarAdmin(Usuario admin, long validAdminId){
-        //agregar logica de permisos;
-         
+    public void editarAdmin(Usuario admin){
         try
         {
             Controller.this.usuarioService.edit(admin);
@@ -227,9 +205,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarAdmin(long adminId, long validAdminId){
-        //agregar logica de permisos
-         
+    public void eliminarAdmin(long adminId){
         try
         {
             Controller.this.profesorService.destroy(adminId);
