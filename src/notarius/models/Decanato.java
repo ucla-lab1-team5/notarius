@@ -7,31 +7,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class Decanato implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int idDecanato; 
-    @OneToMany
-    private Carrera carreras;
     @Basic
     private String nombre;
     private String descripcion;
-    
-  
     
 
     public Decanato() {
     }
 
-    public Decanato(int idDecanato, String nombre, String descripcion, Carrera carreras) {
+    public Decanato(int idDecanato, String nombre, String descripcion) {
         this.idDecanato = idDecanato;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.carreras = carreras;
     }
+
+
 
     public int getIdDecanato() {
         return idDecanato;
@@ -57,15 +54,4 @@ public class Decanato implements Serializable{
         this.descripcion = descripcion;
     }
 
-    
-    public Carrera getCarreras() {
-        return carreras;
-    }
-
-    public void setCarreras(Carrera carreras) {
-        this.carreras = carreras;
-    }
-    
-    
-    
 }

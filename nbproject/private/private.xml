@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/controllers/CalificacionJpaController.java</file>
+            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/models/Estudiante.java</file>
+            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/models/Usuario.java</file>
+            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/controllers/EstudianteJpaController.java</file>
+            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/nbproject/build-impl.xml</file>
             <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/controllers/DecanatoJpaController.java</file>
             <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/models/Decanato.java</file>
+            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/META-INF/persistence.xml</file>
+            <file>file:/home/hanumonke/Desarrollo/LAB1/notarius/src/notarius/Notarius.java</file>
         </group>
     </open-files>
 </project-private>

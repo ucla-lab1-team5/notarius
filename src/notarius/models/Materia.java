@@ -3,62 +3,69 @@ package notarius.models;
 
 
 import java.io.Serializable;
-
+import java.util.Set;
 import javax.persistence.Basic;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Materia implements Serializable {
 
-     @Id
+    @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private String idMateria;
-     @OneToMany 
+    private String id;
+    // varias materias comparten una carrera, varias carreras comparten una materia
     
-    private Seccion secciones;
+    @ManyToMany
+    @JoinTable(
+            name = "carrera_materia",
+            joinColumns = @JoinColumn(name = "materia_id"),
+            inverseJoinColumns = @JoinColumn(name = "carrera_id"))
+    private Set<Carrera> carreras;
     
     @Basic
-    private String nombreMateria;
+    private String nombre;
     private String descripcion;
-    private int semestre;
+    // semestre?
 
     public Materia() {
     }
 
-    public Materia(String idMateria,  Seccion secciones, String nombreMateria, String descripcion, int semestre) {
-        this.idMateria = idMateria;
-         this.secciones = secciones;
-        this.nombreMateria = nombreMateria;  
+    public Materia(String id, Set<Carrera> carreras, String nombre, String descripcion) {
+        this.id = id;
+        this.carreras = carreras;
+        this.nombre = nombre;
         this.descripcion = descripcion;
-        this.semestre = semestre;
     }
 
-    public String getIdMateria() {
-        return idMateria;
+    public String getId() {
+        return id;
     }
 
-    public void setIdMateria(String idMateria) {
-        this.idMateria = idMateria;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getNombreMateria() {
-        return nombreMateria;
+    public Set<Carrera> getCarreras() {
+        return carreras;
     }
 
-    public void setNombreMateria(String nombreMateria) {
-        this.nombreMateria = nombreMateria;
+    public void setCarreras(Set<Carrera> carreras) {
+        this.carreras = carreras;
     }
 
-    public Seccion getSecciones() {
-        return secciones;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setSecciones(Seccion secciones) {
-        this.secciones = secciones;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
@@ -67,14 +74,6 @@ public class Materia implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public int getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(int semestre) {
-        this.semestre = semestre;
     }
     
     
