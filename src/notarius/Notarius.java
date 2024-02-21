@@ -14,13 +14,15 @@ public class Notarius {
      //Iniciar la db
      Controller control = new Controller();
     
+     // crear un admin user por defecto
+     
      //creamos un decanato
      Decanato dcyt = new Decanato();
      dcyt.setNombre("Ciencia y Tecnologia");
      dcyt.setUbicacion("Obelisco");
      
      //guardamos el decanato en la db
-     control.registrarDecanato(dcyt);
+     control.registrarDecanato(dcyt, control.defaultAdmin.getId());
      
      //creamos un segundo decanato
      Decanato dah = new Decanato();
@@ -28,12 +30,12 @@ public class Notarius {
      dah.setUbicacion("Carrera 16 entre Calles 26 y 27");
      
      //guardamos el segundo decanato en la db
-     control.registrarDecanato(dah);
+     control.registrarDecanato(dah, control.defaultAdmin.getId());
      
-     control.eliminarDecanato(dcyt.getIdDecanato());
+     control.eliminarDecanato(dcyt.getIdDecanato(), control.defaultAdmin.getId());
      
      dah.setUbicacion("Centro de Barquisimeto");
      
-     control.editarDecanato(dah);
+     control.editarDecanato(dah, control.defaultAdmin.getId());
     }
 }

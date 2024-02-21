@@ -3,25 +3,30 @@ package notarius.controllers;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import notarius.controllers.exceptions.NonexistentEntityException;
+
+//importando modelos
 import notarius.models.Carrera;
 import notarius.models.Decanato;
 import notarius.models.Estudiante;
 import notarius.models.Materia;
 import notarius.models.Profesor;
+import notarius.models.Usuario;
 
 /**
  * @authors: Hanuman Sanchez - 28.316.086 - ING. INFORMATICA Anthony Moreno - -
  */
 public class Controller {
 
-    DecanatoJpaController decanatoService;
-    MateriaJpaController materiaService;
-    CarreraJpaController carreraService;
-    SeccionJpaController seccionService;
-    SemestreJpaController semestreServicio;
-    CalificacionJpaController calificacionService;
-    EstudianteJpaController estudianteService;
-    ProfesorJpaController profesorService;
+    private final DecanatoJpaController decanatoService;
+    private final MateriaJpaController materiaService;
+    private final CarreraJpaController carreraService;
+    private final SeccionJpaController seccionService;
+    private final SemestreJpaController semestreServicio;
+    private final CalificacionJpaController calificacionService;
+    private final EstudianteJpaController estudianteService;
+    private final ProfesorJpaController profesorService;
+    private final UsuarioJpaController usuarioService;
+    public Usuario defaultAdmin;
 
     // inicio la db - instancia de los services para manipular la db. 
     public Controller() {
@@ -48,32 +53,62 @@ public class Controller {
 
         //Crear profesor
         this.profesorService = new ProfesorJpaController();
+        
+        this.usuarioService = new UsuarioJpaController();
+        
+        this.defaultAdmin = new Usuario();
+        defaultAdmin.setEs_admin(true);
+        defaultAdmin.setNombreUsuario("NotariusAdmin");
+        defaultAdmin.setClave("NotariusAdmin");
+        this.usuarioService.create(defaultAdmin);
     }
 //FUNCIONES ADMINISTRADOR
+    public void checkAdminPass(long validAdminId) throws Exception {
+        Usuario validAdmin = Controller.this.usuarioService.findUsuario(validAdminId);
+        if (!validAdmin.isEs_admin()) {
+            //aca deberia tirar una excepcion per no se como y no tengo luz, mientras lanzo error por la consola
+            String errorMsg = "ERROR: el usuario de id " + "'" + validAdminId + "'" +" no tiene permisos para realizar esta accion";
+            Exception adminPermissionError = new Exception(errorMsg);
+            throw adminPermissionError;
+        } 
+        
+        
+}
     //GESTION DECANATO
-
-    public void registrarDecanato(Decanato dec) {
-        Controller.this.decanatoService.create(dec);
-    }
-    public void editarDecanato(Decanato dec) {
+    
+    public void registrarDecanato(Decanato dec, long validAdminId) {
         try
         {
+            checkAdminPass(validAdminId);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Controller.this.decanatoService.create(dec);
+    }
+    public void editarDecanato(Decanato dec, long validAdminId) {
+        try
+        {   
+            checkAdminPass(validAdminId);
             Controller.this.decanatoService.edit(dec);
         } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarDecanato(int decId) {
+    public void eliminarDecanato(int decId, long validAdminId) {
+         
         try
         {
+            checkAdminPass(validAdminId);
             Controller.this.decanatoService.destroy(decId);
-        } catch (NonexistentEntityException ex)
+        } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
-
+    
+    //TODO AGREGAR PERMISOS AL RESTO DE TABLAS
     //GESTION CARRERA
     public void registrarCarrera(Carrera carr) {
         Controller.this.carreraService.create(carr);
@@ -161,6 +196,43 @@ public class Controller {
         try
         {
             Controller.this.profesorService.destroy(estId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    //GESTION ADMINISTRADOR
+    public void registrarAdministrador(Usuario admin, long validAdminId) {
+        try
+        {
+            //agregar logica de permisos
+            checkAdminPass(validAdminId);
+            Controller.this.usuarioService.create(admin);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    public void editarAdmin(Usuario admin, long validAdminId){
+        //agregar logica de permisos;
+         
+        try
+        {
+            Controller.this.usuarioService.edit(admin);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void eliminarAdmin(long adminId, long validAdminId){
+        //agregar logica de permisos
+         
+        try
+        {
+            Controller.this.profesorService.destroy(adminId);
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
