@@ -26,7 +26,7 @@ public class Controller {
     private final EstudianteJpaController estudianteService;
     private final ProfesorJpaController profesorService;
     private final UsuarioJpaController usuarioService;
-    public Usuario defaultAdmin;
+
 
     // inicio la db - instancia de los services para manipular la db. 
     public Controller() {
@@ -55,12 +55,7 @@ public class Controller {
         this.profesorService = new ProfesorJpaController();
         
         this.usuarioService = new UsuarioJpaController();
-        
-        this.defaultAdmin = new Usuario();
-        defaultAdmin.setEs_admin(true);
-        defaultAdmin.setNombreUsuario("NotariusAdmin");
-        defaultAdmin.setClave("NotariusAdmin");
-        this.usuarioService.create(defaultAdmin);
+      
     }
 //FUNCIONES ADMINISTRADOR
 

@@ -29,9 +29,9 @@ public class Usuario implements Serializable {
     private int edad;
     private char genero;
     //atributos para condicionar funcionalidad
-    private boolean es_profesor;
-    private boolean es_estudiante;
-    private boolean es_admin;
+    private boolean profesor;
+    private boolean estudiante;
+    private boolean admin;
 
     public Usuario(long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
         this.id = id;
@@ -42,9 +42,9 @@ public class Usuario implements Serializable {
         this.apellidos = apellidos;
         this.edad = edad;
         this.genero = genero;
-        this.es_profesor = es_profesor;
-        this.es_estudiante = es_estudiante;
-        this.es_admin = es_admin;
+        this.profesor = es_profesor;
+        this.estudiante = es_estudiante;
+        this.admin = es_admin;
     }
 
     public Usuario() {
@@ -116,27 +116,27 @@ public class Usuario implements Serializable {
     }
 
     public boolean isEs_profesor() {
-        return es_profesor;
+        return profesor;
     }
 
     public void setEs_profesor(boolean es_profesor) {
-        this.es_profesor = es_profesor;
+        this.profesor = es_profesor;
     }
 
     public boolean isEs_estudiante() {
-        return es_estudiante;
+        return estudiante;
     }
 
     public void setEs_estudiante(boolean es_estudiante) {
-        this.es_estudiante = es_estudiante;
+        this.estudiante = es_estudiante;
     }
 
     public boolean isEs_admin() {
-        return es_admin;
+        return admin;
     }
 
     public void setEs_admin(boolean es_admin) {
-        this.es_admin = es_admin;
+        this.admin = es_admin;
     }
     
     
