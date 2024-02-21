@@ -1,14 +1,19 @@
 package notarius.controllers;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import notarius.controllers.exceptions.NonexistentEntityException;
+import notarius.models.Carrera;
 import notarius.models.Decanato;
+import notarius.models.Estudiante;
+import notarius.models.Materia;
+import notarius.models.Profesor;
 
 /**
- * @authors:
- *      Hanuman Sanchez - 28.316.086 - ING. INFORMATICA
- *      Anthony Moreno  -            - 
+ * @authors: Hanuman Sanchez - 28.316.086 - ING. INFORMATICA Anthony Moreno - -
  */
 public class Controller {
+
     DecanatoJpaController decanatoService;
     MateriaJpaController materiaService;
     CarreraJpaController carreraService;
@@ -17,54 +22,153 @@ public class Controller {
     CalificacionJpaController calificacionService;
     EstudianteJpaController estudianteService;
     ProfesorJpaController profesorService;
-    // inicio la db
+
+    // inicio la db - instancia de los services para manipular la db. 
     public Controller() {
-       //crear decanato
-       this.decanatoService = new DecanatoJpaController();
-       
-       //crear materia
-       this.materiaService = new MateriaJpaController();
+        //crear decanato
+        this.decanatoService = new DecanatoJpaController();
 
-       //crear carrera
-       this.carreraService = new CarreraJpaController();
+        //crear materia
+        this.materiaService = new MateriaJpaController();
 
-       //crear seccion
-       this.seccionService = new SeccionJpaController();
+        //crear carrera
+        this.carreraService = new CarreraJpaController();
 
-       //crear semestre 
-       this.semestreServicio = new SemestreJpaController();
+        //crear seccion
+        this.seccionService = new SeccionJpaController();
 
-       //crear calificaciones
-       this.calificacionService = new CalificacionJpaController();
+        //crear semestre 
+        this.semestreServicio = new SemestreJpaController();
 
-       //crear estudiante
-       this.estudianteService = new EstudianteJpaController();
-       
-       //Crear profesor
+        //crear calificaciones
+        this.calificacionService = new CalificacionJpaController();
+
+        //crear estudiante
+        this.estudianteService = new EstudianteJpaController();
+
+        //Crear profesor
         this.profesorService = new ProfesorJpaController();
     }
 //FUNCIONES ADMINISTRADOR
     //GESTION DECANATO
-        public void registrarDecanato(Decanato dec) {
-            Controller.this.decanatoService.create(dec);
-        }
-        public void editarDecanato(Decanato dec) throws Exception {
+
+    public void registrarDecanato(Decanato dec) {
+        Controller.this.decanatoService.create(dec);
+    }
+    public void editarDecanato(Decanato dec) {
+        try
+        {
             Controller.this.decanatoService.edit(dec);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-        public void eliminarDecanato(int id) throws NonexistentEntityException {
-            Controller.this.decanatoService.destroy(id);
+    }
+    public void eliminarDecanato(int decId) {
+        try
+        {
+            Controller.this.decanatoService.destroy(decId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
- 
+    }
+
     //GESTION CARRERA
+    public void registrarCarrera(Carrera carr) {
+        Controller.this.carreraService.create(carr);
+    }
+    public void editarCarrera(Carrera carr){
+        try
+        {
+            Controller.this.carreraService.edit(carr);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void eliminarCarrera(int carrId) {
+        try
+        {
+            Controller.this.carreraService.destroy(carrId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     //GESTION MATERIA
+    public void registrarMateria(Materia mat) {
+        Controller.this.materiaService.create(mat);
+    }
+    public void editarMateria(Materia mat) {
+        try
+        {
+            Controller.this.materiaService.edit(mat);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void eliminarMateria(String matId){
+        try
+        {
+            Controller.this.materiaService.destroy(matId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     //GESTION PROFESORES
+    public void registrarProfesor(Profesor prof) {
+        Controller.this.profesorService.create(prof);
+    }
+    public void editarProfesor(Profesor prof) {
+        try
+        {
+            Controller.this.profesorService.edit(prof);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void eliminarProfesor(long profId){
+        try
+        {
+            Controller.this.profesorService.destroy(profId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     //GESTION ESTUDIANTES
-    
-    
+    public void registrarEstudiante(Estudiante est) {
+        //Validar que tenga usuario asociado?
+        Controller.this.estudianteService.create(est);
+    }
+    public void editarEstudiante(Estudiante est){
+        try
+        {
+            Controller.this.estudianteService.edit(est);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void eliminarEstudiante(long estId){
+        try
+        {
+            Controller.this.profesorService.destroy(estId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 //FUNCIONES PROFESOR & ADMINISTRADOR
     //GESTION CALIFICACIONES
-
 //FUNCIONES ESTUDIANTES
     //SOLICITUD INCLUSION y RETIRO DE MATERIA
 }

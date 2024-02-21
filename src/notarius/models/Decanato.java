@@ -16,7 +16,7 @@ public class Decanato implements Serializable{
     private int idDecanato; 
     @Basic
     private String nombre;
-    private String descripcion;
+    private String ubicacion;
     
 
     public Decanato() {
@@ -25,7 +25,7 @@ public class Decanato implements Serializable{
     public Decanato(int idDecanato, String nombre, String descripcion) {
         this.idDecanato = idDecanato;
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.ubicacion = descripcion;
     }
 
 
@@ -46,12 +46,12 @@ public class Decanato implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getUbcacion() {
+        return ubicacion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
 }

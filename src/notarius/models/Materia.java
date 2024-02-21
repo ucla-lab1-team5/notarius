@@ -1,6 +1,4 @@
-
 package notarius.models;
-
 
 import java.io.Serializable;
 import java.util.Set;
@@ -18,17 +16,17 @@ import javax.persistence.ManyToMany;
 public class Materia implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     // varias materias comparten una carrera, varias carreras comparten una materia
-    
+
     @ManyToMany
     @JoinTable(
             name = "carrera_materia",
             joinColumns = @JoinColumn(name = "materia_id"),
             inverseJoinColumns = @JoinColumn(name = "carrera_id"))
     private Set<Carrera> carreras;
-    
+
     @Basic
     private String nombre;
     private String descripcion;
@@ -75,7 +73,5 @@ public class Materia implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
-    
+
 }
