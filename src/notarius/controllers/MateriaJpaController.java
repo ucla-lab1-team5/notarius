@@ -5,18 +5,18 @@
 package notarius.controllers;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import notarius.models.Carrera;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import notarius.controllers.exceptions.NonexistentEntityException;
-
 import notarius.models.Materia;
-
 
 /**
  *
@@ -29,20 +29,29 @@ public class MateriaJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
-    public MateriaJpaController() {
-         emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
     public void create(Materia materia) {
+        if (materia.getCarreras() == null) {
+            materia.setCarreras(new HashSet<Carrera>());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Set<Carrera> attachedCarreras = new HashSet<Carrera>();
+            for (Carrera carrerasCarreraToAttach : materia.getCarreras()) {
+                carrerasCarreraToAttach = em.getReference(carrerasCarreraToAttach.getClass(), carrerasCarreraToAttach.getId());
+                attachedCarreras.add(carrerasCarreraToAttach);
+            }
+            materia.setCarreras(attachedCarreras);
             em.persist(materia);
+            for (Carrera carrerasCarrera : materia.getCarreras()) {
+                carrerasCarrera.getMaterias().add(materia);
+                carrerasCarrera = em.merge(carrerasCarrera);
+            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -56,7 +65,29 @@ public class MateriaJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Materia persistentMateria = em.find(Materia.class, materia.getId());
+            Set<Carrera> carrerasOld = persistentMateria.getCarreras();
+            Set<Carrera> carrerasNew = materia.getCarreras();
+            Set<Carrera> attachedCarrerasNew = new HashSet<Carrera>();
+            for (Carrera carrerasNewCarreraToAttach : carrerasNew) {
+                carrerasNewCarreraToAttach = em.getReference(carrerasNewCarreraToAttach.getClass(), carrerasNewCarreraToAttach.getId());
+                attachedCarrerasNew.add(carrerasNewCarreraToAttach);
+            }
+            carrerasNew = attachedCarrerasNew;
+            materia.setCarreras(carrerasNew);
             materia = em.merge(materia);
+            for (Carrera carrerasOldCarrera : carrerasOld) {
+                if (!carrerasNew.contains(carrerasOldCarrera)) {
+                    carrerasOldCarrera.getMaterias().remove(materia);
+                    carrerasOldCarrera = em.merge(carrerasOldCarrera);
+                }
+            }
+            for (Carrera carrerasNewCarrera : carrerasNew) {
+                if (!carrerasOld.contains(carrerasNewCarrera)) {
+                    carrerasNewCarrera.getMaterias().add(materia);
+                    carrerasNewCarrera = em.merge(carrerasNewCarrera);
+                }
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -74,7 +105,7 @@ public class MateriaJpaController implements Serializable {
         }
     }
 
-    public void destroy(int id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -85,6 +116,11 @@ public class MateriaJpaController implements Serializable {
                 materia.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The materia with id " + id + " no longer exists.", enfe);
+            }
+            Set<Carrera> carreras = materia.getCarreras();
+            for (Carrera carrerasCarrera : carreras) {
+                carrerasCarrera.getMaterias().remove(materia);
+                carrerasCarrera = em.merge(carrerasCarrera);
             }
             em.remove(materia);
             em.getTransaction().commit();
