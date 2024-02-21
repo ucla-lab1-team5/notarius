@@ -40,7 +40,7 @@ public class ProfesorJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            profesor.setEs_profesor(true);
+
             em.persist(profesor);
             em.getTransaction().commit();
         } finally {

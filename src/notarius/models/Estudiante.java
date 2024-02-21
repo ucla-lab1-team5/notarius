@@ -18,9 +18,9 @@ public class Estudiante extends Usuario implements Serializable{
 
     public Estudiante() {
     }
-    
-        public Estudiante(Carrera carrera, Semestre semestreActual, double promedio, int semestre, long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
-        super(id, nombreUsuario, clave, cedula, nombres, apellidos, edad, genero, es_profesor, es_estudiante, es_admin);
+
+    public Estudiante(Carrera carrera, Semestre semestreActual, double promedio, int semestre, long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero) {
+        super(id, nombreUsuario, clave, cedula, nombres, apellidos, edad, genero);
         this.carrera = carrera;
         this.semestreActual = semestreActual;
         this.promedio = promedio;
@@ -58,12 +58,7 @@ public class Estudiante extends Usuario implements Serializable{
     public void setSemestre(int semestre) {
         this.semestre = semestre;
     }
-
-    public Usuario getIdEstudiante() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-        
-        
+    
     
     
     

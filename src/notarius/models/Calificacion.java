@@ -20,8 +20,9 @@ public class Calificacion implements Serializable {
     private long id;
     @OneToOne 
     private Estudiante estudiante;
+    private Seccion seccion;
      @Basic
-    private Seccion numero;
+
     private float primeraNota;
     private float segundaNota;
     private float terceraNota;
@@ -30,12 +31,12 @@ public class Calificacion implements Serializable {
  
     
     public Calificacion() {
-    }
+        }
 
-    public Calificacion(long id, Estudiante estudiante, Seccion numero, float primeraNota, float segundaNota, float terceraNota, float notaFinal, char status) {
+    public Calificacion(long id, Estudiante estudiante, Seccion seccion, float primeraNota, float segundaNota, float terceraNota, float notaFinal, char status) {
         this.id = id;
         this.estudiante = estudiante;
-        this.numero = numero;
+        this.seccion = seccion;
         this.primeraNota = primeraNota;
         this.segundaNota = segundaNota;
         this.terceraNota = terceraNota;
@@ -43,8 +44,6 @@ public class Calificacion implements Serializable {
         this.status = status;
     }
 
-    
-    
     public long getId() {
         return id;
     }
@@ -61,12 +60,12 @@ public class Calificacion implements Serializable {
         this.estudiante = estudiante;
     }
 
-    public Seccion getNumero() {
-        return numero;
+    public Seccion getSeccion() {
+        return seccion;
     }
 
-    public void setNumero(Seccion numero) {
-        this.numero = numero;
+    public void setSeccion(Seccion seccion) {
+        this.seccion = seccion;
     }
 
     public float getPrimeraNota() {
@@ -108,7 +107,7 @@ public class Calificacion implements Serializable {
     public void setStatus(char status) {
         this.status = status;
     }
-
+    
     
     
     

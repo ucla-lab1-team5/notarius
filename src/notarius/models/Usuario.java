@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,15 +25,15 @@ public class Usuario implements Serializable {
     private String apellidos;
     private int edad;
     private char genero;
-    // atributos para condicionar funcionalidad
-    private boolean es_profesor;
-    private boolean es_estudiante;
-    private boolean es_admin;
+    //atributos para condicionar funcionalidad
+//    private boolean es_profesor;
+//    private boolean es_estudiante;
+//    private boolean es_admin;
 
     public Usuario() {
     }
 
-    public Usuario(long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
+    public Usuario(long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.clave = clave;
@@ -39,36 +42,7 @@ public class Usuario implements Serializable {
         this.apellidos = apellidos;
         this.edad = edad;
         this.genero = genero;
-        this.es_profesor = es_profesor;
-        this.es_estudiante = es_estudiante;
-        this.es_admin = es_admin;
     }
-
-    public boolean isEs_profesor() {
-        return es_profesor;
-    }
-
-    public void setEs_profesor(boolean es_profesor) {
-        this.es_profesor = es_profesor;
-    }
-
-    public boolean isEs_estudiante() {
-        return es_estudiante;
-    }
-
-    public void setEs_estudiante(boolean es_estudiante) {
-        this.es_estudiante = es_estudiante;
-    }
-
-    public boolean isEs_admin() {
-        return es_admin;
-    }
-
-    public void setEs_admin(boolean es_admin) {
-        this.es_admin = es_admin;
-    }
-
-
 
     public long getId() {
         return id;
@@ -134,5 +108,6 @@ public class Usuario implements Serializable {
         this.genero = genero;
     }
 
+ 
     
 }
