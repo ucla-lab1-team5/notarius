@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package notarius.controllers;
 
 import java.io.Serializable;
@@ -10,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
@@ -26,10 +24,15 @@ public class UsuarioJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
+    public UsuarioJpaController() {
+        emf = Persistence.createEntityManagerFactory("notariusPU");
+    }
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+//CREATE
+   
     public void create(Usuario usuario) {
         EntityManager em = null;
         try {
@@ -43,7 +46,8 @@ public class UsuarioJpaController implements Serializable {
             }
         }
     }
-
+    
+// UPDATE
     public void edit(Usuario usuario) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -67,6 +71,7 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
+// ELIMINAR
     public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -88,6 +93,8 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
+// READS  
+    
     public List<Usuario> findUsuarioEntities() {
         return findUsuarioEntities(true, -1, -1);
     }
