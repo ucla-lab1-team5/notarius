@@ -5,8 +5,12 @@
     <class>notarius.models.Decanato</class>
     <class>notarius.models.Carrera</class>
     <class>notarius.models.Materia</class>
+    <class>notarius.models.Seccion</class>
+    <class>notarius.models.Usuario</class>
+    <class>notarius.models.Semestre</class>
+    <class>notarius.models.Calificacion</class>
+    <class>notarius.models.Estudiante</class>
     <properties>
-      
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/notarius"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

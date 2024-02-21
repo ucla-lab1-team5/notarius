@@ -22,8 +22,6 @@ public class Carrera implements Serializable {
     @ManyToMany(mappedBy = "carreras")
     private Set<Materia> materias;
     
-    
-
     @Basic
     private String nombre;
     private String descripcion;
