@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
@@ -24,10 +23,6 @@ public class DecanatoJpaController implements Serializable {
 
     public DecanatoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
-    }
-    
-    public DecanatoJpaController() {
-        emf = Persistence.createEntityManagerFactory("notariusPU");
     }
     private EntityManagerFactory emf = null;
 

@@ -13,7 +13,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
-import notarius.models.Profesor;
 import notarius.models.Usuario;
 
 /**
@@ -31,12 +30,12 @@ public class UsuarioJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Profesor profesor) {
+    public void create(Usuario usuario) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(profesor);
+            em.persist(usuario);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,19 +44,19 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
-    public void edit(Profesor profesor) throws NonexistentEntityException, Exception {
+    public void edit(Usuario usuario) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            profesor = em.merge(profesor);
+            usuario = em.merge(usuario);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                long id = profesor.getId();
-                if (findProfesor(id) == null) {
-                    throw new NonexistentEntityException("The profesor with id " + id + " no longer exists.");
+                long id = usuario.getId();
+                if (findUsuario(id) == null) {
+                    throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -68,19 +67,19 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Usuario profesor;
+            Usuario usuario;
             try {
-                profesor = em.getReference(Profesor.class, id);
-                profesor.getId();
+                usuario = em.getReference(Usuario.class, id);
+                usuario.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The user with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.", enfe);
             }
-            em.remove(profesor);
+            em.remove(usuario);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -89,19 +88,19 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
-    public List<Profesor> findProfesorEntities() {
-        return findProfesorEntities(true, -1, -1);
+    public List<Usuario> findUsuarioEntities() {
+        return findUsuarioEntities(true, -1, -1);
     }
 
-    public List<Profesor> findProfesorEntities(int maxResults, int firstResult) {
-        return findProfesorEntities(false, maxResults, firstResult);
+    public List<Usuario> findUsuarioEntities(int maxResults, int firstResult) {
+        return findUsuarioEntities(false, maxResults, firstResult);
     }
 
-    private List<Profesor> findProfesorEntities(boolean all, int maxResults, int firstResult) {
+    private List<Usuario> findUsuarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Profesor.class));
+            cq.select(cq.from(Usuario.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -113,20 +112,20 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
-    public Profesor findProfesor(long id) {
+    public Usuario findUsuario(long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Profesor.class, id);
+            return em.find(Usuario.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getProfesorCount() {
+    public int getUsuarioCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Profesor> rt = cq.from(Profesor.class);
+            Root<Usuario> rt = cq.from(Usuario.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
