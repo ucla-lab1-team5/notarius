@@ -7,8 +7,11 @@ import notarius.views.AddDecanatoView;
 
 public class Notarius {
     public static void main(String args[]) {
-       
+        
+     //Setup de la app
+     //Agregar/Crear conexion
      //Iniciar la db
+     
      Controller control = new Controller();
     
      // crear un admin user por defecto
