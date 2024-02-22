@@ -113,6 +113,19 @@ public class Controller {
         return listaDecanatos;
         
     }
+    
+    public Decanato encontrarDecanato (int decId) {
+     try
+        {
+          return this.decanatoService.findDecanato(decId);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        
+    
+    }
 
     
     //TODO AGREGAR PERMISOS AL RESTO DE TABLAS
