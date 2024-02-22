@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package notarius.controllers;
 
 import java.io.Serializable;
@@ -11,20 +14,20 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
-import notarius.models.Decanato;
+import notarius.models.Estudiante;
 
 /**
  *
  * @author antho
  */
-public class DecanatoJpaController implements Serializable {
+public class EstudianteJpaController implements Serializable {
 
-    public DecanatoJpaController(EntityManagerFactory emf) {
+    public EstudianteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
-    public DecanatoJpaController() {
+    public EstudianteJpaController() {
         emf = Persistence.createEntityManagerFactory("notariusPU");
     }
     
@@ -34,12 +37,12 @@ public class DecanatoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Decanato decanato) {
+    public void create(Estudiante estudiante) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(decanato);
+            em.persist(estudiante);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -48,19 +51,19 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public void edit(Decanato decanato) throws NonexistentEntityException, Exception {
+    public void edit(Estudiante estudiante) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            decanato = em.merge(decanato);
+            estudiante = em.merge(estudiante);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = decanato.getIdDecanato();
-                if (findDecanato(id) == null) {
-                    throw new NonexistentEntityException("The decanato with id " + id + " no longer exists.");
+                long id = estudiante.getId();
+                if (findEstudiante(id) == null) {
+                    throw new NonexistentEntityException("The estudiante with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -71,19 +74,19 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public void destroy(int id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Decanato decanato;
+            Estudiante estudiante;
             try {
-                decanato = em.getReference(Decanato.class, id);
-                decanato.getIdDecanato();
+                estudiante = em.getReference(Estudiante.class, id);
+                estudiante.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The decanato with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The estudiante with id " + id + " no longer exists.", enfe);
             }
-            em.remove(decanato);
+            em.remove(estudiante);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -92,19 +95,19 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public List<Decanato> findDecanatoEntities() {
-        return findDecanatoEntities(true, -1, -1);
+    public List<Estudiante> findEstudianteEntities() {
+        return findEstudianteEntities(true, -1, -1);
     }
 
-    public List<Decanato> findDecanatoEntities(int maxResults, int firstResult) {
-        return findDecanatoEntities(false, maxResults, firstResult);
+    public List<Estudiante> findEstudianteEntities(int maxResults, int firstResult) {
+        return findEstudianteEntities(false, maxResults, firstResult);
     }
 
-    private List<Decanato> findDecanatoEntities(boolean all, int maxResults, int firstResult) {
+    private List<Estudiante> findEstudianteEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Decanato.class));
+            cq.select(cq.from(Estudiante.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -116,20 +119,20 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public Decanato findDecanato(int id) {
+    public Estudiante findEstudiante(long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Decanato.class, id);
+            return em.find(Estudiante.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getDecanatoCount() {
+    public int getEstudianteCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Decanato> rt = cq.from(Decanato.class);
+            Root<Estudiante> rt = cq.from(Estudiante.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
