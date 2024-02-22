@@ -1,23 +1,28 @@
 
 package notarius.models;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author antho
  */
 @Entity
-public class Calificacion {
+public class Calificacion implements Serializable {
      @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)  //cambiar esto de la frecuencia??
-    private Estudiante idEstudiante;
+    @GeneratedValue(strategy=GenerationType.AUTO)  
+    private long id;
+    @OneToOne 
+    private Estudiante estudiante;
+    private Seccion seccion;
      @Basic
-    private Seccion numero;
+
     private float primeraNota;
     private float segundaNota;
     private float terceraNota;
@@ -26,11 +31,12 @@ public class Calificacion {
  
     
     public Calificacion() {
-    }
+        }
 
-    public Calificacion(Estudiante idEstudiante, Seccion numero, float primeraNota, float segundaNota, float terceraNota, float notaFinal, char status) {
-        this.idEstudiante = idEstudiante;
-        this.numero = numero;
+    public Calificacion(long id, Estudiante estudiante, Seccion seccion, float primeraNota, float segundaNota, float terceraNota, float notaFinal, char status) {
+        this.id = id;
+        this.estudiante = estudiante;
+        this.seccion = seccion;
         this.primeraNota = primeraNota;
         this.segundaNota = segundaNota;
         this.terceraNota = terceraNota;
@@ -38,20 +44,28 @@ public class Calificacion {
         this.status = status;
     }
 
-    public Estudiante getIdEstudiante() {
-        return idEstudiante;
+    public long getId() {
+        return id;
     }
 
-    public void setIdEstudiante(Estudiante idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Seccion getNumero() {
-        return numero;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setNumero(Seccion numero) {
-        this.numero = numero;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public Seccion getSeccion() {
+        return seccion;
+    }
+
+    public void setSeccion(Seccion seccion) {
+        this.seccion = seccion;
     }
 
     public float getPrimeraNota() {
@@ -93,6 +107,8 @@ public class Calificacion {
     public void setStatus(char status) {
         this.status = status;
     }
+    
+    
     
     
 }

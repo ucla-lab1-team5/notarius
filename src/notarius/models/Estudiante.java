@@ -1,42 +1,35 @@
-
 package notarius.models;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Estudiante extends Usuario{
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Usuario idUsuario;
-    @Basic
+public class Estudiante extends Usuario implements Serializable {
+
+    @OneToOne
     private Carrera carrera;
-    private Seccion seccion;
+    @OneToOne
+    private Semestre semestreActual;
+    @Basic
     private double promedio;
     private int semestre;
 
-    public Estudiante() {
-    }
+    public Estudiante(){};
 
-    public Estudiante(Usuario idUsuario, Carrera carrera, Seccion seccion, double promedio, int semestre) {
-        this.idUsuario = idUsuario;
+    public Estudiante(Carrera carrera, Semestre semestreActual, double promedio, int semestre, long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
+        super(id, nombreUsuario, clave, cedula, nombres, apellidos, edad, genero, es_profesor, es_estudiante, es_admin);
         this.carrera = carrera;
-        this.seccion = seccion;
+        this.semestreActual = semestreActual;
         this.promedio = promedio;
         this.semestre = semestre;
     }
-
-    public Usuario getIdEstudiante() {
-        return idUsuario;
-    }
-
-    public void setIdEstudiante(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
+    
+   
+    
+    
     public Carrera getCarrera() {
         return carrera;
     }
@@ -45,12 +38,12 @@ public class Estudiante extends Usuario{
         this.carrera = carrera;
     }
 
-    public Seccion getSeccion() {
-        return seccion;
+    public Semestre getSemestreActual() {
+        return semestreActual;
     }
 
-    public void setSeccion(Seccion seccion) {
-        this.seccion = seccion;
+    public void setSemestreActual(Semestre semestreActual) {
+        this.semestreActual = semestreActual;
     }
 
     public double getPromedio() {
@@ -61,14 +54,12 @@ public class Estudiante extends Usuario{
         this.promedio = promedio;
     }
 
-    public int  getSemestre() {
+    public int getSemestre() {
         return semestre;
     }
 
     public void setSemestre(int semestre) {
         this.semestre = semestre;
     }
-    
-    
-    
+
 }
