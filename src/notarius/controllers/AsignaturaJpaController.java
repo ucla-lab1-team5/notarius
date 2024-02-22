@@ -4,16 +4,12 @@
  */
 package notarius.controllers;
 
-import notarius.models.Decanato;
+import java.io.Serializable;
 
 /**
  *
  * @author hanumonke
  */
-public class PrincipalController {
-    PersistenceController persistenceController = new PersistenceController();
+public class AsignaturaJpaController implements Serializable {
     
-    public void crearDecanato(Decanato dec) {
-        persistenceController.crearDecanato(dec);
-    }
 }
