@@ -16,19 +16,21 @@ public class Decanato implements Serializable{
     private int idDecanato; 
     @Basic
     private String nombre;
-    private String ubicacion;
+    private String programa;
+    private String rector;
+    private String codigoDecanato;
     
 
     public Decanato() {
     }
 
-    public Decanato(int idDecanato, String nombre, String descripcion) {
+    public Decanato(int idDecanato, String nombre, String programa, String rector, String codigoDecanato) {
         this.idDecanato = idDecanato;
         this.nombre = nombre;
-        this.ubicacion = descripcion;
+        this.programa = programa;
+        this.rector = rector;
+        this.codigoDecanato = codigoDecanato;
     }
-
-
 
     public int getIdDecanato() {
         return idDecanato;
@@ -46,12 +48,29 @@ public class Decanato implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getUbcacion() {
-        return ubicacion;
+    public String getPrograma() {
+        return programa;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setPrograma(String programa) {
+        this.programa = programa;
     }
 
+    public String getRector() {
+        return rector;
+    }
+
+    public void setRector(String rector) {
+        this.rector = rector;
+    }
+
+    public String getCodigoDecanato() {
+        return codigoDecanato;
+    }
+
+    public void setCodigoDecanato(String codigoDecanato) {
+        this.codigoDecanato = codigoDecanato;
+    }
+    
+    
 }

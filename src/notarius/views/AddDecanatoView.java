@@ -4,6 +4,11 @@
  */
 package notarius.views;
 
+import java.util.ArrayList;
+import notarius.controllers.Controller;
+import notarius.models.Decanato;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -41,7 +46,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -53,11 +57,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jTextField1.setText("NOMBRE");
         jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setToolTipText("");
@@ -135,11 +134,26 @@ public class AddDecanatoView extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("GUARDAR");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(255, 51, 51));
         jButton6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("ELIMINAR");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton7.setText("CANCELAR");
@@ -164,7 +178,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
-
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel10)
@@ -186,12 +199,51 @@ public class AddDecanatoView extends javax.swing.JFrame {
         );
 
         jLabel10.getAccessibleContext().setAccessibleName("jLabel10");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+System.out.println(jTextField1.getText());
+//CREANDO UN DECANATO
+    String nombreDecanato = jTextField1.getText();
+    String codigoDecanato = jTextField2.getText();
+    String programaDecanato = jTextField3.getText();
+    String rectorDecanato = jTextField4.getText();
+    ArrayList<String> camposDecanato = new ArrayList();
+    camposDecanato.add(rectorDecanato);
+    camposDecanato.add(nombreDecanato);
+    camposDecanato.add(codigoDecanato);
+    camposDecanato.add(programaDecanato);
+    if (camposDecanato.contains(null) || camposDecanato.contains("")) {
+        System.out.println("ERROR: Hay un campo vacio");
+        //TIRAR UNA EXCEPCION PARA QUE SE MUESTRE UN ERROR
+        JOptionPane.showMessageDialog(rootPane, "HAY CAMPOS VACIOS" , "ERROR", JOptionPane.ERROR_MESSAGE);
+
+    } else {
+       Decanato nuevoDecanato = new Decanato();
+       nuevoDecanato.setNombre(nombreDecanato);
+       nuevoDecanato.setCodigoDecanato(codigoDecanato);
+       nuevoDecanato.setRector(rectorDecanato);
+       nuevoDecanato.setPrograma(programaDecanato);
+       
+       Controller control = null;
+       control = new Controller();
+       control.registrarDecanato(nuevoDecanato);
+    
+    }
+    
+    
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        Controller control = null;
+        
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
