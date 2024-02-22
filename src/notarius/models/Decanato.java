@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 
 @Entity
@@ -24,7 +23,7 @@ public class Decanato implements Serializable{
     private int idDecanato; 
     @Basic
     private String nombre;
-    private String programa;
+    private String ubicacion;
     private String rector;
     private String codigoDecanato;
     
@@ -56,13 +55,15 @@ public class Decanato implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getPrograma() {
-        return programa;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setPrograma(String programa) {
-        this.programa = programa;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
+
+   
 
     public String getRector() {
         return rector;
