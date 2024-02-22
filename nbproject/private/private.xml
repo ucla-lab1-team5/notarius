@@ -2,27 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionMateriaView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionEstudianteView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/IndexEstudianteView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddCarreraView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionSeccionView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddSeccionView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/IndexProfesorView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddMateriaView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddDecanatoView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/ProfCalificarStudentView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddSemestreView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/ProfGestionMateriaView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionCarreraView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddUserEstudianteView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddUserAdminView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionUsuarioView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionSemestreView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AddUserProfesorView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/PerfilView.java</file>
-            <file>file:/D:/ProjectsLOCAL/notarius/src/notarius/views/AdminGestionDecanatoView.java</file>
-        </group>
+
+
     </open-files>
 </project-private>

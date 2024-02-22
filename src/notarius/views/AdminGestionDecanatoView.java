@@ -121,7 +121,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "NOMBRE", "CÓDIGO-DEC", "PROGRAMA", "RECTOR/A"
+                "NOMBRE", "CÓDIGO-DEC", "UBICACIÓN", "RECTOR/A"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

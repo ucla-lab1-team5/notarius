@@ -260,7 +260,7 @@
               <Table columnCount="4" rowCount="4">
                 <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
                 <Column editable="true" title="C&#xd3;DIGO-DEC" type="java.lang.Object"/>
-                <Column editable="true" title="PROGRAMA" type="java.lang.Object"/>
+                <Column editable="true" title="UBICACI&#xd3;N" type="java.lang.Object"/>
                 <Column editable="true" title="RECTOR/A" type="java.lang.Object"/>
               </Table>
             </Property>
