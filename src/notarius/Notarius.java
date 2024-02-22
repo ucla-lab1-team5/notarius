@@ -1,6 +1,8 @@
 
 package notarius;
 
+import notarius.views.Login;
+
 
 
 public class Notarius {
@@ -31,7 +33,9 @@ public class Notarius {
      //control.editarDecanato(dah);
      
      //PROBANDO LAS VISTAS
-     //AddDecanatoView addDecanatoView = new AddDecanatoView();
+     Login loginScreen = new Login();
+     loginScreen.setVisible(true);
+     loginScreen.setLocationRelativeTo(null);
  
      
     }
