@@ -158,6 +158,11 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         jButton16.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton16.setForeground(new java.awt.Color(255, 255, 255));
         jButton16.setText("MODIFICAR");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setBackground(new java.awt.Color(51, 204, 0));
         jButton17.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -169,7 +174,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
             }
         });
 
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/search.png"))); // NOI18N
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/recargarIcono.png"))); // NOI18N
         jButton18.setText("Recargar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,6 +248,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         AddDecanatoView addDecView = new AddDecanatoView();
         addDecView.setVisible(true);
         addDecView.setLocationRelativeTo(this);
+        this.dispose();
         
     }//GEN-LAST:event_jButton17ActionPerformed
 
@@ -251,7 +257,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if (jTable1.getRowCount() != 0) {
+        if (jTable1.getRowCount() > 0) {
             
             if (jTable1.getSelectedRow() != -1) {
                 String valorDelaRowId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
@@ -262,10 +268,38 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 control.eliminarDecanato(decId);
                 jTable1.removeAll();
                 cargarDecanatos();
-            }
+            } else {
+                System.out.println("NO HAS SELECCIONADO NINGUN DECANATO");
+            
+            } 
+        
+        } else {
+            System.out.println("NO HAY DECANATOS");
         
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+    //IR A MODIFICAR DCANATO VIEW
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+         if (jTable1.getRowCount() > 0) {
+            
+            if (jTable1.getSelectedRow() != -1) {
+                String valorDelaRowId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+                int decId = Integer.parseInt(valorDelaRowId);
+        
+                ModDecanatoView modDecView = new ModDecanatoView(decId);
+                modDecView.setVisible(true);
+                modDecView.setLocationRelativeTo(this);
+                this.dispose();
+            } else {
+                System.out.println("NO HAS SELECCIONADO NINGUN DECANATO");
+            
+            } 
+        
+        } else {
+            System.out.println("NO HAY DECANATOS");
+        
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
 
     public void cargarDecanatos() {
 

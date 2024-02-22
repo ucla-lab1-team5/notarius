@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class AddDecanatoView extends javax.swing.JFrame {
+public class ModDecanatoView extends javax.swing.JFrame  {
 
-    /**
-     * Creates new form AddDecanatoView
-     */
-    public AddDecanatoView() {
+    private int decId;
+    public ModDecanatoView(int decId) {
         initComponents();
+        this.decId = decId;
+        
     }
 
     /**
@@ -53,6 +53,11 @@ public class AddDecanatoView extends javax.swing.JFrame {
         jTextField2.setBorder(null);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,11 +149,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
                 jButton5MouseClicked(evt);
             }
         });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
 
         jButton6.setBackground(new java.awt.Color(255, 51, 51));
         jButton6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -203,10 +203,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
 System.out.println(jTextField1.getText());
 //CREANDO UN DECANATO
@@ -227,6 +223,7 @@ System.out.println(jTextField1.getText());
 
     } else {
        Decanato nuevoDecanato = new Decanato();
+       nuevoDecanato.setIdDecanato(decId);
        nuevoDecanato.setNombre(nombreDecanato);
        nuevoDecanato.setCodigoDecanato(codigoDecanato);
        nuevoDecanato.setRector(rectorDecanato);
@@ -234,7 +231,7 @@ System.out.println(jTextField1.getText());
        
        Controller control = null;
        control = new Controller();
-       control.registrarDecanato(nuevoDecanato);
+       control.editarDecanato(nuevoDecanato);
        control = null;
        AdminGestionDecanatoView adminGdecView = new AdminGestionDecanatoView();
        adminGdecView.setVisible(true);
@@ -246,9 +243,25 @@ System.out.println(jTextField1.getText());
     
     }//GEN-LAST:event_jButton5MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+      cargarDecanato(this.decId);
+       
+    }//GEN-LAST:event_formWindowOpened
+
+    public void cargarDecanato (int decId) {
+         Controller control = null;
+        control = new Controller();
+        Decanato decanatoAmod = control.encontrarDecanato(decId);
+        String nombre = decanatoAmod.getNombre();
+        String codigo = decanatoAmod.getCodigoDecanato();
+        String ubicacion = decanatoAmod.getPrograma();
+        String rector = decanatoAmod.getRector();
+        jTextField5.setText(nombre);
+        jTextField1.setText(codigo);
+        jTextField3.setText(ubicacion);
+        jTextField4.setText(rector);
+    
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
