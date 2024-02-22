@@ -14,7 +14,7 @@ public class Notarius {
      
      //creamos un decanato
      Decanato dcyt = new Decanato();
-     dcyt.setNombre("Ciencia y Tecnologia");
+     dcyt.setNombre("Ciencias y Tecnologias");
      dcyt.setUbicacion("Obelisco");
      
      //guardamos el decanato en la db
@@ -32,6 +32,6 @@ public class Notarius {
      
      dah.setUbicacion("Centro de Barquisimeto");
      
-     control.editarDecanato(dah);
+     //control.editarDecanato(dah);
     }
 }

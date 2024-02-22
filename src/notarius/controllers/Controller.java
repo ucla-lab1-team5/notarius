@@ -58,8 +58,6 @@ public class Controller {
       
     }
 //FUNCIONES ADMINISTRADOR
-
-  
     //GESTION DECANATO
     
     public void registrarDecanato(Decanato dec) {

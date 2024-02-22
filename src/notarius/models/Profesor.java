@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 
 
 @Entity
-public class Profesor extends Usuario{
+public class Profesor extends Usuario{ 
+    //Posiblemente tener: secciones
     public Profesor() {}
 
     public Profesor(long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
