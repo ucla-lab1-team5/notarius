@@ -8,10 +8,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Decanato;
+import static org.eclipse.persistence.internal.sessions.coordination.corba.sun.SunCORBAConnectionHelper.id;
 
 /**
  *
@@ -115,6 +117,20 @@ public class DecanatoJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public Decanato findDecanatoEntitiesByField(String codigoDecanato) {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Decanato> typedQuery = em.createQuery("SELECT d FROM decanato d WHERE d.codigodecanato=:cd", Decanato.class);
+    typedQuery.setParameter("cd", codigoDecanato);
+    return typedQuery.getSingleResult();
+        } 
+        
+        finally { em.close();}
+        
+    
+    
+    }
 
     public Decanato findDecanato(int id) {
         EntityManager em = getEntityManager();
@@ -124,6 +140,8 @@ public class DecanatoJpaController implements Serializable {
             em.close();
         }
     }
+    
+    
 
     public int getDecanatoCount() {
         EntityManager em = getEntityManager();
