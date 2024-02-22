@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 
 @Entity
 public class Decanato implements Serializable{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    @SequenceGenerator(name = "seq_name", sequenceName = "seq_name", allocationSize =  1)
     private int idDecanato; 
     @Basic
     private String nombre;

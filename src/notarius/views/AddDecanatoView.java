@@ -31,11 +31,11 @@ public class AddDecanatoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField2 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jTextField3 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -45,6 +45,11 @@ public class AddDecanatoView extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+
+        jTextField2.setBackground(new java.awt.Color(242, 242, 242));
+        jTextField2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jTextField2.setText("CODIGO-DEC");
+        jTextField2.setBorder(null);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,11 +65,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator1.setToolTipText("");
-
-        jTextField2.setBackground(new java.awt.Color(242, 242, 242));
-        jTextField2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jTextField2.setText("CODIGO-DEC");
-        jTextField2.setBorder(null);
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -95,7 +95,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
                     .addComponent(jSeparator3))
                 .addGap(70, 70, 70)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator4))
@@ -114,9 +113,7 @@ public class AddDecanatoView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49)
@@ -149,11 +146,6 @@ public class AddDecanatoView extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("ELIMINAR");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
-            }
-        });
 
         jButton7.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jButton7.setText("CANCELAR");
@@ -239,11 +231,6 @@ System.out.println(jTextField1.getText());
     
     
     }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        Controller control = null;
-        
-    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments

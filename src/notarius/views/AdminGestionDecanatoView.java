@@ -4,6 +4,12 @@
  */
 package notarius.views;
 
+
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import notarius.controllers.Controller;
+import notarius.models.Decanato;
+
 /**
  *
  * @author User
@@ -124,6 +130,11 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 "NOMBRE", "CÓDIGO-DEC", "UBICACIÓN", "RECTOR/A"
             }
         ));
+        jTable1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTable1FocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/search.png"))); // NOI18N
@@ -188,6 +199,23 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
+ Controller control = new Controller();
+        ArrayList<Decanato> listaDecanatos = control.traerDecanatos();
+        for (Decanato d : listaDecanatos) {
+            
+            
+            String nombre = d.getNombre();
+            String codigo = d.getCodigoDecanato();
+            String programa = d.getPrograma();
+            String rector = d.getRector();
+            
+            String decanatoRow[] = {nombre, codigo, programa, rector}; 
+            DefaultTableModel tableModel = (DefaultTableModel)jTable1.getModel();
+            tableModel.addRow(decanatoRow);
+            }         // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1FocusGained
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +251,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -240,3 +269,4 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
+
