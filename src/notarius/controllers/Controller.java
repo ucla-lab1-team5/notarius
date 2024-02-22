@@ -1,5 +1,7 @@
 package notarius.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import notarius.controllers.exceptions.NonexistentEntityException;
@@ -73,25 +75,48 @@ public class Controller {
         }
 
     }
-    public void eliminarDecanato(int decId){
+    public void eliminarDecanato(String decCodigo){
+        
         try
         {
-            Controller.this.decanatoService.destroy(decId);
+            Decanato dec = this.decanatoService.findDecanatoEntitiesByField(decCodigo);
+            this.decanatoService.destroy(dec.getIdDecanato());
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
+    
+    public void eliminarDecanato (int decId) {
+        try
+        {
+            this.decanatoService.destroy(decId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    }
+    
+    public ArrayList<Decanato> traerDecanatos () {
+
+        List<Decanato> listaDecanatosEntities = this.decanatoService.findDecanatoEntities();
+        ArrayList<Decanato> listaDecanatos = new ArrayList(listaDecanatosEntities);
+        return listaDecanatos;
+        
+    }
+
     
     //TODO AGREGAR PERMISOS AL RESTO DE TABLAS
     //GESTION CARRERA
     public void registrarCarrera(Carrera carr) {
-        Controller.this.carreraService.create(carr);
+        this.carreraService.create(carr);
     }
     public void editarCarrera(Carrera carr){
         try
         {
-            Controller.this.carreraService.edit(carr);
+            this.carreraService.edit(carr);
         } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,7 +125,7 @@ public class Controller {
     public void eliminarCarrera(int carrId) {
         try
         {
-            Controller.this.carreraService.destroy(carrId);
+            this.carreraService.destroy(carrId);
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,7 +134,7 @@ public class Controller {
 
     //GESTION MATERIA
     public void registrarMateria(Materia mat) {
-        Controller.this.materiaService.create(mat);
+        this.materiaService.create(mat);
     }
     public void editarMateria(Materia mat) {
         try
@@ -123,7 +148,7 @@ public class Controller {
     public void eliminarMateria(String matId){
         try
         {
-            Controller.this.materiaService.destroy(matId);
+            this.materiaService.destroy(matId);
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,12 +157,12 @@ public class Controller {
     
     //GESTION PROFESORES
     public void registrarProfesor(Profesor prof) {
-        Controller.this.profesorService.create(prof);
+       this.profesorService.create(prof);
     }
     public void editarProfesor(Profesor prof) {
         try
         {
-            Controller.this.profesorService.edit(prof);
+           this.profesorService.edit(prof);
         } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,7 +171,7 @@ public class Controller {
     public void eliminarProfesor(long profId){
         try
         {
-            Controller.this.profesorService.destroy(profId);
+           this.profesorService.destroy(profId);
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,7 +181,7 @@ public class Controller {
     //GESTION ESTUDIANTES
     public void registrarEstudiante(Estudiante est) {
         //Validar que tenga usuario asociado?
-        Controller.this.estudianteService.create(est);
+        this.estudianteService.create(est);
     }
     public void editarEstudiante(Estudiante est){
         try
@@ -170,7 +195,7 @@ public class Controller {
     public void eliminarEstudiante(long estId){
         try
         {
-            Controller.this.profesorService.destroy(estId);
+            this.profesorService.destroy(estId);
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -181,7 +206,7 @@ public class Controller {
     public void registrarAdministrador(Usuario admin) {
         try
         {
-            Controller.this.usuarioService.create(admin);
+            this.usuarioService.create(admin);
         } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -192,7 +217,7 @@ public class Controller {
     public void editarAdmin(Usuario admin){
         try
         {
-            Controller.this.usuarioService.edit(admin);
+            this.usuarioService.edit(admin);
         } catch (Exception ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -201,7 +226,7 @@ public class Controller {
     public void eliminarAdmin(long adminId){
         try
         {
-            Controller.this.profesorService.destroy(adminId);
+          this.profesorService.destroy(adminId);
         } catch (NonexistentEntityException ex)
         {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
