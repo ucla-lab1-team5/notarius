@@ -1,3 +1,10 @@
+/*
+Hanuman Sánchez CI: 28.316.086
+Anthony Moreno CI: 28.204.620
+Angel Goyo CI: 29.737.583
+Miller Arias CI: 29.561.941
+Luis Ochoa CI: 29.778.672
+*/
 package notarius.controllers;
 
 import java.util.ArrayList;
@@ -105,6 +112,19 @@ public class Controller {
         ArrayList<Decanato> listaDecanatos = new ArrayList(listaDecanatosEntities);
         return listaDecanatos;
         
+    }
+    
+    public Decanato encontrarDecanato (int decId) {
+     try
+        {
+          return this.decanatoService.findDecanato(decId);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        
+    
     }
 
     

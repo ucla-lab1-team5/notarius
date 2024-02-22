@@ -93,7 +93,6 @@
                                           <Component id="jTextField5" min="-2" pref="142" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jButton2" min="-2" pref="94" max="-2" attributes="0"/>
