@@ -335,12 +335,12 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 String id = Integer.toString(d.getIdDecanato());
                 String nombre = d.getNombre();
                 String codigo = d.getCodigoDecanato();
-                String programa = d.getPrograma();
+                String ubicacion = d.getUbicacion();
                 String rector = d.getRector();
 
                 String decanatoRow[] =
                 {
-                    id ,nombre, codigo, programa, rector
+                    id ,nombre, codigo, ubicacion, rector
                 };
 
                 tableModel.addRow(decanatoRow);
