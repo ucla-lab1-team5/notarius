@@ -233,7 +233,7 @@ System.out.println(jTextField1.getText());
        nuevoDecanato.setNombre(nombreDecanato);
        nuevoDecanato.setCodigoDecanato(codigoDecanato);
        nuevoDecanato.setRector(rectorDecanato);
-       nuevoDecanato.setPrograma(ubicacionDecanato);
+       nuevoDecanato.setUbicacion(ubicacionDecanato);
        
        Controller control = null;
        control = new Controller();

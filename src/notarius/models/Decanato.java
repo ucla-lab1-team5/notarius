@@ -31,10 +31,10 @@ public class Decanato implements Serializable{
     public Decanato() {
     }
 
-    public Decanato(int idDecanato, String nombre, String programa, String rector, String codigoDecanato) {
+    public Decanato(int idDecanato, String nombre, String ubicacion, String rector, String codigoDecanato) {
         this.idDecanato = idDecanato;
         this.nombre = nombre;
-        this.programa = programa;
+        this.ubicacion = ubicacion;
         this.rector = rector;
         this.codigoDecanato = codigoDecanato;
     }

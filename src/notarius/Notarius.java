@@ -7,6 +7,7 @@ Luis Ochoa CI: 29.778.672
 */
 package notarius;
 
+import notarius.controllers.Controller;
 import notarius.views.Login;
 
 
@@ -17,8 +18,8 @@ public class Notarius {
      //Setup de la app
      //Agregar/Crear conexion
      //Iniciar la db
+     Controller control = new Controller();
      
-
     
      // crear un admin user por defecto
      
