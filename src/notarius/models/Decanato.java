@@ -7,30 +7,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class Decanato implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int idDecanato; 
-    @OneToMany
-    private Carrera carreras;
     @Basic
     private String nombre;
-    private String descripcion;
-    
-  
+    private String programa;
+    private String rector;
+    private String codigoDecanato;
     
 
     public Decanato() {
     }
 
-    public Decanato(int idDecanato, String nombre, String descripcion, Carrera carreras) {
+    public Decanato(int idDecanato, String nombre, String programa, String rector, String codigoDecanato) {
         this.idDecanato = idDecanato;
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.carreras = carreras;
+        this.programa = programa;
+        this.rector = rector;
+        this.codigoDecanato = codigoDecanato;
     }
 
     public int getIdDecanato() {
@@ -49,23 +48,29 @@ public class Decanato implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getPrograma() {
+        return programa;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setPrograma(String programa) {
+        this.programa = programa;
     }
 
-    
-    public Carrera getCarreras() {
-        return carreras;
+    public String getRector() {
+        return rector;
     }
 
-    public void setCarreras(Carrera carreras) {
-        this.carreras = carreras;
+    public void setRector(String rector) {
+        this.rector = rector;
     }
-    
+
+    public String getCodigoDecanato() {
+        return codigoDecanato;
+    }
+
+    public void setCodigoDecanato(String codigoDecanato) {
+        this.codigoDecanato = codigoDecanato;
+    }
     
     
 }

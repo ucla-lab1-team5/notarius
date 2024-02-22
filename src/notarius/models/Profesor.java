@@ -1,43 +1,17 @@
 
 package notarius.models;
-
-import javax.persistence.Basic;
+ //No es una entity como tal
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 
 @Entity
-public class Profesor extends Usuario{
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private String idProfesor; 
-    @Basic
-    private Materia materias;
+public class Profesor extends Usuario{ 
+    //Posiblemente tener: secciones
+    public Profesor() {}
 
-    public Profesor() {
+    public Profesor(long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
+        super(id, nombreUsuario, clave, cedula, nombres, apellidos, edad, genero, es_profesor, es_estudiante, es_admin);
     }
 
-    public Profesor(String idProfesor, Materia materias) {
-        this.idProfesor = idProfesor;
-        this.materias = materias;
-    }
-
-    public String getIdProfesor() {
-        return idProfesor;
-    }
-
-    public void setIdProfesor(String idProfesor) {
-        this.idProfesor = idProfesor;
-    }
-
-    public Materia getMaterias() {
-        return materias;
-    }
-
-    public void setMaterias(Materia materias) {
-        this.materias = materias;
-    }
-    
     
 }

@@ -1,48 +1,76 @@
 
 package notarius.models;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-public class Usuario {
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private String cedula;
+    private long id;
     @Basic
+    // atributos genericos
     private String nombreUsuario;
+    private String clave;
+    private String cedula;
+    private String nombres;
     private String apellidos;
     private int edad;
     private char genero;
-    private String rol;
+    //atributos para condicionar funcionalidad
+    private boolean profesor;
+    private boolean estudiante;
+    private boolean admin;
 
-    public Usuario() {
-    }
-
-    public Usuario(String nombreUsuario, String apellidos, String cedula, int edad, char genero, String rol) {
+    public Usuario(long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
+        this.id = id;
         this.nombreUsuario = nombreUsuario;
-        this.apellidos = apellidos;
+        this.clave = clave;
         this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.edad = edad;
         this.genero = genero;
-        this.rol = rol;
+        this.profesor = es_profesor;
+        this.estudiante = es_estudiante;
+        this.admin = es_admin;
     }
 
-    public String getNombre() {
+    public Usuario() {
+   
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombreUsuario= nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getClave() {
+        return clave;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getCedula() {
@@ -51,6 +79,22 @@ public class Usuario {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public int getEdad() {
@@ -69,13 +113,30 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public String getRol() {
-        return rol;
+    public boolean isEs_profesor() {
+        return profesor;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setEs_profesor(boolean es_profesor) {
+        this.profesor = es_profesor;
     }
+
+    public boolean isEs_estudiante() {
+        return estudiante;
+    }
+
+    public void setEs_estudiante(boolean es_estudiante) {
+        this.estudiante = es_estudiante;
+    }
+
+    public boolean isEs_admin() {
+        return admin;
+    }
+
+    public void setEs_admin(boolean es_admin) {
+        this.admin = es_admin;
+    }
+    
     
     
 }

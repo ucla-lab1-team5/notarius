@@ -1,6 +1,7 @@
 
 package notarius.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +11,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Semestre {
+public class Semestre implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private int idSemestre;
+    private int id;
     @Temporal(TemporalType.DATE)
     private Date fechaInicio;
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -24,20 +25,20 @@ public class Semestre {
     public Semestre() {
     }
 
-    public Semestre(int idSemestre, Date fechaInicio, Date fechaCierre, int semana, String periodo) {
-        this.idSemestre = idSemestre;
+    public Semestre(int id, Date fechaInicio, Date fechaCierre, int semana, String periodo) {
+        this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaCierre = fechaCierre;
         this.semana = semana;
         this.periodo = periodo;
     }
 
-    public int getIdSemestre() {
-        return idSemestre;
+    public int getId() {
+        return id;
     }
 
-    public void setIdSemestre(int idSemestre) {
-        this.idSemestre = idSemestre;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getFechaInicio() {
@@ -71,11 +72,6 @@ public class Semestre {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
-
-    
-   
-
-
-    
+  
     
 }
