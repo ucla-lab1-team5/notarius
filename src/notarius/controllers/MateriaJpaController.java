@@ -15,15 +15,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import notarius.controllers.exceptions.NonexistentEntityException;
-import notarius.models.Decanato;
+import notarius.models.Materia;
 
 /**
  *
  * @author antho
  */
-public class DecanatoJpaController implements Serializable {
+public class MateriaJpaController implements Serializable {
 
-    public DecanatoJpaController(EntityManagerFactory emf) {
+    public MateriaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -32,29 +32,24 @@ public class DecanatoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Decanato decanato) {
-        if (decanato.getCarreras() == null) {
-            decanato.setCarreras(new ArrayList<Carrera>());
+    public void create(Materia materia) {
+        if (materia.getCarreras() == null) {
+            materia.setCarreras(new ArrayList<Carrera>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             List<Carrera> attachedCarreras = new ArrayList<Carrera>();
-            for (Carrera carrerasCarreraToAttach : decanato.getCarreras()) {
+            for (Carrera carrerasCarreraToAttach : materia.getCarreras()) {
                 carrerasCarreraToAttach = em.getReference(carrerasCarreraToAttach.getClass(), carrerasCarreraToAttach.getId());
                 attachedCarreras.add(carrerasCarreraToAttach);
             }
-            decanato.setCarreras(attachedCarreras);
-            em.persist(decanato);
-            for (Carrera carrerasCarrera : decanato.getCarreras()) {
-                Decanato oldDecanatoOfCarrerasCarrera = carrerasCarrera.getDecanato();
-                carrerasCarrera.setDecanato(decanato);
+            materia.setCarreras(attachedCarreras);
+            em.persist(materia);
+            for (Carrera carrerasCarrera : materia.getCarreras()) {
+                carrerasCarrera.getMaterias().add(materia);
                 carrerasCarrera = em.merge(carrerasCarrera);
-                if (oldDecanatoOfCarrerasCarrera != null) {
-                    oldDecanatoOfCarrerasCarrera.getCarreras().remove(carrerasCarrera);
-                    oldDecanatoOfCarrerasCarrera = em.merge(oldDecanatoOfCarrerasCarrera);
-                }
             }
             em.getTransaction().commit();
         } finally {
@@ -64,46 +59,41 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public void edit(Decanato decanato) throws NonexistentEntityException, Exception {
+    public void edit(Materia materia) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Decanato persistentDecanato = em.find(Decanato.class, decanato.getId());
-            List<Carrera> carrerasOld = persistentDecanato.getCarreras();
-            List<Carrera> carrerasNew = decanato.getCarreras();
+            Materia persistentMateria = em.find(Materia.class, materia.getId());
+            List<Carrera> carrerasOld = persistentMateria.getCarreras();
+            List<Carrera> carrerasNew = materia.getCarreras();
             List<Carrera> attachedCarrerasNew = new ArrayList<Carrera>();
             for (Carrera carrerasNewCarreraToAttach : carrerasNew) {
                 carrerasNewCarreraToAttach = em.getReference(carrerasNewCarreraToAttach.getClass(), carrerasNewCarreraToAttach.getId());
                 attachedCarrerasNew.add(carrerasNewCarreraToAttach);
             }
             carrerasNew = attachedCarrerasNew;
-            decanato.setCarreras(carrerasNew);
-            decanato = em.merge(decanato);
+            materia.setCarreras(carrerasNew);
+            materia = em.merge(materia);
             for (Carrera carrerasOldCarrera : carrerasOld) {
                 if (!carrerasNew.contains(carrerasOldCarrera)) {
-                    carrerasOldCarrera.setDecanato(null);
+                    carrerasOldCarrera.getMaterias().remove(materia);
                     carrerasOldCarrera = em.merge(carrerasOldCarrera);
                 }
             }
             for (Carrera carrerasNewCarrera : carrerasNew) {
                 if (!carrerasOld.contains(carrerasNewCarrera)) {
-                    Decanato oldDecanatoOfCarrerasNewCarrera = carrerasNewCarrera.getDecanato();
-                    carrerasNewCarrera.setDecanato(decanato);
+                    carrerasNewCarrera.getMaterias().add(materia);
                     carrerasNewCarrera = em.merge(carrerasNewCarrera);
-                    if (oldDecanatoOfCarrerasNewCarrera != null && !oldDecanatoOfCarrerasNewCarrera.equals(decanato)) {
-                        oldDecanatoOfCarrerasNewCarrera.getCarreras().remove(carrerasNewCarrera);
-                        oldDecanatoOfCarrerasNewCarrera = em.merge(oldDecanatoOfCarrerasNewCarrera);
-                    }
                 }
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = decanato.getId();
-                if (findDecanato(id) == null) {
-                    throw new NonexistentEntityException("The decanato with id " + id + " no longer exists.");
+                Long id = materia.getId();
+                if (findMateria(id) == null) {
+                    throw new NonexistentEntityException("The materia with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -119,19 +109,19 @@ public class DecanatoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Decanato decanato;
+            Materia materia;
             try {
-                decanato = em.getReference(Decanato.class, id);
-                decanato.getId();
+                materia = em.getReference(Materia.class, id);
+                materia.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The decanato with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The materia with id " + id + " no longer exists.", enfe);
             }
-            List<Carrera> carreras = decanato.getCarreras();
+            List<Carrera> carreras = materia.getCarreras();
             for (Carrera carrerasCarrera : carreras) {
-                carrerasCarrera.setDecanato(null);
+                carrerasCarrera.getMaterias().remove(materia);
                 carrerasCarrera = em.merge(carrerasCarrera);
             }
-            em.remove(decanato);
+            em.remove(materia);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -140,19 +130,19 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public List<Decanato> findDecanatoEntities() {
-        return findDecanatoEntities(true, -1, -1);
+    public List<Materia> findMateriaEntities() {
+        return findMateriaEntities(true, -1, -1);
     }
 
-    public List<Decanato> findDecanatoEntities(int maxResults, int firstResult) {
-        return findDecanatoEntities(false, maxResults, firstResult);
+    public List<Materia> findMateriaEntities(int maxResults, int firstResult) {
+        return findMateriaEntities(false, maxResults, firstResult);
     }
 
-    private List<Decanato> findDecanatoEntities(boolean all, int maxResults, int firstResult) {
+    private List<Materia> findMateriaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Decanato.class));
+            cq.select(cq.from(Materia.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -164,20 +154,20 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public Decanato findDecanato(Long id) {
+    public Materia findMateria(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Decanato.class, id);
+            return em.find(Materia.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getDecanatoCount() {
+    public int getMateriaCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Decanato> rt = cq.from(Decanato.class);
+            Root<Materia> rt = cq.from(Materia.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

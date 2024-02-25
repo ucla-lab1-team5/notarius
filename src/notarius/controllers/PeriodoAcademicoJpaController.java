@@ -15,15 +15,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import notarius.controllers.exceptions.NonexistentEntityException;
-import notarius.models.Profesor;
+import notarius.models.PeriodoAcademico;
 
 /**
  *
  * @author antho
  */
-public class ProfesorJpaController implements Serializable {
+public class PeriodoAcademicoJpaController implements Serializable {
 
-    public ProfesorJpaController(EntityManagerFactory emf) {
+    public PeriodoAcademicoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -32,28 +32,28 @@ public class ProfesorJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Profesor profesor) {
-        if (profesor.getSecciones() == null) {
-            profesor.setSecciones(new ArrayList<Seccion>());
+    public void create(PeriodoAcademico periodoAcademico) {
+        if (periodoAcademico.getSecciones() == null) {
+            periodoAcademico.setSecciones(new ArrayList<Seccion>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             List<Seccion> attachedSecciones = new ArrayList<Seccion>();
-            for (Seccion seccionesSeccionToAttach : profesor.getSecciones()) {
+            for (Seccion seccionesSeccionToAttach : periodoAcademico.getSecciones()) {
                 seccionesSeccionToAttach = em.getReference(seccionesSeccionToAttach.getClass(), seccionesSeccionToAttach.getId());
                 attachedSecciones.add(seccionesSeccionToAttach);
             }
-            profesor.setSecciones(attachedSecciones);
-            em.persist(profesor);
-            for (Seccion seccionesSeccion : profesor.getSecciones()) {
-                Profesor oldProfesorOfSeccionesSeccion = seccionesSeccion.getProfesor();
-                seccionesSeccion.setProfesor(profesor);
+            periodoAcademico.setSecciones(attachedSecciones);
+            em.persist(periodoAcademico);
+            for (Seccion seccionesSeccion : periodoAcademico.getSecciones()) {
+                PeriodoAcademico oldPeriodoOfSeccionesSeccion = seccionesSeccion.getPeriodo();
+                seccionesSeccion.setPeriodo(periodoAcademico);
                 seccionesSeccion = em.merge(seccionesSeccion);
-                if (oldProfesorOfSeccionesSeccion != null) {
-                    oldProfesorOfSeccionesSeccion.getSecciones().remove(seccionesSeccion);
-                    oldProfesorOfSeccionesSeccion = em.merge(oldProfesorOfSeccionesSeccion);
+                if (oldPeriodoOfSeccionesSeccion != null) {
+                    oldPeriodoOfSeccionesSeccion.getSecciones().remove(seccionesSeccion);
+                    oldPeriodoOfSeccionesSeccion = em.merge(oldPeriodoOfSeccionesSeccion);
                 }
             }
             em.getTransaction().commit();
@@ -64,36 +64,36 @@ public class ProfesorJpaController implements Serializable {
         }
     }
 
-    public void edit(Profesor profesor) throws NonexistentEntityException, Exception {
+    public void edit(PeriodoAcademico periodoAcademico) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Profesor persistentProfesor = em.find(Profesor.class, profesor.getId());
-            List<Seccion> seccionesOld = persistentProfesor.getSecciones();
-            List<Seccion> seccionesNew = profesor.getSecciones();
+            PeriodoAcademico persistentPeriodoAcademico = em.find(PeriodoAcademico.class, periodoAcademico.getId());
+            List<Seccion> seccionesOld = persistentPeriodoAcademico.getSecciones();
+            List<Seccion> seccionesNew = periodoAcademico.getSecciones();
             List<Seccion> attachedSeccionesNew = new ArrayList<Seccion>();
             for (Seccion seccionesNewSeccionToAttach : seccionesNew) {
                 seccionesNewSeccionToAttach = em.getReference(seccionesNewSeccionToAttach.getClass(), seccionesNewSeccionToAttach.getId());
                 attachedSeccionesNew.add(seccionesNewSeccionToAttach);
             }
             seccionesNew = attachedSeccionesNew;
-            profesor.setSecciones(seccionesNew);
-            profesor = em.merge(profesor);
+            periodoAcademico.setSecciones(seccionesNew);
+            periodoAcademico = em.merge(periodoAcademico);
             for (Seccion seccionesOldSeccion : seccionesOld) {
                 if (!seccionesNew.contains(seccionesOldSeccion)) {
-                    seccionesOldSeccion.setProfesor(null);
+                    seccionesOldSeccion.setPeriodo(null);
                     seccionesOldSeccion = em.merge(seccionesOldSeccion);
                 }
             }
             for (Seccion seccionesNewSeccion : seccionesNew) {
                 if (!seccionesOld.contains(seccionesNewSeccion)) {
-                    Profesor oldProfesorOfSeccionesNewSeccion = seccionesNewSeccion.getProfesor();
-                    seccionesNewSeccion.setProfesor(profesor);
+                    PeriodoAcademico oldPeriodoOfSeccionesNewSeccion = seccionesNewSeccion.getPeriodo();
+                    seccionesNewSeccion.setPeriodo(periodoAcademico);
                     seccionesNewSeccion = em.merge(seccionesNewSeccion);
-                    if (oldProfesorOfSeccionesNewSeccion != null && !oldProfesorOfSeccionesNewSeccion.equals(profesor)) {
-                        oldProfesorOfSeccionesNewSeccion.getSecciones().remove(seccionesNewSeccion);
-                        oldProfesorOfSeccionesNewSeccion = em.merge(oldProfesorOfSeccionesNewSeccion);
+                    if (oldPeriodoOfSeccionesNewSeccion != null && !oldPeriodoOfSeccionesNewSeccion.equals(periodoAcademico)) {
+                        oldPeriodoOfSeccionesNewSeccion.getSecciones().remove(seccionesNewSeccion);
+                        oldPeriodoOfSeccionesNewSeccion = em.merge(oldPeriodoOfSeccionesNewSeccion);
                     }
                 }
             }
@@ -101,9 +101,9 @@ public class ProfesorJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = profesor.getId();
-                if (findProfesor(id) == null) {
-                    throw new NonexistentEntityException("The profesor with id " + id + " no longer exists.");
+                Long id = periodoAcademico.getId();
+                if (findPeriodoAcademico(id) == null) {
+                    throw new NonexistentEntityException("The periodoAcademico with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -119,19 +119,19 @@ public class ProfesorJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Profesor profesor;
+            PeriodoAcademico periodoAcademico;
             try {
-                profesor = em.getReference(Profesor.class, id);
-                profesor.getId();
+                periodoAcademico = em.getReference(PeriodoAcademico.class, id);
+                periodoAcademico.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The profesor with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The periodoAcademico with id " + id + " no longer exists.", enfe);
             }
-            List<Seccion> secciones = profesor.getSecciones();
+            List<Seccion> secciones = periodoAcademico.getSecciones();
             for (Seccion seccionesSeccion : secciones) {
-                seccionesSeccion.setProfesor(null);
+                seccionesSeccion.setPeriodo(null);
                 seccionesSeccion = em.merge(seccionesSeccion);
             }
-            em.remove(profesor);
+            em.remove(periodoAcademico);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -140,19 +140,19 @@ public class ProfesorJpaController implements Serializable {
         }
     }
 
-    public List<Profesor> findProfesorEntities() {
-        return findProfesorEntities(true, -1, -1);
+    public List<PeriodoAcademico> findPeriodoAcademicoEntities() {
+        return findPeriodoAcademicoEntities(true, -1, -1);
     }
 
-    public List<Profesor> findProfesorEntities(int maxResults, int firstResult) {
-        return findProfesorEntities(false, maxResults, firstResult);
+    public List<PeriodoAcademico> findPeriodoAcademicoEntities(int maxResults, int firstResult) {
+        return findPeriodoAcademicoEntities(false, maxResults, firstResult);
     }
 
-    private List<Profesor> findProfesorEntities(boolean all, int maxResults, int firstResult) {
+    private List<PeriodoAcademico> findPeriodoAcademicoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Profesor.class));
+            cq.select(cq.from(PeriodoAcademico.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -164,20 +164,20 @@ public class ProfesorJpaController implements Serializable {
         }
     }
 
-    public Profesor findProfesor(Long id) {
+    public PeriodoAcademico findPeriodoAcademico(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Profesor.class, id);
+            return em.find(PeriodoAcademico.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getProfesorCount() {
+    public int getPeriodoAcademicoCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Profesor> rt = cq.from(Profesor.class);
+            Root<PeriodoAcademico> rt = cq.from(PeriodoAcademico.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
