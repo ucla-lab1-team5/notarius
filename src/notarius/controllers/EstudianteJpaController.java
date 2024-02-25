@@ -1,21 +1,19 @@
 /*
-Hanuman Sánchez CI: 28.316.086
-Anthony Moreno CI: 28.204.620
-Angel Goyo CI: 29.737.583
-Miller Arias CI: 29.561.941
-Luis Ochoa CI: 29.778.672
-*/
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package notarius.controllers;
 
 import java.io.Serializable;
+import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import notarius.models.Calificacion;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Estudiante;
 
@@ -30,22 +28,34 @@ public class EstudianteJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
-    public EstudianteJpaController() {
-        emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-    
-    
-
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
     public void create(Estudiante estudiante) {
+        if (estudiante.getCalificaciones() == null) {
+            estudiante.setCalificaciones(new ArrayList<Calificacion>());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            List<Calificacion> attachedCalificaciones = new ArrayList<Calificacion>();
+            for (Calificacion calificacionesCalificacionToAttach : estudiante.getCalificaciones()) {
+                calificacionesCalificacionToAttach = em.getReference(calificacionesCalificacionToAttach.getClass(), calificacionesCalificacionToAttach.getId());
+                attachedCalificaciones.add(calificacionesCalificacionToAttach);
+            }
+            estudiante.setCalificaciones(attachedCalificaciones);
             em.persist(estudiante);
+            for (Calificacion calificacionesCalificacion : estudiante.getCalificaciones()) {
+                Estudiante oldEstudianteOfCalificacionesCalificacion = calificacionesCalificacion.getEstudiante();
+                calificacionesCalificacion.setEstudiante(estudiante);
+                calificacionesCalificacion = em.merge(calificacionesCalificacion);
+                if (oldEstudianteOfCalificacionesCalificacion != null) {
+                    oldEstudianteOfCalificacionesCalificacion.getCalificaciones().remove(calificacionesCalificacion);
+                    oldEstudianteOfCalificacionesCalificacion = em.merge(oldEstudianteOfCalificacionesCalificacion);
+                }
+            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -59,12 +69,39 @@ public class EstudianteJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Estudiante persistentEstudiante = em.find(Estudiante.class, estudiante.getId());
+            List<Calificacion> calificacionesOld = persistentEstudiante.getCalificaciones();
+            List<Calificacion> calificacionesNew = estudiante.getCalificaciones();
+            List<Calificacion> attachedCalificacionesNew = new ArrayList<Calificacion>();
+            for (Calificacion calificacionesNewCalificacionToAttach : calificacionesNew) {
+                calificacionesNewCalificacionToAttach = em.getReference(calificacionesNewCalificacionToAttach.getClass(), calificacionesNewCalificacionToAttach.getId());
+                attachedCalificacionesNew.add(calificacionesNewCalificacionToAttach);
+            }
+            calificacionesNew = attachedCalificacionesNew;
+            estudiante.setCalificaciones(calificacionesNew);
             estudiante = em.merge(estudiante);
+            for (Calificacion calificacionesOldCalificacion : calificacionesOld) {
+                if (!calificacionesNew.contains(calificacionesOldCalificacion)) {
+                    calificacionesOldCalificacion.setEstudiante(null);
+                    calificacionesOldCalificacion = em.merge(calificacionesOldCalificacion);
+                }
+            }
+            for (Calificacion calificacionesNewCalificacion : calificacionesNew) {
+                if (!calificacionesOld.contains(calificacionesNewCalificacion)) {
+                    Estudiante oldEstudianteOfCalificacionesNewCalificacion = calificacionesNewCalificacion.getEstudiante();
+                    calificacionesNewCalificacion.setEstudiante(estudiante);
+                    calificacionesNewCalificacion = em.merge(calificacionesNewCalificacion);
+                    if (oldEstudianteOfCalificacionesNewCalificacion != null && !oldEstudianteOfCalificacionesNewCalificacion.equals(estudiante)) {
+                        oldEstudianteOfCalificacionesNewCalificacion.getCalificaciones().remove(calificacionesNewCalificacion);
+                        oldEstudianteOfCalificacionesNewCalificacion = em.merge(oldEstudianteOfCalificacionesNewCalificacion);
+                    }
+                }
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                long id = estudiante.getId();
+                Long id = estudiante.getId();
                 if (findEstudiante(id) == null) {
                     throw new NonexistentEntityException("The estudiante with id " + id + " no longer exists.");
                 }
@@ -77,7 +114,7 @@ public class EstudianteJpaController implements Serializable {
         }
     }
 
-    public void destroy(long id) throws NonexistentEntityException {
+    public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -88,6 +125,11 @@ public class EstudianteJpaController implements Serializable {
                 estudiante.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The estudiante with id " + id + " no longer exists.", enfe);
+            }
+            List<Calificacion> calificaciones = estudiante.getCalificaciones();
+            for (Calificacion calificacionesCalificacion : calificaciones) {
+                calificacionesCalificacion.setEstudiante(null);
+                calificacionesCalificacion = em.merge(calificacionesCalificacion);
             }
             em.remove(estudiante);
             em.getTransaction().commit();
@@ -122,7 +164,7 @@ public class EstudianteJpaController implements Serializable {
         }
     }
 
-    public Estudiante findEstudiante(long id) {
+    public Estudiante findEstudiante(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Estudiante.class, id);
