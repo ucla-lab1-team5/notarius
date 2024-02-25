@@ -1,72 +1,83 @@
 /*
-Hanuman Sánchez CI: 28.316.086
-Anthony Moreno CI: 28.204.620
-Angel Goyo CI: 29.737.583
-Miller Arias CI: 29.561.941
-Luis Ochoa CI: 29.778.672
-*/
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package notarius.models;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+/**
+ *
+ * @author hanumonke
+ */
 @Entity
-public class Estudiante extends Usuario implements Serializable {
+public class Estudiante implements Serializable {
 
-    @OneToOne
-    private Carrera carrera;
-    @OneToOne
-    private Semestre semestreActual;
-    @Basic
-    private double promedio;
-    private int semestre;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
+    @OneToMany
+    private List<Calificacion> calificaciones;
 
-    public Estudiante(){};
+    public Estudiante() {
+    }
 
-    public Estudiante(Carrera carrera, Semestre semestreActual, double promedio, int semestre, long id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean es_profesor, boolean es_estudiante, boolean es_admin) {
-        super(id, nombreUsuario, clave, cedula, nombres, apellidos, edad, genero, es_profesor, es_estudiante, es_admin);
-        this.carrera = carrera;
-        this.semestreActual = semestreActual;
-        this.promedio = promedio;
-        this.semestre = semestre;
+    public Estudiante(Long id, List<Calificacion> calificaciones) {
+        this.id = id;
+        this.calificaciones = calificaciones;
+    }
+
+    public List<Calificacion> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Calificacion> calificaciones) {
+        this.calificaciones = calificaciones;
     }
     
-   
     
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Estudiante))
+        {
+            return false;
+        }
+        Estudiante other = (Estudiante) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "notarius.models.Estudiante[ id=" + id + " ]";
+    }
     
-    public Carrera getCarrera() {
-        return carrera;
-    }
-
-    public void setCarrera(Carrera carrera) {
-        this.carrera = carrera;
-    }
-
-    public Semestre getSemestreActual() {
-        return semestreActual;
-    }
-
-    public void setSemestreActual(Semestre semestreActual) {
-        this.semestreActual = semestreActual;
-    }
-
-    public double getPromedio() {
-        return promedio;
-    }
-
-    public void setPromedio(double promedio) {
-        this.promedio = promedio;
-    }
-
-    public int getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(int semestre) {
-        this.semestre = semestre;
-    }
-
 }

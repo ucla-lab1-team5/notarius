@@ -19,7 +19,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Decanato;
-import static org.eclipse.persistence.internal.sessions.coordination.corba.sun.SunCORBAConnectionHelper.id;
 
 /**
  *
@@ -66,7 +65,7 @@ public class DecanatoJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = decanato.getIdDecanato();
+                Long id = decanato.getId();
                 if (findDecanato(id) == null) {
                     throw new NonexistentEntityException("The decanato with id " + id + " no longer exists.");
                 }
@@ -87,7 +86,7 @@ public class DecanatoJpaController implements Serializable {
             Decanato decanato;
             try {
                 decanato = em.getReference(Decanato.class, id);
-                decanato.getIdDecanato();
+                decanato.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The decanato with id " + id + " no longer exists.", enfe);
             }
@@ -138,7 +137,7 @@ public class DecanatoJpaController implements Serializable {
     
     }
 
-    public Decanato findDecanato(int id) {
+    public Decanato findDecanato(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Decanato.class, id);

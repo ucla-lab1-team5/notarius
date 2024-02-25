@@ -309,7 +309,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         //CONSTRUIR TITULOS DE TABLA
         String decanatoColumns[] =
         {
-            "ID", "Nombre", "Codigo", "Ubicacion", "Rector"
+            "ID", "Nombre", "Ubicacion", "Rector"
         };
         // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
         DefaultTableModel tableModel = new DefaultTableModel() {
@@ -332,15 +332,14 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
 
             for (Decanato d : listaDecanatos)
             {
-                String id = Integer.toString(d.getIdDecanato());
+                String id = Long.toString(d.getId());
                 String nombre = d.getNombre();
-                String codigo = d.getCodigoDecanato();
                 String ubicacion = d.getUbicacion();
                 String rector = d.getRector();
 
                 String decanatoRow[] =
                 {
-                    id ,nombre, codigo, ubicacion, rector
+                    id ,nombre, ubicacion, rector
                 };
 
                 tableModel.addRow(decanatoRow);

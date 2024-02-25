@@ -1,67 +1,53 @@
 /*
-Hanuman Sánchez CI: 28.316.086
-Anthony Moreno CI: 28.204.620
-Angel Goyo CI: 29.737.583
-Miller Arias CI: 29.561.941
-Luis Ochoa CI: 29.778.672
-*/
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package notarius.models;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Basic;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+/**
+ *
+ * @author hanumonke
+ */
 @Entity
 public class Materia implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-    // varias materias comparten una carrera, varias carreras comparten una materia
-
-    @ManyToMany
-    @JoinTable(
-            name = "carrera_materia",
-            joinColumns = @JoinColumn(name = "materia_id"),
-            inverseJoinColumns = @JoinColumn(name = "carrera_id"))
-    private Set<Carrera> carreras;
-
+    private Long id;
+    
+    //many to many con carreras
+    @ManyToMany(mappedBy = "materias")
+    private List<Carrera> carreras;
     @Basic
     private String nombre;
     private String descripcion;
-    // semestre?
 
     public Materia() {
     }
 
-    public Materia(String id, Set<Carrera> carreras, String nombre, String descripcion) {
+    
+    public Materia(Long id, List<Carrera> carreras, String nombre, String descripcion) {
         this.id = id;
         this.carreras = carreras;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Set<Carrera> getCarreras() {
+    public List<Carrera> getCarreras() {
         return carreras;
     }
 
-    public void setCarreras(Set<Carrera> carreras) {
+    public void setCarreras(List<Carrera> carreras) {
         this.carreras = carreras;
     }
 
@@ -80,5 +66,42 @@ public class Materia implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Materia))
+        {
+            return false;
+        }
+        Materia other = (Materia) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "notarius.models.Materia[ id=" + id + " ]";
+    }
+    
 }

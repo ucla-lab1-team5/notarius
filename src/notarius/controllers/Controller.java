@@ -30,7 +30,6 @@ public class Controller {
     private final MateriaJpaController materiaService;
     private final CarreraJpaController carreraService;
     private final SeccionJpaController seccionService;
-    private final SemestreJpaController semestreServicio;
     private final CalificacionJpaController calificacionService;
     private final EstudianteJpaController estudianteService;
     private final ProfesorJpaController profesorService;
@@ -52,7 +51,7 @@ public class Controller {
         this.seccionService = new SeccionJpaController();
 
         //crear semestre 
-        this.semestreServicio = new SemestreJpaController();
+
 
         //crear calificaciones
         this.calificacionService = new CalificacionJpaController();
@@ -143,13 +142,7 @@ public class Controller {
         }
     }
     public void eliminarCarrera(int carrId) {
-        try
-        {
-            this.carreraService.destroy(carrId);
-        } catch (NonexistentEntityException ex)
-        {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.carreraService.destroy(carrId);
     }
 
     //GESTION MATERIA

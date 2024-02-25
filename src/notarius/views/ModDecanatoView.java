@@ -223,9 +223,8 @@ System.out.println(jTextField1.getText());
 
     } else {
        Decanato nuevoDecanato = new Decanato();
-       nuevoDecanato.setIdDecanato(decId);
+       nuevoDecanato.setId(decId);
        nuevoDecanato.setNombre(nombreDecanato);
-       nuevoDecanato.setCodigoDecanato(codigoDecanato);
        nuevoDecanato.setRector(rectorDecanato);
        nuevoDecanato.setUbicacion(ubicacionDecanato);
        
@@ -253,11 +252,11 @@ System.out.println(jTextField1.getText());
         control = new Controller();
         Decanato decanatoAmod = control.encontrarDecanato(decId);
         String nombre = decanatoAmod.getNombre();
-        String codigo = decanatoAmod.getCodigoDecanato();
+      
         String ubicacion = decanatoAmod.getUbicacion();
         String rector = decanatoAmod.getRector();
         jTextField5.setText(nombre);
-        jTextField1.setText(codigo);
+
         jTextField3.setText(ubicacion);
         jTextField4.setText(rector);
     

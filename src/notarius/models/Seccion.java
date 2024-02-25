@@ -1,76 +1,78 @@
 /*
-Hanuman Sánchez CI: 28.316.086
-Anthony Moreno CI: 28.204.620
-Angel Goyo CI: 29.737.583
-Miller Arias CI: 29.561.941
-Luis Ochoa CI: 29.778.672
-*/
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package notarius.models;
+
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Seccion implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)  //cambiar esto de la frecuencia??
-    private int id;
-    @OneToOne
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
+    @ManyToOne
     private Materia materia;
-    @OneToOne
+    @ManyToOne
     private Decanato decanato;
-    @OneToOne
+    @ManyToOne
     private Carrera carrera;
-    @OneToOne
-    private Usuario profesor;
-    @OneToOne
-    private Semestre semestre;
-//  @OneToMany
-//  private Calificacion calificaciones;
+     
+    //OneToMany con calificaciones
+    @OneToMany
+    private List<Calificacion> calificaciones;
+    // Many to One con periodo academico
+    @ManyToOne
+    private PeriodoAcademico periodo;
+    // Many to One con profesor
+    @ManyToOne
+    private Profesor profesor;
+    
     @Basic
     private String codigo;
 
     public Seccion() {
     }
 
-    public Seccion(int id, Materia materia, Decanato decanato, Carrera carrera, Usuario profesor, Semestre semestre, String codigo) {
+    public Seccion(Long id, Materia materia, Decanato decanato, Carrera carrera, List<Calificacion> calificaciones, PeriodoAcademico periodo, Profesor profesor, String codigo) {
         this.id = id;
         this.materia = materia;
         this.decanato = decanato;
         this.carrera = carrera;
+        this.calificaciones = calificaciones;
+        this.periodo = periodo;
         this.profesor = profesor;
-        this.semestre = semestre;
         this.codigo = codigo;
     }
 
-    public Usuario getProfesor() {
-        return profesor;
+    public List<Calificacion> getCalificaciones() {
+        return calificaciones;
     }
 
-    public void setProfesor(Usuario profesor) {
-        this.profesor = profesor;
+    public void setCalificaciones(List<Calificacion> calificaciones) {
+        this.calificaciones = calificaciones;
     }
+    
+    
 
-    public Semestre getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(Semestre semestre) {
-        this.semestre = semestre;
-    }
-
-
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -98,6 +100,22 @@ public class Seccion implements Serializable {
         this.carrera = carrera;
     }
 
+    public PeriodoAcademico getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(PeriodoAcademico periodo) {
+        this.periodo = periodo;
+    }
+
+    public Profesor getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -106,5 +124,33 @@ public class Seccion implements Serializable {
         this.codigo = codigo;
     }
 
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Seccion))
+        {
+            return false;
+        }
+        Seccion other = (Seccion) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "notarius.models.Seccion[ id=" + id + " ]";
+    }
     
 }

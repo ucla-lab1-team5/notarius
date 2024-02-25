@@ -64,7 +64,7 @@ public class SeccionJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = seccion.getId();
+                Long id = seccion.getId();
                 if (findSeccion(id) == null) {
                     throw new NonexistentEntityException("The seccion with id " + id + " no longer exists.");
                 }
@@ -122,7 +122,7 @@ public class SeccionJpaController implements Serializable {
         }
     }
 
-    public Seccion findSeccion(int id) {
+    public Seccion findSeccion(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Seccion.class, id);

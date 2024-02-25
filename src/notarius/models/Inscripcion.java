@@ -10,51 +10,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author hanumonke
  */
 @Entity
-public class Profesor extends Usuario implements Serializable {
+public class Inscripcion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    //OneToMany calificaciones
-    
-    //OneToMany secciones
     @OneToMany
     private List<Seccion> secciones;
-
-    public Profesor() {
-    }
-
-    public Profesor(Long id, List<Seccion> secciones) {
-
-        this.id = id;
-        this.secciones = secciones;
-    }
-
-    public List<Seccion> getSecciones() {
-        return secciones;
-    }
-
-    public void setSecciones(List<Seccion> secciones) {
-        this.secciones = secciones;
-    }
-
-
-
-   
+    @ManyToOne
+    private PeriodoAcademico periodo;
+    @OneToOne
+    private Estudiante estudiante;
+    @ManyToOne
+    private Carrera carrera; 
+    @ManyToOne
+    private Decanato decanato;
+    private int semestre;
     
     
-    
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -73,11 +58,11 @@ public class Profesor extends Usuario implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Profesor))
+        if (!(object instanceof Inscripcion))
         {
             return false;
         }
-        Profesor other = (Profesor) object;
+        Inscripcion other = (Inscripcion) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
         {
             return false;
@@ -87,7 +72,7 @@ public class Profesor extends Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "notarius.models.Profesor[ id=" + id + " ]";
+        return "notarius.models.Inscripcion[ id=" + id + " ]";
     }
     
 }

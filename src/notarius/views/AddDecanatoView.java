@@ -231,7 +231,6 @@ System.out.println(jTextField1.getText());
     } else {
        Decanato nuevoDecanato = new Decanato();
        nuevoDecanato.setNombre(nombreDecanato);
-       nuevoDecanato.setCodigoDecanato(codigoDecanato);
        nuevoDecanato.setRector(rectorDecanato);
        nuevoDecanato.setUbicacion(ubicacionDecanato);
        
