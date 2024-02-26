@@ -121,7 +121,7 @@ public class DecanatoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
