@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import notarius.controllers.exceptions.NonexistentEntityException;
 
 //importando modelos
@@ -25,7 +27,7 @@ import notarius.models.Usuario;
  * @authors: Hanuman Sanchez - 28.316.086 - ING. INFORMATICA Anthony Moreno - -
  */
 public class Controller {
-
+    private EntityManagerFactory emf = null;
     private final DecanatoJpaController decanatoService;
     private final MateriaJpaController materiaService;
     private final CarreraJpaController carreraService;
@@ -38,31 +40,32 @@ public class Controller {
 
     // inicio la db - instancia de los services para manipular la db. 
     public Controller() {
+        this.emf = Persistence.createEntityManagerFactory("notariusPU");
         //crear decanato
-        this.decanatoService = new DecanatoJpaController();
+        this.decanatoService = new DecanatoJpaController(this.emf);
 
         //crear materia
-        this.materiaService = new MateriaJpaController();
+        this.materiaService = new MateriaJpaController(this.emf);
 
         //crear carrera
-        this.carreraService = new CarreraJpaController();
+        this.carreraService = new CarreraJpaController(this.emf);
 
         //crear seccion
-        this.seccionService = new SeccionJpaController();
+        this.seccionService = new SeccionJpaController(this.emf);
 
         //crear semestre 
 
 
         //crear calificaciones
-        this.calificacionService = new CalificacionJpaController();
+        this.calificacionService = new CalificacionJpaController(this.emf);
 
         //crear estudiante
-        this.estudianteService = new EstudianteJpaController();
+        this.estudianteService = new EstudianteJpaController(this.emf);
 
         //Crear profesor
-        this.profesorService = new ProfesorJpaController();
+        this.profesorService = new ProfesorJpaController(this.emf);
         
-        this.usuarioService = new UsuarioJpaController();
+        this.usuarioService = new UsuarioJpaController(this.emf);
       
     }
 //FUNCIONES ADMINISTRADOR
@@ -130,7 +133,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarCarrera(long carrId) {
+    public void eliminarCarrera(int carrId) {
         try
         {
             this.carreraService.destroy(carrId);
@@ -153,7 +156,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarMateria(long matId){
+    public void eliminarMateria(int matId){
         try
         {
             this.materiaService.destroy(matId);
@@ -176,7 +179,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarProfesor(long profId){
+    public void eliminarProfesor(int profId){
         try
         {
            this.profesorService.destroy(profId);
@@ -200,7 +203,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarEstudiante(long estId){
+    public void eliminarEstudiante(int estId){
         try
         {
             this.profesorService.destroy(estId);
@@ -231,7 +234,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarAdmin(long adminId){
+    public void eliminarAdmin(int adminId){
         try
         {
           this.profesorService.destroy(adminId);

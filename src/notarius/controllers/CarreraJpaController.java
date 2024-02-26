@@ -36,6 +36,10 @@ public class CarreraJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
+  
+    
+    
+
     public void create(Carrera carrera) {
         if (carrera.getMaterias() == null) {
             carrera.setMaterias(new ArrayList<Materia>());

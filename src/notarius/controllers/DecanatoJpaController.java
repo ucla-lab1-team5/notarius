@@ -72,34 +72,37 @@ public class DecanatoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Decanato persistentDecanato = em.find(Decanato.class, decanato.getId());
-            List<Carrera> carrerasOld = persistentDecanato.getCarreras();
-            List<Carrera> carrerasNew = decanato.getCarreras();
-            List<Carrera> attachedCarrerasNew = new ArrayList<Carrera>();
-            for (Carrera carrerasNewCarreraToAttach : carrerasNew) {
-                carrerasNewCarreraToAttach = em.getReference(carrerasNewCarreraToAttach.getClass(), carrerasNewCarreraToAttach.getId());
-                attachedCarrerasNew.add(carrerasNewCarreraToAttach);
-            }
-            carrerasNew = attachedCarrerasNew;
-            decanato.setCarreras(carrerasNew);
+            //Decanato persistentDecanato = em.find(Decanato.class, decanato.getId());
             decanato = em.merge(decanato);
-            for (Carrera carrerasOldCarrera : carrerasOld) {
-                if (!carrerasNew.contains(carrerasOldCarrera)) {
-                    carrerasOldCarrera.setDecanato(null);
-                    carrerasOldCarrera = em.merge(carrerasOldCarrera);
-                }
-            }
-            for (Carrera carrerasNewCarrera : carrerasNew) {
-                if (!carrerasOld.contains(carrerasNewCarrera)) {
-                    Decanato oldDecanatoOfCarrerasNewCarrera = carrerasNewCarrera.getDecanato();
-                    carrerasNewCarrera.setDecanato(decanato);
-                    carrerasNewCarrera = em.merge(carrerasNewCarrera);
-                    if (oldDecanatoOfCarrerasNewCarrera != null && !oldDecanatoOfCarrerasNewCarrera.equals(decanato)) {
-                        oldDecanatoOfCarrerasNewCarrera.getCarreras().remove(carrerasNewCarrera);
-                        oldDecanatoOfCarrerasNewCarrera = em.merge(oldDecanatoOfCarrerasNewCarrera);
-                    }
-                }
-            }
+            // empieza a buscar carreras asociadas al decanato
+//            List<Carrera> carrerasOld = persistentDecanato.getCarreras();
+//            List<Carrera> carrerasNew = decanato.getCarreras();
+//            List<Carrera> attachedCarrerasNew = new ArrayList<Carrera>();
+//            
+//            for (Carrera carrerasNewCarreraToAttach : carrerasNew) {
+//                carrerasNewCarreraToAttach = em.getReference(carrerasNewCarreraToAttach.getClass(), carrerasNewCarreraToAttach.getId());
+//                attachedCarrerasNew.add(carrerasNewCarreraToAttach);
+//            }
+//            carrerasNew = attachedCarrerasNew;
+//            decanato.setCarreras(carrerasNew);
+//            decanato = em.merge(decanato);
+//            for (Carrera carrerasOldCarrera : carrerasOld) {
+//                if (!carrerasNew.contains(carrerasOldCarrera)) {
+//                    carrerasOldCarrera.setDecanato(null);
+//                    carrerasOldCarrera = em.merge(carrerasOldCarrera);
+//                }
+//            }
+//            for (Carrera carrerasNewCarrera : carrerasNew) {
+//                if (!carrerasOld.contains(carrerasNewCarrera)) {
+//                    Decanato oldDecanatoOfCarrerasNewCarrera = carrerasNewCarrera.getDecanato();
+//                    carrerasNewCarrera.setDecanato(decanato);
+//                    carrerasNewCarrera = em.merge(carrerasNewCarrera);
+//                    if (oldDecanatoOfCarrerasNewCarrera != null && !oldDecanatoOfCarrerasNewCarrera.equals(decanato)) {
+//                        oldDecanatoOfCarrerasNewCarrera.getCarreras().remove(carrerasNewCarrera);
+//                        oldDecanatoOfCarrerasNewCarrera = em.merge(oldDecanatoOfCarrerasNewCarrera);
+//                    }
+//                }
+//            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
