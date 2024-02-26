@@ -17,23 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Decanato;
 
-
+/**
+ *
+ * @author antho
+ */
 public class DecanatoJpaController implements Serializable {
 
     public DecanatoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
-
-    public DecanatoJpaController() {
-         emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-    
-    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
