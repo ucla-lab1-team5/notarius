@@ -83,7 +83,7 @@ public class Controller {
     }
 
     
-    public void eliminarDecanato (long decId) {
+    public void eliminarDecanato (int decId) {
         try
         {
             this.decanatoService.destroy(decId);
