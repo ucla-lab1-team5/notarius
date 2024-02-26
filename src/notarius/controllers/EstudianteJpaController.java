@@ -17,23 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Estudiante;
 
-
+/**
+ *
+ * @author antho
+ */
 public class EstudianteJpaController implements Serializable {
 
     public EstudianteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
-
-    public EstudianteJpaController() {
-         emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-    
-    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -121,7 +117,7 @@ public class EstudianteJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();

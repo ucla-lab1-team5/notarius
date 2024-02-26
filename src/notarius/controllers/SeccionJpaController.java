@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import notarius.models.Materia;
 import notarius.models.PeriodoAcademico;
 import notarius.models.Profesor;
 import notarius.models.Calificacion;
@@ -19,23 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Seccion;
 
-
+/**
+ *
+ * @author antho
+ */
 public class SeccionJpaController implements Serializable {
 
     public SeccionJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
-
-    public SeccionJpaController() {
-         emf = Persistence.createEntityManagerFactory("notariusPU");
-    }
-    
-    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -49,6 +46,11 @@ public class SeccionJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Materia materia = seccion.getMateria();
+            if (materia != null) {
+                materia = em.getReference(materia.getClass(), materia.getId());
+                seccion.setMateria(materia);
+            }
             PeriodoAcademico periodo = seccion.getPeriodo();
             if (periodo != null) {
                 periodo = em.getReference(periodo.getClass(), periodo.getId());
@@ -66,6 +68,10 @@ public class SeccionJpaController implements Serializable {
             }
             seccion.setCalificaciones(attachedCalificaciones);
             em.persist(seccion);
+            if (materia != null) {
+                materia.getSecciones().add(seccion);
+                materia = em.merge(materia);
+            }
             if (periodo != null) {
                 periodo.getSecciones().add(seccion);
                 periodo = em.merge(periodo);
@@ -97,12 +103,18 @@ public class SeccionJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Seccion persistentSeccion = em.find(Seccion.class, seccion.getId());
+            Materia materiaOld = persistentSeccion.getMateria();
+            Materia materiaNew = seccion.getMateria();
             PeriodoAcademico periodoOld = persistentSeccion.getPeriodo();
             PeriodoAcademico periodoNew = seccion.getPeriodo();
             Profesor profesorOld = persistentSeccion.getProfesor();
             Profesor profesorNew = seccion.getProfesor();
             List<Calificacion> calificacionesOld = persistentSeccion.getCalificaciones();
             List<Calificacion> calificacionesNew = seccion.getCalificaciones();
+            if (materiaNew != null) {
+                materiaNew = em.getReference(materiaNew.getClass(), materiaNew.getId());
+                seccion.setMateria(materiaNew);
+            }
             if (periodoNew != null) {
                 periodoNew = em.getReference(periodoNew.getClass(), periodoNew.getId());
                 seccion.setPeriodo(periodoNew);
@@ -119,6 +131,14 @@ public class SeccionJpaController implements Serializable {
             calificacionesNew = attachedCalificacionesNew;
             seccion.setCalificaciones(calificacionesNew);
             seccion = em.merge(seccion);
+            if (materiaOld != null && !materiaOld.equals(materiaNew)) {
+                materiaOld.getSecciones().remove(seccion);
+                materiaOld = em.merge(materiaOld);
+            }
+            if (materiaNew != null && !materiaNew.equals(materiaOld)) {
+                materiaNew.getSecciones().add(seccion);
+                materiaNew = em.merge(materiaNew);
+            }
             if (periodoOld != null && !periodoOld.equals(periodoNew)) {
                 periodoOld.getSecciones().remove(seccion);
                 periodoOld = em.merge(periodoOld);
@@ -169,7 +189,7 @@ public class SeccionJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -180,6 +200,11 @@ public class SeccionJpaController implements Serializable {
                 seccion.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The seccion with id " + id + " no longer exists.", enfe);
+            }
+            Materia materia = seccion.getMateria();
+            if (materia != null) {
+                materia.getSecciones().remove(seccion);
+                materia = em.merge(materia);
             }
             PeriodoAcademico periodo = seccion.getPeriodo();
             if (periodo != null) {
