@@ -81,20 +81,9 @@ public class Controller {
         }
 
     }
-    public void eliminarDecanato(String decCodigo){
-        
-        try
-        {
-            Decanato dec = this.decanatoService.findDecanatoEntitiesByField(decCodigo);
-            this.decanatoService.destroy(dec.getIdDecanato());
-        } catch (NonexistentEntityException ex)
-        {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+
     
-    public void eliminarDecanato (int decId) {
+    public void eliminarDecanato (long decId) {
         try
         {
             this.decanatoService.destroy(decId);
@@ -141,8 +130,14 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarCarrera(int carrId) {
-        this.carreraService.destroy(carrId);
+    public void eliminarCarrera(long carrId) {
+        try
+        {
+            this.carreraService.destroy(carrId);
+        } catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     //GESTION MATERIA
@@ -158,7 +153,7 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void eliminarMateria(String matId){
+    public void eliminarMateria(long matId){
         try
         {
             this.materiaService.destroy(matId);

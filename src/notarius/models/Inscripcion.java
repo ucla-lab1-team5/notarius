@@ -1,7 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+Hanuman Sánchez CI: 28.316.086
+Anthony Moreno CI: 28.204.620
+Angel Goyo CI: 29.737.583
+Miller Arias CI: 29.561.941
+Luis Ochoa CI: 29.778.672
+*/
 package notarius.models;
 
 import java.io.Serializable;
@@ -10,65 +13,100 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-/**
- *
- * @author hanumonke
- */
 @Entity
 public class Inscripcion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     
     @OneToMany
     private List<Seccion> secciones;
-    @ManyToOne
+    @OneToOne
     private PeriodoAcademico periodo;
     @OneToOne
     private Estudiante estudiante;
-    @ManyToOne
+    @OneToOne
     private Carrera carrera; 
-    @ManyToOne
+    @OneToOne
     private Decanato decanato;
     private int semestre;
+
+    public Inscripcion() {
+    }
+
+    public Inscripcion(int id, List<Seccion> secciones, PeriodoAcademico periodo, Estudiante estudiante, Carrera carrera, Decanato decanato, int semestre) {
+        this.id = id;
+        this.secciones = secciones;
+        this.periodo = periodo;
+        this.estudiante = estudiante;
+        this.carrera = carrera;
+        this.decanato = decanato;
+        this.semestre = semestre;
+    }
+
+    public List<Seccion> getSecciones() {
+        return secciones;
+    }
+
+    public void setSecciones(List<Seccion> secciones) {
+        this.secciones = secciones;
+    }
+
+    public PeriodoAcademico getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(PeriodoAcademico periodo) {
+        this.periodo = periodo;
+    }
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+
+    public Decanato getDecanato() {
+        return decanato;
+    }
+
+    public void setDecanato(Decanato decanato) {
+        this.decanato = decanato;
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
+    }
     
     
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Inscripcion))
-        {
-            return false;
-        }
-        Inscripcion other = (Inscripcion) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
-        {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {

@@ -1,7 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+Hanuman Sánchez CI: 28.316.086
+Anthony Moreno CI: 28.204.620
+Angel Goyo CI: 29.737.583
+Miller Arias CI: 29.561.941
+Luis Ochoa CI: 29.778.672
+*/
 package notarius.controllers;
 
 import java.io.Serializable;
@@ -10,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
@@ -17,16 +21,19 @@ import notarius.models.Calificacion;
 import notarius.models.Estudiante;
 import notarius.models.Seccion;
 
-/**
- *
- * @author antho
- */
+
 public class CalificacionJpaController implements Serializable {
 
     public CalificacionJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
+
+    public CalificacionJpaController() {
+        emf = Persistence.createEntityManagerFactory("notariusPU");
+    }
+    
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -103,7 +110,7 @@ public class CalificacionJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = calificacion.getId();
+                int id = calificacion.getId();
                 if (findCalificacion(id) == null) {
                     throw new NonexistentEntityException("The calificacion with id " + id + " no longer exists.");
                 }
@@ -171,7 +178,7 @@ public class CalificacionJpaController implements Serializable {
         }
     }
 
-    public Calificacion findCalificacion(Long id) {
+    public Calificacion findCalificacion(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Calificacion.class, id);

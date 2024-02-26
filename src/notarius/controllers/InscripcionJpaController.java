@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import notarius.controllers.exceptions.NonexistentEntityException;
@@ -25,6 +26,12 @@ public class InscripcionJpaController implements Serializable {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
+
+    public InscripcionJpaController() {
+         emf = Persistence.createEntityManagerFactory("notariusPU");
+    }
+    
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -54,7 +61,7 @@ public class InscripcionJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = inscripcion.getId();
+                int id = inscripcion.getId();
                 if (findInscripcion(id) == null) {
                     throw new NonexistentEntityException("The inscripcion with id " + id + " no longer exists.");
                 }
@@ -112,7 +119,7 @@ public class InscripcionJpaController implements Serializable {
         }
     }
 
-    public Inscripcion findInscripcion(Long id) {
+    public Inscripcion findInscripcion(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Inscripcion.class, id);

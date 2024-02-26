@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Materia;
 
@@ -27,6 +28,10 @@ public class MateriaJpaController implements Serializable {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
+
+    public MateriaJpaController() {
+         emf = Persistence.createEntityManagerFactory("notariusPU");
+    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -91,7 +96,7 @@ public class MateriaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = materia.getId();
+                int id = materia.getId();
                 if (findMateria(id) == null) {
                     throw new NonexistentEntityException("The materia with id " + id + " no longer exists.");
                 }
@@ -154,7 +159,7 @@ public class MateriaJpaController implements Serializable {
         }
     }
 
-    public Materia findMateria(Long id) {
+    public Materia findMateria(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Materia.class, id);
