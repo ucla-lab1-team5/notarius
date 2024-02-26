@@ -1,7 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+Hanuman Sánchez CI: 28.316.086
+Anthony Moreno CI: 28.204.620
+Angel Goyo CI: 29.737.583
+Miller Arias CI: 29.561.941
+Luis Ochoa CI: 29.778.672
+*/
 package notarius.models;
 
 import java.io.Serializable;
@@ -13,20 +16,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/**
- *
- * @author hanumonke
- */
+
 @Entity
 public class Decanato implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     
     // lista carreras
-    @OneToMany
+    @OneToMany(mappedBy="decanato")
     private List<Carrera> carreras;
     @Basic
     private String nombre;
@@ -36,7 +36,7 @@ public class Decanato implements Serializable {
     public Decanato() {
     }
 
-    public Decanato(Long id, List<Carrera> carreras, String nombre, String ubicacion, String rector) {
+    public Decanato(int id, List<Carrera> carreras, String nombre, String ubicacion, String rector) {
         this.id = id;
         this.carreras = carreras;
         this.nombre = nombre;
@@ -78,36 +78,15 @@ public class Decanato implements Serializable {
     
     
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Decanato))
-        {
-            return false;
-        }
-        Decanato other = (Decanato) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
-        {
-            return false;
-        }
-        return true;
-    }
-
+   
     @Override
     public String toString() {
         return "notarius.models.Decanato[ id=" + id + " ]";

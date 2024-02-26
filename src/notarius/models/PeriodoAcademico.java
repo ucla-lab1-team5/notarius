@@ -1,7 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+Hanuman Sánchez CI: 28.316.086
+Anthony Moreno CI: 28.204.620
+Angel Goyo CI: 29.737.583
+Miller Arias CI: 29.561.941
+Luis Ochoa CI: 29.778.672
+*/
 package notarius.models;
 
 import java.io.Serializable;
@@ -21,14 +24,12 @@ import javax.persistence.Temporal;
 @Entity
 public class PeriodoAcademico implements Serializable {
     
-    
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     
-    @OneToMany
+    @OneToMany(mappedBy="periodo")
     private List<Seccion> secciones; 
     
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -50,7 +51,7 @@ public class PeriodoAcademico implements Serializable {
     public PeriodoAcademico() {
     }
 
-    public PeriodoAcademico(Long id, List<Seccion> secciones, Date fechaInicio, Date fechaCierre, Date fechaTopeRetiro, Date fechaTopeInclusion, Date fechaTopePrimerParcial, Date fechaTopeSegundoParcial, Date fechaTopeTercerParcial, String codigo) {
+    public PeriodoAcademico(int id, List<Seccion> secciones, Date fechaInicio, Date fechaCierre, Date fechaTopeRetiro, Date fechaTopeInclusion, Date fechaTopePrimerParcial, Date fechaTopeSegundoParcial, Date fechaTopeTercerParcial, String codigo) {
         this.id = id;
         this.secciones = secciones;
         this.fechaInicio = fechaInicio;
@@ -140,35 +141,14 @@ public class PeriodoAcademico implements Serializable {
     
     
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PeriodoAcademico))
-        {
-            return false;
-        }
-        PeriodoAcademico other = (PeriodoAcademico) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)))
-        {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {

@@ -1,7 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+Hanuman Sánchez CI: 28.316.086
+Anthony Moreno CI: 28.204.620
+Angel Goyo CI: 29.737.583
+Miller Arias CI: 29.561.941
+Luis Ochoa CI: 29.778.672
+*/
 package notarius.controllers;
 
 import java.io.Serializable;
@@ -15,19 +18,23 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import notarius.controllers.exceptions.NonexistentEntityException;
 import notarius.models.Carrera;
 
-/**
- *
- * @author antho
- */
+
 public class CarreraJpaController implements Serializable {
 
     public CarreraJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
+
+    public CarreraJpaController() {
+         emf = Persistence.createEntityManagerFactory("notariusPU");
+    }
+    
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -115,7 +122,7 @@ public class CarreraJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = carrera.getId();
+                int id = carrera.getId();
                 if (findCarrera(id) == null) {
                     throw new NonexistentEntityException("The carrera with id " + id + " no longer exists.");
                 }
@@ -183,7 +190,7 @@ public class CarreraJpaController implements Serializable {
         }
     }
 
-    public Carrera findCarrera(Long id) {
+    public Carrera findCarrera(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Carrera.class, id);
