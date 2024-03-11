@@ -230,7 +230,7 @@ System.out.println(jTextField1.getText());
        
        Controller control = null;
        control = new Controller();
-       control.editarDecanato(nuevoDecanato);
+       control.decanato.editar(nuevoDecanato);
        control = null;
        AdminGestionDecanatoView adminGdecView = new AdminGestionDecanatoView();
        adminGdecView.setVisible(true);
@@ -250,7 +250,7 @@ System.out.println(jTextField1.getText());
     public void cargarDecanato (int decId) {
          Controller control = null;
         control = new Controller();
-        Decanato decanatoAmod = control.encontrarDecanato(decId);
+        Decanato decanatoAmod = control.decanato.encontrar(decId);
         String nombre = decanatoAmod.getNombre();
       
         String ubicacion = decanatoAmod.getUbicacion();

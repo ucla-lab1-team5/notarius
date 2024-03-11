@@ -268,7 +268,8 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         
                 Controller control = null;
                 control = new Controller();
-                control.eliminarDecanato(decId);
+                control.decanato.eliminar(decId);
+                control = null;
                 jTable1.removeAll();
                 cargarDecanatos();
             } else {
@@ -324,7 +325,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         
 //CARGAR DATOS DE LA DB
         Controller control = new Controller();
-        ArrayList<Decanato> listaDecanatos = control.traerDecanatos();
+        ArrayList<Decanato> listaDecanatos = control.decanato.traerTodos();
 
         
         if (listaDecanatos != null)

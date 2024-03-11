@@ -8,13 +8,20 @@ Luis Ochoa CI: 29.778.672
 
 package ucla.lab.notarius;
 
+import ucla.lab.notarius.controllers.Controller;
 import ucla.lab.notarius.views.Login;
 
 public class Notarius {
     public static void main(String[] args) {
 
-        Login login = new Login();
-        login.setVisible(true);
+       Controller control = new Controller();
+       
+        
+ 
+    //Necesito metodos para agregar carreras y cosas
+    
+        // Login login = new Login();
+        // login.setVisible(true);
 
        
 

@@ -236,7 +236,7 @@ System.out.println(jTextField1.getText());
        
        Controller control = null;
        control = new Controller();
-       control.registrarDecanato(nuevoDecanato);
+       control.decanato.registrar(nuevoDecanato);
        control = null;
        AdminGestionDecanatoView adminGdecView = new AdminGestionDecanatoView();
        adminGdecView.setVisible(true);
