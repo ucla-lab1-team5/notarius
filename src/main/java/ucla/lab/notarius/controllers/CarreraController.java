@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.EntityManagerFactory;
+
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.controllers.persistence.CarreraJpaController;
 import ucla.lab.notarius.models.Carrera;
@@ -12,8 +14,8 @@ import ucla.lab.notarius.models.Carrera;
 public class CarreraController implements BasicController<Carrera> {
     private final CarreraJpaController carreraService;
 
-    public CarreraController () {
-        this.carreraService = new CarreraJpaController();
+    public CarreraController (EntityManagerFactory emf) {
+        this.carreraService = new CarreraJpaController(emf);
     }
 
     public void registrar(Carrera carr) {

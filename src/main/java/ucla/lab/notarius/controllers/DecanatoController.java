@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.EntityManagerFactory;
+
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.controllers.persistence.CarreraJpaController;
 import ucla.lab.notarius.controllers.persistence.DecanatoJpaController;
@@ -15,8 +17,8 @@ public class DecanatoController implements BasicController<Decanato> {
 
     private final DecanatoJpaController decanatoService;
 
-    public DecanatoController() {
-        this.decanatoService = new DecanatoJpaController();
+    public DecanatoController(EntityManagerFactory emf) {
+        this.decanatoService = new DecanatoJpaController(emf);
     }
 
     public void registrar(Decanato dec) {

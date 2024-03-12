@@ -11,7 +11,7 @@ package ucla.lab.notarius.views;
  *
  * @author ANGELITE
  */
-public class AddUserEstudianteView extends javax.swing.JPanel {
+public class AddUserEstudianteView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView

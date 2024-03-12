@@ -1,12 +1,13 @@
 package ucla.lab.notarius.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.persistence.jpa.config.Basic;
-
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.controllers.persistence.UsuarioJpaController;
+
 import ucla.lab.notarius.models.Usuario;
 
 public class AdministradorController implements BasicController<Usuario>{
@@ -38,5 +39,20 @@ public class AdministradorController implements BasicController<Usuario>{
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public ArrayList<Usuario> traerTodos() {
+       List<Usuario> listaAdminEntities = this.usuarioService.findUsuarioEntities();
+        ArrayList<Usuario> listaAdmins = new ArrayList<Usuario>(listaAdminEntities);
+        return listaAdmins;
+    }
+
+    public Usuario encontrar(int adminId) {
+        try {
+            return this.usuarioService.findUsuario(adminId);
+        } catch (Exception ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

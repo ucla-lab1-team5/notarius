@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.EntityManagerFactory;
+
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.controllers.persistence.MateriaJpaController;
 import ucla.lab.notarius.models.Materia;
@@ -12,8 +14,8 @@ import ucla.lab.notarius.models.Materia;
 public class MateriaController implements BasicController<Materia> {
     private final MateriaJpaController materiaService;
 
-    public MateriaController() {
-        this.materiaService = new MateriaJpaController();
+    public MateriaController(EntityManagerFactory emf) {
+        this.materiaService = new MateriaJpaController(emf);
     }
 
     public void registrar(Materia mat) {
