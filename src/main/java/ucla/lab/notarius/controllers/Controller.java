@@ -42,6 +42,7 @@ public class Controller {
         persistenceMap.put("javax.persistence.jdbc.user", notariusConfig.getPostgresUsername());
         persistenceMap.put("javax.persistence.jdbc.password", notariusConfig.getpostgresPassword());
         persistenceMap.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
+        persistenceMap.put("javax.persistence.schema-generation.database.action", "create");
 
         this.emf = Persistence.createEntityManagerFactory("notariusPU", persistenceMap);
 

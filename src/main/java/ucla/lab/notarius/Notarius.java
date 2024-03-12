@@ -20,19 +20,7 @@ import ucla.lab.notarius.controllers.Controller;
 public class Notarius {
     public static void main(String[] args) {
 
-
-
-        EntityManagerFactory managerFactory = null;
-        Map<String, String> persistenceMap = new HashMap<String, String>();
-
-        persistenceMap.put("javax.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/notarius");
-        persistenceMap.put("javax.persistence.jdbc.user", "postgres");
-        persistenceMap.put("javax.persistence.jdbc.password", "");
-        persistenceMap.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
-
-        managerFactory = Persistence.createEntityManagerFactory("notariusPU", persistenceMap);
-        
-        Controller control = new Controller(managerFactory);
+        Controller control = new Controller();
 
     }
 }
