@@ -1,47 +1,35 @@
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/ProfCalificarStudentView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Usuario.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionSeccionView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionUsuarioView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/ProfesorJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/exceptions/PreexistingEntityException.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/MateriaJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/Controller.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/ModDecanatoView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/exceptions/IllegalOrphanException.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Estudiante.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddUserProfesorView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddSemestreView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionMateriaView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddSeccionView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/exceptions/NonexistentEntityException.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Profesor.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/UsuarioJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/PeriodoAcademicoJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/PerfilView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/CarreraJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/Notarius.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Inscripcion.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddUserEstudianteView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionDecanatoView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/IndexProfesorView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionSemestreView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddCarreraView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddDecanatoView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/IndexEstudianteView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/ProfGestionMateriaView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddUserAdminView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/SeccionJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Decanato.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Materia.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionCarreraView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AddMateriaView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/DecanatoJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionEstudianteView.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/views/Login.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Calificacion.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/EstudianteJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Seccion.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/PeriodoAcademico.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/CalificacionJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/InscripcionJpaController.java
-/home/hanumonke/Desarrollo/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Carrera.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\ProfCalificarStudentView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\Notarius.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\PerfilView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\ProfesorJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Materia.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionCarreraView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Seccion.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\Login.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Profesor.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\exceptions\IllegalOrphanException.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\InscripcionJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Carrera.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Estudiante.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Inscripcion.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\CalificacionJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\exceptions\NonexistentEntityException.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Calificacion.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\ProfGestionMateriaView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionMateriaView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionSeccionView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\exceptions\PreexistingEntityException.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Decanato.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\Controller.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\SeccionJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\UsuarioJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\PeriodoAcademico.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionUsuarioView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionDecanatoView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\DecanatoJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionSemestreView.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\models\Usuario.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\EstudianteJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\CarreraJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\MateriaJpaController.java
+D:\Universidad\Laboratorio I\notarius\notarius\src\main\java\ucla\lab\notarius\controllers\PeriodoAcademicoJpaController.java
