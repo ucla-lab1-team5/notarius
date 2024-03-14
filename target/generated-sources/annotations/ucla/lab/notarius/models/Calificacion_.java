@@ -8,7 +8,7 @@ import ucla.lab.notarius.models.Materia;
 import ucla.lab.notarius.models.PeriodoAcademico;
 import ucla.lab.notarius.models.Seccion;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-13T21:08:27", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-13T23:22:45", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Calificacion.class)
 public class Calificacion_ { 
 

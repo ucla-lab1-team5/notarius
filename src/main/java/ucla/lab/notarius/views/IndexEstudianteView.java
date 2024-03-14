@@ -7,6 +7,8 @@ Luis Ochoa CI: 29.778.672
 */
 package ucla.lab.notarius.views;
 
+import ucla.lab.notarius.models.Estudiante;
+
 /**
  *
  * @author ANGELITE
@@ -243,7 +245,7 @@ public class IndexEstudianteView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(panelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -284,9 +286,9 @@ public class IndexEstudianteView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonAgregarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonActualizarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonActualizarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonAgregarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonActualizarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71))))
@@ -310,7 +312,19 @@ public class IndexEstudianteView extends javax.swing.JPanel {
     }//GEN-LAST:event_textFieldEstadoUsActionPerformed
 
     private void buttonAgregarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarEstActionPerformed
-        // TODO add your handling code here:
+        //AGREGAR USUARIO
+        String nombre = this.textFieldNombreUs.getText();
+        String apellido = this.textFieldApellidoUs.getName();
+        String cedula = this.textFieldEstadoUs.getText();
+        String password = this.textFieldContraUs.getText();
+//        String status = this.textFieldEstadUs.getText();
+        
+        Estudiante estudiante = new Estudiante();
+        estudiante.setNombres(nombre);
+        estudiante.setApellidos(apellido);
+        estudiante.setCedula(cedula);
+        estudiante.setClave(password);
+        
     }//GEN-LAST:event_buttonAgregarEstActionPerformed
 
     private void ComboBoxParaFiltrarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarEstActionPerformed

@@ -131,6 +131,7 @@ ucla/lab/notarius/controllers/persistence/DecanatoJpaController.class
 ucla/lab/notarius/views/AdminGestionDecanatoView$5.class
 ucla/lab/notarius/views/IndexEstudianteView.class
 ucla/lab/notarius/views/AdminGestionUsuarioView$5.class
+ucla/lab/notarius/views/MainFrame.class
 ucla/lab/notarius/views/AdminGestionSemestreView$7.class
 ucla/lab/notarius/views/AdminGestionSeccionView$3.class
 ucla/lab/notarius/views/Login$6.class

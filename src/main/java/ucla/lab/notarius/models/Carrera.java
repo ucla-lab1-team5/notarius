@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Carrera implements Serializable {
@@ -29,6 +30,9 @@ public class Carrera implements Serializable {
     
     @ManyToOne
     private Decanato decanato;
+
+    @OneToMany(mappedBy="carrera")
+    private List<Estudiante> estudiantes;
     
     private String nombre;
     private String descripcion;
