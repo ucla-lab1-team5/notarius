@@ -18,6 +18,8 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Calificacion.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionDecanatoView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/PeriodoAcademico.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminInscripcionEstView1.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminReportesView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/AdministradorController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/CarreraController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/ProfesorController.java

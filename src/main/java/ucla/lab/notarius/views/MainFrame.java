@@ -3,16 +3,17 @@ package ucla.lab.notarius.views;
 import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
-    AdminGestionCarreraView adminCarreraView;
-    AdminGestionDecanatoView adminDecanatoView;
-    AdminGestionMateriaView adminMateriaView;
-    AdminGestionSeccionView adminSeccionView;
-    AdminGestionSemestreView adminSemestreView;
-    AdminGestionUsuarioView adminUsuarioView;
-    IndexEstudianteView indexEstudiante;
-    PerfilView perfilView;
-    ProfCalificarStudentView profCalificarStudentView;
-    ProfGestionMateriaView profGestionMateriaView;
+   private AdminGestionCarreraView adminCarreraView;
+   private AdminGestionDecanatoView adminDecanatoView;
+   private AdminGestionMateriaView adminMateriaView;
+   private AdminGestionSeccionView adminSeccionView;
+   private AdminGestionSemestreView adminSemestreView;
+   private AdminGestionUsuarioView adminUsuarioView;
+   private IndexEstudianteView indexEstudiante;
+   private PerfilView perfilView;
+   private ProfCalificarStudentView profCalificarStudentView;
+   private ProfGestionMateriaView profGestionMateriaView;
+    
     public MainFrame() {
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);

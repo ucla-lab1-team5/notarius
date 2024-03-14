@@ -44,6 +44,14 @@ public class Estudiante extends Usuario implements Serializable {
     public Estudiante() {
     }
 
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+
 
 
     public Estudiante(int id, List<Calificacion> calificaciones, PeriodoAcademico periodo, float promedio, int semestre, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean administrador, boolean estudiante, boolean profesor) {

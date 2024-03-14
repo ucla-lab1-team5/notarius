@@ -30,9 +30,6 @@ public class Carrera implements Serializable {
     
     @ManyToOne
     private Decanato decanato;
-
-    @OneToMany(mappedBy="carrera")
-    private List<Estudiante> estudiantes;
     
     private String nombre;
     private String descripcion;

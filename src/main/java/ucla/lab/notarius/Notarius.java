@@ -9,21 +9,16 @@ Luis Ochoa CI: 29.778.672
 package ucla.lab.notarius;
 
 import ucla.lab.notarius.controllers.Controller;
-import ucla.lab.notarius.models.Estudiante;
+import ucla.lab.notarius.views.MainFrame;
 
 
 public class Notarius {
     public static void main(String[] args) {
 
         Controller control = new Controller();
-        Estudiante estudiante = new Estudiante();
-        estudiante.setGenero('F');        
-        estudiante.setEdad(1);
-        control.estudiante.registrar(estudiante);
 
-
-//        MainFrame mainView = new MainFrame();
-//        mainView.initIndexEstudianteView();
-//        mainView.setVisible(true);
+        MainFrame mainView = new MainFrame();
+        mainView.initIndexEstudianteView();
+        mainView.setVisible(true);
     }
 }

@@ -7,6 +7,15 @@ Luis Ochoa CI: 29.778.672
 */
 package ucla.lab.notarius.views;
 
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+import ucla.lab.notarius.controllers.Controller;
 import ucla.lab.notarius.models.Estudiante;
 
 /**
@@ -52,6 +61,7 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableUsuario = new javax.swing.JTable();
         buttonActualizarEst1 = new javax.swing.JButton();
+        inscribirBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(840, 631));
@@ -232,6 +242,13 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         buttonActualizarEst1.setText("Actualizar");
         buttonActualizarEst1.setBorder(new javax.swing.border.MatteBorder(null));
 
+        inscribirBtn.setText("Estudiante Por Carrera");
+        inscribirBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inscribirBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,8 +279,12 @@ public class IndexEstudianteView extends javax.swing.JPanel {
                         .addComponent(textFieldBuscarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonBuscarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(buttonVolverEst, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(inscribirBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonVolverEst, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -281,7 +302,9 @@ public class IndexEstudianteView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonVolverEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonVolverEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inscribirBtn))
                         .addGap(42, 42, 42))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,13 +340,20 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         String apellido = this.textFieldApellidoUs.getName();
         String cedula = this.textFieldEstadoUs.getText();
         String password = this.textFieldContraUs.getText();
-//        String status = this.textFieldEstadUs.getText();
+        String carreraName = this.textFieldEstadUs.getText();
+        
         
         Estudiante estudiante = new Estudiante();
         estudiante.setNombres(nombre);
         estudiante.setApellidos(apellido);
         estudiante.setCedula(cedula);
         estudiante.setClave(password);
+
+        
+        Controller control = null;
+        control = new Controller();
+        control.estudiante.registrar(estudiante);
+        
         
     }//GEN-LAST:event_buttonAgregarEstActionPerformed
 
@@ -343,6 +373,23 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldContraUsActionPerformed
 
+    private void inscribirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscribirBtnActionPerformed
+        // MOSTRAR REPORTE
+        try {
+            Class.forName("org.postgresql.Driver");
+            try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/notarius", "postgres", "")) {
+                InputStream reportStream = getClass().getClassLoader().getResourceAsStream("jasper/Blank_A4.jrxml");
+                JasperReport jr = JasperCompileManager.compileReport(reportStream);
+                JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+                JasperViewer.viewReport(jp);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_inscribirBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarEst;
@@ -351,6 +398,7 @@ public class IndexEstudianteView extends javax.swing.JPanel {
     private javax.swing.JButton buttonAgregarEst;
     private javax.swing.JButton buttonBuscarEst;
     private javax.swing.JButton buttonVolverEst;
+    private javax.swing.JButton inscribirBtn;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
