@@ -10,6 +10,9 @@ package ucla.lab.notarius.views;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
+
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -377,9 +380,14 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         // MOSTRAR REPORTE
         try {
             Class.forName("org.postgresql.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/notarius", "postgres", "")) {
-                InputStream reportStream = getClass().getClassLoader().getResourceAsStream("jasper/Blank_A4.jrxml");
+            try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/notarius", "postgres", "postgres")) {
+                InputStream reportStream = getClass().getClassLoader().getResourceAsStream("jasper/[YOURREPORT].jrxml");
                 JasperReport jr = JasperCompileManager.compileReport(reportStream);
+
+                Map<String, Object> parameters = new HashMap<>();
+
+                parameters.put("[YOURPARAM]", null);
+
                 JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
                 JasperViewer.viewReport(jp);
             }

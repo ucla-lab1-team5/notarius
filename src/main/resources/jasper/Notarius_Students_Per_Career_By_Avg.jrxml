@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05d6145b-f16d-4c4d-bdd3-d7e972cbd066">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Notarius"/>
+	<parameter name="career_id" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString language="plsql">
+		<![CDATA[SELECT career.nombre AS career_name
+	  ,usr.nombres AS usr_name
+	  ,usr.apellidos AS last_name
+	  ,usr.cedula AS usr_id
+	  ,CASE WHEN usr.genero = 'M'
+	 		THEN 'Masculino'
+	 		ELSE 'Femenino'
+	   END AS genre
+	  ,promedio AS usr_avg
+	  ,career.id 
+FROM usuario usr
+	JOIN carrera career
+		ON usr.carrera_id = career.id
+WHERE ($P{career_id} ISNULL OR career.id = $P{career_id})
+ORDER BY career.nombre  
+		,usr.promedio DESC 
+;]]>
+	</queryString>
+	<field name="career_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="career_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="career_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="carrera"/>
+	</field>
+	<field name="usr_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="usr_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="usr_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="usr_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="usr_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="usr_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="genre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="genre"/>
+		<property name="com.jaspersoft.studio.field.label" value="genre"/>
+	</field>
+	<field name="usr_avg" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="usr_avg"/>
+		<property name="com.jaspersoft.studio.field.label" value="usr_avg"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="carrera"/>
+	</field>
+	<variable name="usr_avg_sum" class="java.lang.Float" resetType="Group" resetGroup="career" calculation="Sum">
+		<variableExpression><![CDATA[$F{usr_avg}]]></variableExpression>
+	</variable>
+	<group name="career" keepTogether="true">
+		<groupExpression><![CDATA[$F{career_name}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="554" height="30" backcolor="#7A8FEB" uuid="cda597f7-d8d5-4096-8357-fc4ae5538a84">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{career_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="480" height="30" backcolor="#7A8FEB" uuid="f33252b2-68d2-4204-a7a9-5ba6b4d8c57c">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Promedio Total de: " + $F{career_name}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;(#,##0.00#-)">
+					<reportElement mode="Opaque" x="480" y="0" width="74" height="30" backcolor="#7A8FEB" uuid="23b3ed8c-e375-40b6-9657-058e29a4a2e7">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a2f94d7-1422-46f2-9134-e3ea6183cd26"/>
+						<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9"/>
+						<paragraph firstLineIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{usr_avg_sum}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="203" y="10" width="148" height="65" uuid="cc2de72f-3cae-4ada-89a5-f45a08f1a4ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estudiantes por Carrera (Ord. Promedio)]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="125" height="75" uuid="1d0f00b1-869a-4dd2-92cb-3376e94c8992">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["img/notariusLogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="120" height="30" backcolor="#7A8FEB" uuid="6eeb52a1-618a-406f-bccf-6d0a31e10113">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="0" width="120" height="30" backcolor="#7A8FEB" uuid="9ae7ae25-7bfe-414a-a6cf-5de83601ba15">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="240" y="0" width="120" height="30" backcolor="#7A8FEB" uuid="fee7ec6e-c81b-426b-9d78-88d688198cde">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[C.I.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="360" y="0" width="120" height="30" backcolor="#7A8FEB" uuid="16e1c4f3-9306-4c26-88ea-4f1acccd2474">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Género]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="0" width="74" height="30" backcolor="#7A8FEB" uuid="a10c6f72-255e-4985-9fd1-1de02e6d8359">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Promedio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="120" height="30" uuid="f1e743c6-2d03-49d5-a261-8a7b686f8fe0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a2f94d7-1422-46f2-9134-e3ea6183cd26"/>
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph firstLineIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usr_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="120" height="30" uuid="a4af1a98-af4e-4066-824b-22dd2b659459">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a2f94d7-1422-46f2-9134-e3ea6183cd26"/>
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph firstLineIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usr_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="120" height="30" uuid="67e85f46-7817-4672-9c1e-435f7444a579">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a2f94d7-1422-46f2-9134-e3ea6183cd26"/>
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph firstLineIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{genre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="120" height="30" uuid="83055853-3eab-4468-a919-a706e52e74e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a2f94d7-1422-46f2-9134-e3ea6183cd26"/>
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph firstLineIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;(#,##0.00#-)">
+				<reportElement x="480" y="0" width="74" height="30" uuid="4abbfb4a-762e-4130-938b-bc0ada5ad80b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a2f94d7-1422-46f2-9134-e3ea6183cd26"/>
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph firstLineIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usr_avg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
