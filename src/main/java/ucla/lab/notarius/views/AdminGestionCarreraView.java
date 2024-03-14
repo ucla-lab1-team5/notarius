@@ -29,31 +29,31 @@ public class AdminGestionCarreraView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelCarreraText1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        ComboBoxParaFiltrar = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        tableCarrera = new javax.swing.JTable();
+        panelCarrera = new javax.swing.JPanel();
+        textFieldCodigoCar = new javax.swing.JTextField();
+        labelCarreraText2 = new javax.swing.JLabel();
+        textFieldCarreraCar = new javax.swing.JTextField();
+        comboBoxDecanatoCar = new javax.swing.JComboBox<>();
+        textFieldCantSemestreCar = new javax.swing.JTextField();
+        textFieldBuscarCar = new javax.swing.JTextField();
+        buttonVolverCar = new javax.swing.JButton();
+        buttonBuscarCar = new javax.swing.JButton();
+        buttonAgregarCar = new javax.swing.JButton();
+        ComboBoxParaFiltrarCar = new javax.swing.JComboBox<>();
+        buttonActualizarCar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setPreferredSize(new java.awt.Dimension(840, 631));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        labelCarreraText1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelCarreraText1.setText("GESTION DE CARRERA");
+        labelCarreraText1.setToolTipText("");
+
+        tableCarrera.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tableCarrera.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"3422432", "ING EN ZAMUREAR", "DPUTA", "5", null},
                 {null, null, null, null, null},
@@ -79,202 +79,226 @@ public class AdminGestionCarreraView extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableCarrera);
 
-        ComboBoxParaFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "DECANATO", " " }));
-        ComboBoxParaFiltrar.setToolTipText(""); // NOI18N
-        ComboBoxParaFiltrar.addActionListener(new java.awt.event.ActionListener() {
+        panelCarrera.setBackground(new java.awt.Color(153, 153, 153));
+        panelCarrera.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        textFieldCodigoCar.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        textFieldCodigoCar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Codigo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldCodigoCar.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                textFieldCodigoCarAncestorRemoved(evt);
+            }
+        });
+        textFieldCodigoCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxParaFiltrarActionPerformed(evt);
+                textFieldCodigoCarActionPerformed(evt);
             }
         });
 
-        jButton4.setText("ESTUDIANTE");
+        labelCarreraText2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCarreraText2.setText("REGISTRO");
 
-        jButton5.setText("PROFESOR");
-
-        jButton2.setText("ADMINISTRADOR");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
-        jLabel2.setText("AGREGAR:");
-
-        jTextField1.setText("Buscar...");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textFieldCarreraCar.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        textFieldCarreraCar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Carrera", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldCarreraCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textFieldCarreraCarActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Buscar");
+        comboBoxDecanatoCar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
+        comboBoxDecanatoCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DECANATO", "DCYT", "DULA", "DPTE" }));
+        comboBoxDecanatoCar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        comboBoxDecanatoCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxDecanatoCarActionPerformed(evt);
+            }
+        });
 
-        jPanel2.setBackground(new java.awt.Color(8, 17, 195));
+        textFieldCantSemestreCar.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
+        textFieldCantSemestreCar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cantidad de Semestres", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldCantSemestreCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldCantSemestreCarActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setToolTipText("");
-
-        jLabel4.setToolTipText("");
-
-        jButton3.setBackground(new java.awt.Color(17, 8, 195));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/home.png"))); // NOI18N
-        jButton3.setBorder(null);
-
-        jButton6.setBackground(new java.awt.Color(17, 8, 195));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
-        jButton6.setBorder(null);
-
-        jButton7.setBackground(new java.awt.Color(17, 8, 195));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/settings.png"))); // NOI18N
-        jButton7.setBorder(null);
-
-        jButton8.setBackground(new java.awt.Color(17, 8, 195));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/list.png"))); // NOI18N
-        jButton8.setBorder(null);
-
-        jButton9.setBackground(new java.awt.Color(17, 8, 195));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/logout.png"))); // NOI18N
-        jButton9.setBorder(null);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+        javax.swing.GroupLayout panelCarreraLayout = new javax.swing.GroupLayout(panelCarrera);
+        panelCarrera.setLayout(panelCarreraLayout);
+        panelCarreraLayout.setHorizontalGroup(
+            panelCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCarreraLayout.createSequentialGroup()
+                .addGroup(panelCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCarreraLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(panelCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textFieldCarreraCar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldCodigoCar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldCantSemestreCar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxDecanatoCar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelCarreraLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(labelCarreraText2)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        panelCarreraLayout.setVerticalGroup(
+            panelCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCarreraLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelCarreraText2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldCodigoCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldCarreraCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(comboBoxDecanatoCar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldCantSemestreCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton9)
-                    .addComponent(jButton8)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6)
-                    .addComponent(jButton3))
-                .addGap(0, 15, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel4)
-                .addGap(36, 36, 36)
-                .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(39, 39, 39)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(39, 39, 39)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton9)
-                .addGap(14, 14, 14))
-        );
+
+        textFieldBuscarCar.setText("Buscar...");
+        textFieldBuscarCar.setBorder(new javax.swing.border.MatteBorder(null));
+        textFieldBuscarCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldBuscarCarActionPerformed(evt);
+            }
+        });
+
+        buttonVolverCar.setText("VOLVER");
+        buttonVolverCar.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonBuscarCar.setText("Buscar");
+        buttonBuscarCar.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonAgregarCar.setText("Agregar");
+        buttonAgregarCar.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonAgregarCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarCarActionPerformed(evt);
+            }
+        });
+
+        ComboBoxParaFiltrarCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "DECANATO", " " }));
+        ComboBoxParaFiltrarCar.setToolTipText(""); // NOI18N
+        ComboBoxParaFiltrarCar.setBorder(new javax.swing.border.MatteBorder(null));
+        ComboBoxParaFiltrarCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxParaFiltrarCarActionPerformed(evt);
+            }
+        });
+
+        buttonActualizarCar.setText("Actualizar");
+        buttonActualizarCar.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelCarreraText1)
+                .addGap(250, 250, 250))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jLabel2)
-                        .addGap(211, 211, 211)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(287, 287, 287)
+                        .addComponent(buttonVolverCar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(panelCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ComboBoxParaFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(216, 216, 216))
-                            .addComponent(jScrollPane1))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addGap(60, 60, 60)
+                        .addComponent(buttonAgregarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonActualizarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ComboBoxParaFiltrarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldBuscarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonBuscarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComboBoxParaFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGap(58, 58, 58)
+                .addComponent(labelCarreraText1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2)))
-                .addGap(562, 562, 562))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonActualizarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAgregarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBoxParaFiltrarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldBuscarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBuscarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(buttonVolverCar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboBoxParaFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarActionPerformed
+    private void textFieldCodigoCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCodigoCarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxParaFiltrarActionPerformed
+    }//GEN-LAST:event_textFieldCodigoCarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void textFieldCarreraCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCarreraCarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_textFieldCarreraCarActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void textFieldCantSemestreCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCantSemestreCarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_textFieldCantSemestreCarActionPerformed
+
+    private void textFieldCodigoCarAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldCodigoCarAncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldCodigoCarAncestorRemoved
+
+    private void comboBoxDecanatoCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDecanatoCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxDecanatoCarActionPerformed
+
+    private void textFieldBuscarCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBuscarCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldBuscarCarActionPerformed
+
+    private void buttonAgregarCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAgregarCarActionPerformed
+
+    private void ComboBoxParaFiltrarCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxParaFiltrarCarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboBoxParaFiltrar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> ComboBoxParaFiltrarCar;
+    private javax.swing.JButton buttonActualizarCar;
+    private javax.swing.JButton buttonAgregarCar;
+    private javax.swing.JButton buttonBuscarCar;
+    private javax.swing.JButton buttonVolverCar;
+    private javax.swing.JComboBox<String> comboBoxDecanatoCar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelCarreraText1;
+    private javax.swing.JLabel labelCarreraText2;
+    private javax.swing.JPanel panelCarrera;
+    private javax.swing.JTable tableCarrera;
+    private javax.swing.JTextField textFieldBuscarCar;
+    private javax.swing.JTextField textFieldCantSemestreCar;
+    private javax.swing.JTextField textFieldCarreraCar;
+    private javax.swing.JTextField textFieldCodigoCar;
     // End of variables declaration//GEN-END:variables
 }
