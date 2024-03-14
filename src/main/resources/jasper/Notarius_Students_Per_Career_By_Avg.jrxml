@@ -5,22 +5,27 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Notarius"/>
 	<parameter name="career_id" class="java.lang.Integer" isForPrompting="false"/>
 	<queryString language="plsql">
-		<![CDATA[SELECT career.nombre AS career_name
-	  ,usr.nombres AS usr_name
-	  ,usr.apellidos AS last_name
-	  ,usr.cedula AS usr_id
-	  ,CASE WHEN usr.genero = 'M'
-	 		THEN 'Masculino'
-	 		ELSE 'Femenino'
-	   END AS genre
-	  ,promedio AS usr_avg
-	  ,career.id 
-FROM usuario usr
-	JOIN carrera career
-		ON usr.carrera_id = career.id
-WHERE ($P{career_id} ISNULL OR career.id = $P{career_id})
-ORDER BY career.nombre  
-		,usr.promedio DESC 
+		<![CDATA[SELECT rnk.*
+FROM (
+	SELECT career.nombre AS career_name
+		  ,usr.nombres AS usr_name
+		  ,usr.apellidos AS last_name
+		  ,usr.cedula AS usr_id
+		  ,CASE WHEN usr.genero = 'M'
+		 		THEN 'Masculino'
+		 		ELSE 'Femenino'
+		   END AS genre
+		  ,promedio AS usr_avg
+		  ,career.id 
+		  ,RANK() OVER (ORDER BY usr.promedio DESC) AS ranking
+	FROM usuario usr
+		JOIN carrera career
+			ON usr.carrera_id = career.id
+	WHERE ($P{career_id} ISNULL OR career.id = $P{career_id})
+	ORDER BY career.nombre  
+			,usr.promedio DESC
+) rnk
+LIMIT 20
 ;]]>
 	</queryString>
 	<field name="career_name" class="java.lang.String">
@@ -56,6 +61,10 @@ ORDER BY career.nombre
 		<property name="com.jaspersoft.studio.field.name" value="id"/>
 		<property name="com.jaspersoft.studio.field.label" value="id"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="carrera"/>
+	</field>
+	<field name="ranking" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="ranking"/>
+		<property name="com.jaspersoft.studio.field.label" value="ranking"/>
 	</field>
 	<variable name="usr_avg_sum" class="java.lang.Float" resetType="Group" resetGroup="career" calculation="Sum">
 		<variableExpression><![CDATA[$F{usr_avg}]]></variableExpression>
@@ -122,7 +131,7 @@ ORDER BY career.nombre
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Estudiantes por Carrera (Ord. Promedio)]]></text>
+				<text><![CDATA[Estudiantes por Carrera (20 Mejores)]]></text>
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="125" height="75" uuid="1d0f00b1-869a-4dd2-92cb-3376e94c8992">

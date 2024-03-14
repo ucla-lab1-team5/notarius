@@ -380,7 +380,7 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         // MOSTRAR REPORTE
         try {
             Class.forName("org.postgresql.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/notarius", "postgres", "postgres")) {
+            try (Connection con = DriverManager.getConnection("jdbc:postgresql://[YOURHOST]:[YOURPORT]/[YOURDB]", "[YOURDBUSER]", "[YOURDBPASSWORD]")) {
                 InputStream reportStream = getClass().getClassLoader().getResourceAsStream("jasper/[YOURREPORT].jrxml");
                 JasperReport jr = JasperCompileManager.compileReport(reportStream);
 
