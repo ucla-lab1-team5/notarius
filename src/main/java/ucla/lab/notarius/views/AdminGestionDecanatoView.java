@@ -69,24 +69,24 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(17, 8, 195));
 
         jButton14.setBackground(new java.awt.Color(17, 8, 195));
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/list.png"))); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/list.png"))); // NOI18N
         jButton14.setBorder(null);
 
         jButton12.setBackground(new java.awt.Color(17, 8, 195));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
         jButton12.setBorder(null);
 
         jButton11.setBackground(new java.awt.Color(17, 8, 195));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/home.png"))); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home.png"))); // NOI18N
         jButton11.setToolTipText("");
         jButton11.setBorder(null);
 
         jButton15.setBackground(new java.awt.Color(17, 8, 195));
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/logout.png"))); // NOI18N
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
         jButton15.setBorder(null);
 
         jButton13.setBackground(new java.awt.Color(17, 8, 195));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/settings.png"))); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/settings.png"))); // NOI18N
         jButton13.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -151,7 +151,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/search.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -177,7 +177,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
             }
         });
 
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/recargarIcono.png"))); // NOI18N
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/recargarIcono.png"))); // NOI18N
         jButton18.setText("Recargar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,7 +268,8 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         
                 Controller control = null;
                 control = new Controller();
-                control.eliminarDecanato(decId);
+                control.decanato.eliminar(decId);
+                control = null;
                 jTable1.removeAll();
                 cargarDecanatos();
             } else {
@@ -324,7 +325,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         
 //CARGAR DATOS DE LA DB
         Controller control = new Controller();
-        ArrayList<Decanato> listaDecanatos = control.traerDecanatos();
+        ArrayList<Decanato> listaDecanatos = control.decanato.traerTodos();
 
         
         if (listaDecanatos != null)
