@@ -205,10 +205,10 @@ public class Login extends javax.swing.JFrame {
 
         bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 130, 40));
 
-        backgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/university.png"))); // NOI18N
+        backgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/university.png"))); // NOI18N
         bg.add(backgroud, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
-        notariusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/notariusLogo.png"))); // NOI18N
+        notariusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notariusLogo.png"))); // NOI18N
         bg.add(notariusLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

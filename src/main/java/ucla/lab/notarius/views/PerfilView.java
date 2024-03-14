@@ -98,23 +98,23 @@ public class PerfilView extends javax.swing.JPanel {
         jLabel29.setToolTipText("");
 
         buttonIconoInicio.setBackground(new java.awt.Color(17, 8, 195));
-        buttonIconoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/home.png"))); // NOI18N
+        buttonIconoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home.png"))); // NOI18N
         buttonIconoInicio.setBorder(null);
 
         buttonIconoPerfil.setBackground(new java.awt.Color(17, 8, 195));
-        buttonIconoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
+        buttonIconoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
         buttonIconoPerfil.setBorder(null);
 
         buttonIconoConfig.setBackground(new java.awt.Color(17, 8, 195));
-        buttonIconoConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/settings.png"))); // NOI18N
+        buttonIconoConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/settings.png"))); // NOI18N
         buttonIconoConfig.setBorder(null);
 
         jButton33.setBackground(new java.awt.Color(17, 8, 195));
-        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/list.png"))); // NOI18N
+        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/list.png"))); // NOI18N
         jButton33.setBorder(null);
 
         jButton34.setBackground(new java.awt.Color(17, 8, 195));
-        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/logout.png"))); // NOI18N
+        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
         jButton34.setBorder(null);
 
         javax.swing.GroupLayout panelBarralateralLayout = new javax.swing.GroupLayout(panelBarralateral);
@@ -168,7 +168,7 @@ public class PerfilView extends javax.swing.JPanel {
 
         buttonFotoPerfil.setBackground(new java.awt.Color(0, 204, 204));
         buttonFotoPerfil.setForeground(new java.awt.Color(204, 204, 0));
-        buttonFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
+        buttonFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
         buttonFotoPerfil.setBorder(null);
         buttonFotoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
