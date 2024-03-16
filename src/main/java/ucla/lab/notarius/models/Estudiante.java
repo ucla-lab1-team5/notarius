@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -29,15 +30,26 @@ public class Estudiante extends Usuario implements Serializable {
     @OneToMany(mappedBy="estudiante")
     private List<Calificacion> calificaciones;
     
+    @OneToOne 
+    private Carrera carrera;
+    
     @ManyToOne
     private PeriodoAcademico periodo;
-    @Basic
     
+    @Basic
     private float promedio;
     private int semestre;
     
 
     public Estudiante() {
+    }
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     }
 
 

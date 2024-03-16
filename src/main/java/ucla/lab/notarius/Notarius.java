@@ -8,19 +8,17 @@ Luis Ochoa CI: 29.778.672
 
 package ucla.lab.notarius;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import ucla.lab.notarius.controllers.Controller;
+import ucla.lab.notarius.views.MainFrame;
+
 
 public class Notarius {
     public static void main(String[] args) {
 
         Controller control = new Controller();
 
+        MainFrame mainView = new MainFrame();
+        mainView.initIndexEstudianteView();
+        mainView.setVisible(true);
     }
 }

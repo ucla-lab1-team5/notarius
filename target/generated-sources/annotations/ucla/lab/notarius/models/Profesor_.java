@@ -5,7 +5,7 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import ucla.lab.notarius.models.Seccion;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-12T16:50:55", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-14T00:36:45", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Profesor.class)
 public class Profesor_ extends Usuario_ {
 
