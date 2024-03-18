@@ -29,14 +29,14 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonActualizarSem = new javax.swing.JButton();
-        buttonAgregarSem = new javax.swing.JButton();
         panelSeccion = new javax.swing.JPanel();
         textFieldSemestre = new javax.swing.JTextField();
         labelSeccionText2 = new javax.swing.JLabel();
         textFieldFechIniSem = new javax.swing.JTextField();
-        textFieldFechActSem = new javax.swing.JTextField();
         textFieldFechFinSem = new javax.swing.JTextField();
+        buttonAgregarSem = new javax.swing.JButton();
+        buttonActualizarSem = new javax.swing.JButton();
+        buttonAgregarSem1 = new javax.swing.JButton();
         textFieldBuscarSem = new javax.swing.JTextField();
         ComboBoxParaFiltrarSem = new javax.swing.JComboBox<>();
         buttonVolverSem = new javax.swing.JButton();
@@ -48,25 +48,14 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(840, 631));
 
-        buttonActualizarSem.setText("Actualizar");
-        buttonActualizarSem.setBorder(new javax.swing.border.MatteBorder(null));
-
-        buttonAgregarSem.setText("Agregar");
-        buttonAgregarSem.setBorder(new javax.swing.border.MatteBorder(null));
-        buttonAgregarSem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAgregarSemActionPerformed(evt);
-            }
-        });
-
         panelSeccion.setBackground(new java.awt.Color(153, 153, 153));
         panelSeccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         textFieldSemestre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Semestre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldSemestre.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 textFieldSemestreAncestorRemoved(evt);
@@ -90,20 +79,11 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
             }
         });
 
-        textFieldFechActSem.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
-        textFieldFechActSem.setToolTipText("");
-        textFieldFechActSem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha Actual", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
-        textFieldFechActSem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldFechActSemActionPerformed(evt);
-            }
-        });
-
         textFieldFechFinSem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha Final", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldFechFinSem.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 textFieldFechFinSemAncestorRemoved(evt);
@@ -112,6 +92,25 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
         textFieldFechFinSem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldFechFinSemActionPerformed(evt);
+            }
+        });
+
+        buttonAgregarSem.setText("Agregar");
+        buttonAgregarSem.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonAgregarSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarSemActionPerformed(evt);
+            }
+        });
+
+        buttonActualizarSem.setText("Actualizar");
+        buttonActualizarSem.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonAgregarSem1.setText("Elminar");
+        buttonAgregarSem1.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonAgregarSem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarSem1ActionPerformed(evt);
             }
         });
 
@@ -125,13 +124,16 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
                 .addGap(63, 63, 63))
             .addGroup(panelSeccionLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(panelSeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelSeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(textFieldFechFinSem)
-                        .addComponent(textFieldFechActSem, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelSeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(textFieldSemestre, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                        .addComponent(textFieldFechIniSem)))
+                .addGroup(panelSeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textFieldSemestre)
+                    .addComponent(textFieldFechIniSem)
+                    .addGroup(panelSeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelSeccionLayout.createSequentialGroup()
+                            .addComponent(buttonAgregarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(buttonActualizarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textFieldFechFinSem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonAgregarSem1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         panelSeccionLayout.setVerticalGroup(
@@ -141,13 +143,17 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
                 .addComponent(labelSeccionText2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textFieldSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(textFieldFechIniSem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(textFieldFechFinSem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFieldFechActSem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGroup(panelSeccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonActualizarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAgregarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonAgregarSem1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
 
         textFieldBuscarSem.setText("Buscar...");
@@ -179,17 +185,17 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "2023-2", "01-07-2023", "01-03-2024", "20-02-2023", null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {"1", "2023-2", "01-07-2023", "01-03-2024", "20-02-2023", null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Semestre", "FechaInit", "FechaFin", "FechaAct", "..."
+                "ID", "Semestre", "FechaInit", "FechaFin", "LimiteInc", "FT1P", "FT2P", "FT3P"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -208,30 +214,20 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
                         .addGap(317, 317, 317)
                         .addComponent(labelUserSeccionText1)
                         .addGap(205, 205, 205))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonVolverSem, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(buttonAgregarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonActualizarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ComboBoxParaFiltrarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textFieldBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
                                 .addComponent(buttonBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(panelSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(33, 33, 33)
-                                        .addComponent(buttonVolverSem, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane1)))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE))
                         .addGap(11, 11, 11)))
                 .addGap(26, 26, 26))
         );
@@ -242,18 +238,18 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
                 .addComponent(labelUserSeccionText1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonActualizarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAgregarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBoxParaFiltrarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(buttonVolverSem, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(buttonVolverSem, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ComboBoxParaFiltrarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonBuscarSem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -281,10 +277,6 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxParaFiltrarSemActionPerformed
 
-    private void textFieldFechActSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFechActSemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldFechActSemActionPerformed
-
     private void textFieldFechFinSemAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldFechFinSemAncestorRemoved
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldFechFinSemAncestorRemoved
@@ -293,11 +285,16 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldFechFinSemActionPerformed
 
+    private void buttonAgregarSem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarSem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAgregarSem1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarSem;
     private javax.swing.JButton buttonActualizarSem;
     private javax.swing.JButton buttonAgregarSem;
+    private javax.swing.JButton buttonAgregarSem1;
     private javax.swing.JButton buttonBuscarSem;
     private javax.swing.JButton buttonVolverSem;
     private javax.swing.JScrollPane jScrollPane1;
@@ -306,7 +303,6 @@ public class AdminGestionSemestreView extends javax.swing.JPanel {
     private javax.swing.JLabel labelUserSeccionText1;
     private javax.swing.JPanel panelSeccion;
     private javax.swing.JTextField textFieldBuscarSem;
-    private javax.swing.JTextField textFieldFechActSem;
     private javax.swing.JTextField textFieldFechFinSem;
     private javax.swing.JTextField textFieldFechIniSem;
     private javax.swing.JTextField textFieldSemestre;

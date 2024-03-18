@@ -9,10 +9,8 @@ public class MainFrame extends JFrame {
    private AdminGestionSeccionView adminSeccionView;
    private AdminGestionSemestreView adminSemestreView;
    private AdminGestionUsuarioView adminUsuarioView;
-   private IndexEstudianteView indexEstudiante;
-   private PerfilView perfilView;
-   private ProfCalificarStudentView profCalificarStudentView;
-   private ProfGestionMateriaView profGestionMateriaView;
+   private MenuEstudianteView MenuEstudianteView;
+   private ProfGestionCalificacionesView profGestionMateriaView;
     
     public MainFrame() {
         this.setSize(800, 600);
@@ -59,25 +57,13 @@ public class MainFrame extends JFrame {
 
     public void initIndexEstudianteView() {
         this.getContentPane().removeAll();
-        this.indexEstudiante = new IndexEstudianteView();
-        this.getContentPane().add(this.indexEstudiante);
-    }
-
-    public void initPerfilView() {
-        this.getContentPane().removeAll();
-        this.perfilView = new PerfilView();
-        this.getContentPane().add(this.perfilView);
-    }
-
-    public void initProfCalificarStudentView() {
-        this.getContentPane().removeAll();
-        this.profCalificarStudentView = new ProfCalificarStudentView();
-        this.getContentPane().add(this.profCalificarStudentView);
+        this.MenuEstudianteView = new MenuEstudianteView();
+        this.getContentPane().add(this.MenuEstudianteView);
     }
 
     public void initProfGestionMateriaView() {
         this.getContentPane().removeAll();
-        this.profGestionMateriaView = new ProfGestionMateriaView();
+        this.profGestionMateriaView = new ProfGestionCalificacionesView();
         this.getContentPane().add(this.profGestionMateriaView);
     }
 

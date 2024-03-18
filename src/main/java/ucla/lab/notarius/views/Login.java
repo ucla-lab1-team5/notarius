@@ -25,18 +25,16 @@ public class Login extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         logoNameNotarius = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
-        exitTxt = new javax.swing.JLabel();
         titleInicioSesion = new javax.swing.JLabel();
-        userLabel = new javax.swing.JLabel();
         textFielduserTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        passLabel = new javax.swing.JLabel();
         textFieldpassTxt = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         loginBtn = new javax.swing.JPanel();
         buttonloginTxt = new javax.swing.JLabel();
         backgroud = new javax.swing.JLabel();
         notariusLogo = new javax.swing.JLabel();
+        exitTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -66,34 +64,15 @@ public class Login extends javax.swing.JFrame {
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exitTxt.setText("X");
-        exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        exitTxt.setPreferredSize(new java.awt.Dimension(40, 40));
-        exitTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                exitTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                exitTxtMouseExited(evt);
-            }
-        });
-
         javax.swing.GroupLayout exitBtnLayout = new javax.swing.GroupLayout(exitBtn);
         exitBtn.setLayout(exitBtnLayout);
         exitBtnLayout.setHorizontalGroup(
             exitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, exitBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 40, Short.MAX_VALUE)
         );
         exitBtnLayout.setVerticalGroup(
             exitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
@@ -101,9 +80,8 @@ public class Login extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
-                .addComponent(logoNameNotarius, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(231, 231, 231)
+                .addComponent(logoNameNotarius, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
@@ -121,16 +99,12 @@ public class Login extends javax.swing.JFrame {
 
         titleInicioSesion.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         titleInicioSesion.setText("INICIAR SESIÓN");
-        bg.add(titleInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
-
-        userLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        userLabel.setText("USUARIO");
-        bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 70, -1));
+        bg.add(titleInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         textFielduserTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         textFielduserTxt.setForeground(new java.awt.Color(204, 204, 204));
         textFielduserTxt.setText("Ingrese su nombre de usuario");
-        textFielduserTxt.setBorder(null);
+        textFielduserTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USUARIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Black", 0, 18))); // NOI18N
         textFielduserTxt.setSelectionColor(new java.awt.Color(66, 60, 195));
         textFielduserTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -142,18 +116,14 @@ public class Login extends javax.swing.JFrame {
                 textFielduserTxtActionPerformed(evt);
             }
         });
-        bg.add(textFielduserTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 410, 30));
+        bg.add(textFielduserTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 410, 50));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 410, 20));
-
-        passLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        passLabel.setText("CONTRASEÑA");
-        bg.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 410, 20));
 
         textFieldpassTxt.setForeground(new java.awt.Color(204, 204, 204));
         textFieldpassTxt.setText("Contraseña");
-        textFieldpassTxt.setBorder(null);
+        textFieldpassTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTRASEÑA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Black", 0, 18))); // NOI18N
         textFieldpassTxt.setSelectionColor(new java.awt.Color(66, 60, 195));
         textFieldpassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -165,10 +135,10 @@ public class Login extends javax.swing.JFrame {
                 textFieldpassTxtActionPerformed(evt);
             }
         });
-        bg.add(textFieldpassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 410, 30));
+        bg.add(textFieldpassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 410, 50));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 410, 20));
+        bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 410, 20));
 
         loginBtn.setBackground(new java.awt.Color(17, 8, 197));
 
@@ -194,32 +164,56 @@ public class Login extends javax.swing.JFrame {
         loginBtnLayout.setHorizontalGroup(
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginBtnLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addComponent(buttonloginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addGap(30, 30, 30))
         );
         loginBtnLayout.setVerticalGroup(
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonloginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 130, 40));
+        bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 130, 40));
 
-        backgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/university.png"))); // NOI18N
+        backgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/university.png"))); // NOI18N
         bg.add(backgroud, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
-        notariusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notariusLogo.png"))); // NOI18N
+        notariusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/notariusLogo.png"))); // NOI18N
         bg.add(notariusLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitTxt.setText("X");
+        exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitTxt.setPreferredSize(new java.awt.Dimension(40, 40));
+        exitTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitTxtMouseExited(evt);
+            }
+        });
+        bg.add(exitTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -347,10 +341,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel loginBtn;
     private javax.swing.JLabel logoNameNotarius;
     private javax.swing.JLabel notariusLogo;
-    private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField textFieldpassTxt;
     private javax.swing.JTextField textFielduserTxt;
     private javax.swing.JLabel titleInicioSesion;
-    private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
 }

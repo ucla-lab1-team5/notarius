@@ -71,7 +71,7 @@ public class AdminReportesView extends javax.swing.JPanel {
         labelDecanatoText3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelDecanatoText3.setText("REGISTRO");
 
-        textFieldApellidoUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldApellidoUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         textFieldApellidoUs1.setToolTipText("");
         textFieldApellidoUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldApellidoUs1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class AdminReportesView extends javax.swing.JPanel {
             }
         });
 
-        textFieldEstadoUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldEstadoUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         textFieldEstadoUs1.setToolTipText("");
         textFieldEstadoUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cedula", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldEstadoUs1.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class AdminReportesView extends javax.swing.JPanel {
             }
         });
 
-        textFieldEstadUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldEstadUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         textFieldEstadUs1.setToolTipText("");
         textFieldEstadUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldEstadUs1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class AdminReportesView extends javax.swing.JPanel {
             }
         });
 
-        textFieldContraUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldContraUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         textFieldContraUs1.setToolTipText("");
         textFieldContraUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldContraUs1.addActionListener(new java.awt.event.ActionListener() {
@@ -181,8 +181,8 @@ public class AdminReportesView extends javax.swing.JPanel {
         buttonVolverEst2.setText("VOLVER");
         buttonVolverEst2.setBorder(new javax.swing.border.MatteBorder(null));
 
-        textFieldBuscarEst1.setText("  Buscar...");
-        textFieldBuscarEst1.setBorder(new javax.swing.border.MatteBorder(null));
+        textFieldBuscarEst1.setText("  ");
+        textFieldBuscarEst1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 0, 12))); // NOI18N
         textFieldBuscarEst1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldBuscarEst1ActionPerformed(evt);
@@ -197,11 +197,15 @@ public class AdminReportesView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ComboBoxParaFiltrarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,13 +226,14 @@ public class AdminReportesView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(118, 118, 118)
+                        .addGap(106, 106, 106)
                         .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ComboBoxParaFiltrarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFieldBuscarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonBuscarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ComboBoxParaFiltrarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonBuscarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textFieldBuscarEst1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(45, 45, 45))
