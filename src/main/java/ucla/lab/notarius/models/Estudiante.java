@@ -10,6 +10,7 @@ package ucla.lab.notarius.models;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ import javax.persistence.OneToOne;
 
 
 @Entity
+@DiscriminatorValue(value = "user")
 public class Estudiante extends Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,13 +64,6 @@ public class Estudiante extends Usuario implements Serializable {
         this.promedio = promedio;
         this.semestre = semestre;
     }
-
-
-
-
-
-
-   
 
     public List<Calificacion> getCalificaciones() {
         return calificaciones;
@@ -114,7 +109,9 @@ public class Estudiante extends Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "notarius.models.Estudiante[ id=" + id + " ]";
+        StringBuilder estudianteString = new StringBuilder("Estudiante ");
+        estudianteString.append(getNombres()).append(" - Cedula ").append(getCedula()).append(" - id: ").append(getId());
+        return estudianteString.toString();
     }
     
 }

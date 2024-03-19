@@ -12,6 +12,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 //importando modelos
 
 import ucla.lab.notarius.utils.NotariusConfig;

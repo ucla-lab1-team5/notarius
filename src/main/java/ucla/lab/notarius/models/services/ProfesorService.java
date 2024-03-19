@@ -11,6 +11,7 @@ import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import ucla.lab.notarius.models.Seccion;
@@ -19,6 +20,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
+import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.Profesor;
 
 /**
@@ -159,14 +161,19 @@ public class ProfesorService implements Serializable {
     private List<Profesor> findProfesorEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Profesor.class));
-            Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
+           CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Profesor> cq = cb.createQuery(Profesor.class);
+            Root<Profesor> profesorRoot = cq.from(Profesor.class); 
+
+        // Add the condition
+        cq.where(cb.equal(profesorRoot.get("profesor"), true)); 
+
+        Query q = em.createQuery(cq);
+        if (!all) {
+            q.setMaxResults(maxResults);
+            q.setFirstResult(firstResult);
+        }
+        return q.getResultList();
         } finally {
             em.close();
         }
