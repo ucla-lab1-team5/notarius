@@ -10,7 +10,7 @@ import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.PeriodoAcademico;
 import ucla.lab.notarius.models.Seccion;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-14T00:36:45", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-19T12:17:33", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Inscripcion.class)
 public class Inscripcion_ { 
 

@@ -18,8 +18,8 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
-import ucla.lab.notarius.controllers.Controller;
 import ucla.lab.notarius.models.Estudiante;
+import ucla.lab.notarius.models.services.PersistenceService;
 
 /**
  *
@@ -353,9 +353,9 @@ public class IndexEstudianteView extends javax.swing.JPanel {
         estudiante.setClave(password);
 
         
-        Controller control = null;
-        control = new Controller();
-        control.estudiante.registrar(estudiante);
+        PersistenceService control = null;
+        control = new PersistenceService();
+        control.estudiante.create(estudiante);
         
         
     }//GEN-LAST:event_buttonAgregarEstActionPerformed
