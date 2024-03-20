@@ -25,7 +25,7 @@ public class Inscripcion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @ManyToMany
+    @OneToMany
     private List<Seccion> secciones;
     @OneToOne
     private PeriodoAcademico periodo;

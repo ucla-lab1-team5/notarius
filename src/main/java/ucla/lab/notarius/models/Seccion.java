@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -46,14 +46,15 @@ public class Seccion implements Serializable {
     // Many to One con profesor
     @ManyToOne
     private Profesor profesor;
-    
+    @ManyToMany(mappedBy = "secciones")
+    private List<Seccion> secciones;
     @Basic
     private String codigo;
 
     public Seccion() {
     }
 
-    public Seccion(int id, Materia materia, Decanato decanato, Carrera carrera, List<Calificacion> calificaciones, PeriodoAcademico periodo, Profesor profesor, String codigo) {
+    public Seccion(int id, Materia materia, Decanato decanato, Carrera carrera, List<Calificacion> calificaciones, List<Seccion> secciones, PeriodoAcademico periodo, Profesor profesor, String codigo) {
         this.id = id;
         this.materia = materia;
         this.decanato = decanato;
@@ -62,7 +63,18 @@ public class Seccion implements Serializable {
         this.periodo = periodo;
         this.profesor = profesor;
         this.codigo = codigo;
+        this.secciones = secciones;
     }
+
+
+    public List<Seccion> getSecciones() {
+        return secciones;
+    }
+
+    public void setSecciones(List<Seccion> secciones) {
+        this.secciones = secciones;
+    }
+    
 
     public List<Calificacion> getCalificaciones() {
         return calificaciones;
