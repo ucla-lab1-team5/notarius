@@ -8,6 +8,7 @@ Luis Ochoa CI: 29.778.672
 package ucla.lab.notarius.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.DiscriminatorValue;
@@ -105,6 +106,25 @@ public class Estudiante extends Usuario implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public ArrayList<Seccion> getSeccionesDisponibles() {
+        ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
+        for (Materia materia : getCarrera().getMaterias()) {
+            for (Seccion seccion : materia.getSecciones()) {
+                seccionesDisponibles.add(seccion);
+            }
+        }
+        return seccionesDisponibles;
+    }
+
+    public List<Seccion> getSeccionesDisponibles(int semestre) {
+        ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
+
+        for (Materia materia : getCarrera().getMaterias()) {        
+            seccionesDisponibles.addAll(materia.getSecciones());    
+        }
+        return seccionesDisponibles;
     }
 
     @Override

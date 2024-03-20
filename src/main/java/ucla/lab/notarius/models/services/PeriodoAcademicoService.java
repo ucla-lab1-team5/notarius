@@ -181,6 +181,16 @@ public class PeriodoAcademicoService implements Serializable {
         }
     }
 
+    // public PeriodoAcademico findLastPeriodo() {
+    //     EntityManager em = getEntityManager();
+    //     PeriodoAcademico LastPeriodo = new PeriodoAcademico();
+    //     try {
+    //         CriteriaQuery cq 
+    //     } 
+    //     finally {em.close();}
+    //     return LastPeriodo;
+    // }
+
     public int getPeriodoAcademicoCount() {
         EntityManager em = getEntityManager();
         try {

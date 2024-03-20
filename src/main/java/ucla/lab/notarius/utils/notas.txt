@@ -1,0 +1,23 @@
+//Inscripcion
+        //Paso 1: Buscar el estudiante por su cedula
+
+        Estudiante estudianteInscribiendo2 = control.estudiante.findEstudianteWithCedula("0123456789");
+        List<Seccion> seccionesAInscribir = (List)new ArrayList<Seccion>();
+        System.out.println(estudianteInscribiendo2.toString());
+        
+        //Listar secciones disponibles segun la carrera y el semestrez
+        for (Seccion seccionDisponible : estudianteInscribiendo2.getSeccionesDisponibles()) {
+            //escoger las secciones, en este caso solo las de indice impar
+            if ((seccionDisponible.getId() % 2) == 0) {
+                seccionesAInscribir.add(seccionDisponible);
+            }
+        }
+        
+        Inscripcion estudianteInscripcion = new Inscripcion( 
+            seccionesAInscribir, 
+            PeriodoAcademico periodo, 
+            Estudiante estudiante, 
+            Carrera carrera, 
+            Decanato decanato, 
+            int semestre
+        );
