@@ -11,6 +11,7 @@ package ucla.lab.notarius;
 import java.util.ArrayList;
 import java.util.List;
 
+import ucla.lab.notarius.controllers.AdminGestionDecanatoController;
 import ucla.lab.notarius.models.Carrera;
 import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.Inscripcion;
@@ -19,13 +20,15 @@ import ucla.lab.notarius.models.Profesor;
 import ucla.lab.notarius.models.Seccion;
 import ucla.lab.notarius.models.Usuario;
 import ucla.lab.notarius.models.services.PersistenceService;
+import ucla.lab.notarius.views.AdminGestionDecanatoView;
 
 public class Notarius {
     public static void main(String[] args) {
 
-        PersistenceService control = new PersistenceService();
+        PersistenceService persistenceService = new PersistenceService();
+        List<Seccion> secciones = persistenceService.seccion.findSeccionEntities();
+        System.out.println(secciones.toString());
 
-        
         
         
     }

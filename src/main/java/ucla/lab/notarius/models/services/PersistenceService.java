@@ -31,7 +31,8 @@ public class PersistenceService {
     public final EstudianteService estudiante;
     public final ProfesorService profesor;
     public final UsuarioService usuario;
-
+    public final PeriodoAcademicoService periodoAcademico;
+    public final InscripcionService inscripcion;
     // inicio la db - instancia de los services para manipular la db.
     public PersistenceService() {
         // mapeando la config para crear la persistence unit
@@ -61,6 +62,9 @@ public class PersistenceService {
         this.profesor = new ProfesorService(this.emf);
         // crear controlador usuario
         this.usuario = new UsuarioService(this.emf);
+
+        this.periodoAcademico = new PeriodoAcademicoService(this.emf);
+        this.inscripcion = new InscripcionService(this.emf);
 
     }
    

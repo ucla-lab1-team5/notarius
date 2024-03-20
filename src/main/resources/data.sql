@@ -34,3 +34,6 @@ INSERT INTO Usuario
     (7, FALSE, FALSE, TRUE, 'Loro', 'Hernandez', '98789732', 'lorocal', 'lorocal', 10, 'M', NULL, NULL, NULL, 5),
     (8, FALSE, FALSE, TRUE, 'Sanches', 'Sanches', '979489023', 'sanches', 'sanches', 18, 'M', NULL, NULL, NULL, 2)
 ;
+
+insert into periodoacademico (id, codigo, fechacierre, fechainicio, fechatopeinclusion, fechatopeprimerparcial, fechatoperetiro, fechatopesegundoparcial, fechatopetercerparcial) values 
+(1, '2024-I', '2024-07-01', '2024-01-01', '2024-01-10', '2024-01-30', '2024-02-01', '2024-02-28', '2024-03-30'),  (2, '2024-II', '2025-04-10', '2024-10-10', '2024-10-30', '2024-11-20', '2024-11-30', '2025-01-28', '2025-03-11');

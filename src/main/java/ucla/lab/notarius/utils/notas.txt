@@ -1,23 +1,34 @@
-//Inscripcion
+  //Inscripcion
         //Paso 1: Buscar el estudiante por su cedula
 
-        Estudiante estudianteInscribiendo2 = control.estudiante.findEstudianteWithCedula("0123456789");
+        Estudiante estudianteInscribiendo = persistenceService.estudiante.findEstudianteWithCedula("0123456789");
         List<Seccion> seccionesAInscribir = (List)new ArrayList<Seccion>();
-        System.out.println(estudianteInscribiendo2.toString());
+        System.out.println(estudianteInscribiendo.toString());
         
         //Listar secciones disponibles segun la carrera y el semestrez
-        for (Seccion seccionDisponible : estudianteInscribiendo2.getSeccionesDisponibles()) {
+        for (Seccion seccionDisponible : estudianteInscribiendo.getSeccionesDisponibles()) {
             //escoger las secciones, en este caso solo las de indice impar
             if ((seccionDisponible.getId() % 2) == 0) {
                 seccionesAInscribir.add(seccionDisponible);
             }
         }
         
-        Inscripcion estudianteInscripcion = new Inscripcion( 
-            seccionesAInscribir, 
-            PeriodoAcademico periodo, 
-            Estudiante estudiante, 
-            Carrera carrera, 
-            Decanato decanato, 
-            int semestre
-        );
+        Inscripcion estudianteInscripcion = new Inscripcion();
+        
+        estudianteInscripcion.setCarrera(estudianteInscribiendo.getCarrera());
+        estudianteInscripcion.setDecanato(estudianteInscribiendo.getCarrera().getDecanato());
+        estudianteInscripcion.setEstudiante(estudianteInscribiendo);
+        estudianteInscripcion.setPeriodo(persistenceService.periodoAcademico.findLastPeriodo());
+        estudianteInscripcion.setSecciones(seccionesAInscribir);
+        estudianteInscripcion.setSemestre(estudianteInscribiendo.getSemestre());
+
+        try {
+            // persistenceService.inscripcion.create(estudianteInscripcion);
+            ArrayList<Inscripcion> inscripciones = new ArrayList<Inscripcion>()
+            inscripciones = (ArrayList)persistenceService.inscripcion.findInscripcionEntities();
+            for (Inscripcion i : inscripciones) {
+                System.out.println(i.getSecciones().toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }

@@ -261,11 +261,11 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        cargarDecanatos();
+        // cargarDecanatos();
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        cargarDecanatos();
+       
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void textFieldNombreDecAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldNombreDecAncestorRemoved
@@ -300,52 +300,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxParaFiltrarDecActionPerformed
 
-    public void cargarDecanatos() {
-
-        //CONSTRUIR TITULOS DE TABLA
-        String decanatoColumns[] =
-        {
-            "ID", "Nombre", "Ubicacion", "Rector"
-        };
-        // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
-        DefaultTableModel tableModel = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int col) {
-                return false;
-            }
-        };
-
-        tableModel.setColumnIdentifiers(decanatoColumns);
-        tableDecnato.setModel(tableModel);
-        
-//CARGAR DATOS DE LA DB
-        PersistenceService control = new PersistenceService();
-        List<Decanato> listaDecanatos = control.decanato.findDecanatoEntities();
-
-        
-        if (listaDecanatos != null)
-        {
-
-            for (Decanato d : listaDecanatos)
-            {
-                String id = Long.toString(d.getId());
-                String nombre = d.getNombre();
-                String ubicacion = d.getUbicacion();
-                String rector = d.getRector();
-
-                String decanatoRow[] =
-                {
-                    id ,nombre, ubicacion, rector
-                };
-
-                tableModel.addRow(decanatoRow);
-            }
-
-        }
-        control = null;
-
-    }
-
+   
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -358,7 +313,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     private javax.swing.JLabel labelDecanatoText1;
     private javax.swing.JLabel labelDecanatoText2;
     private javax.swing.JPanel panelDecanato;
-    private javax.swing.JTable tableDecnato;
+    public javax.swing.JTable tableDecnato;
     private javax.swing.JTextField textFieldBuscarCar;
     private javax.swing.JTextField textFieldBuscarDec;
     private javax.swing.JTextField textFieldCodigoDec;
