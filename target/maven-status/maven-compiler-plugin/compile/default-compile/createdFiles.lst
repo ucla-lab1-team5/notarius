@@ -21,6 +21,7 @@ ucla/lab/notarius/views/AdminGestionUsuarioView.class
 ucla/lab/notarius/models/Carrera.class
 ucla/lab/notarius/views/ProfCalificarStudentView$4.class
 ucla/lab/notarius/views/AdminGestionSeccionView$5.class
+ucla/lab/notarius/controllers/AdminGestionDecanatoController$1.class
 ucla/lab/notarius/views/PerfilView$3.class
 ucla/lab/notarius/views/AdminReportesView$1.class
 ucla/lab/notarius/models/Seccion.class
@@ -63,7 +64,6 @@ ucla/lab/notarius/views/AdminGestionCarreraView$7.class
 ucla/lab/notarius/models/Decanato_.class
 ucla/lab/notarius/models/Estudiante.class
 ucla/lab/notarius/views/IndexEstudianteView$10.class
-ucla/lab/notarius/views/AdminGestionDecanatoView$11.class
 ucla/lab/notarius/models/services/CalificacionService.class
 ucla/lab/notarius/views/AdminGestionMateriaView$7.class
 ucla/lab/notarius/views/AdminInscripcionEstView1$5.class
@@ -84,6 +84,7 @@ ucla/lab/notarius/models/Seccion_.class
 ucla/lab/notarius/models/services/SeccionService.class
 ucla/lab/notarius/models/Carrera_.class
 ucla/lab/notarius/views/AdminGestionCarreraView$1.class
+ucla/lab/notarius/controllers/AdminGestionDecanatoController$2.class
 ucla/lab/notarius/views/AdminGestionDecanatoView$9.class
 ucla/lab/notarius/views/AdminInscripcionEstView1.class
 ucla/lab/notarius/views/ProfCalificarStudentView.class
@@ -96,6 +97,7 @@ ucla/lab/notarius/models/Materia_.class
 ucla/lab/notarius/views/AdminGestionCarreraView$4.class
 ucla/lab/notarius/views/ProfCalificarStudentView$6.class
 ucla/lab/notarius/views/AdminGestionSeccionView.class
+ucla/lab/notarius/controllers/AdminGestionDecanatoController.class
 ucla/lab/notarius/views/AdminGestionDecanatoView$3.class
 ucla/lab/notarius/models/Materia.class
 ucla/lab/notarius/models/services/PersistenceService.class

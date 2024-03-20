@@ -12,6 +12,7 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/PersistenceService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionCarreraView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/SeccionService.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/AdminGestionDecanatoController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/MainFrame.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/MateriaService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionMateriaView.java

@@ -22,6 +22,18 @@ INSERT INTO Carrera (ID, nombre, descripcion, decanato_id) VALUES
 (9, 'Artes', 'Carrera que se encarga del estudio y la práctica de las artes.', 9),
 (10, 'Ingeniería Civil', 'Carrera que se encarga del estudio y construcción de obras civiles.', 1);
 
+INSERT INTO materia (id, descripcion, nombre) values 
+(1, 'Ciencia de la computación que se encarga de crear programas para que las computadoras puedan ejecutar tareas.', 'Programacion'),
+(2, 'Ciencia que estudia las propiedades de los números y las relaciones que existen entre ellos.', 'Matematica'),
+(3, 'Capacidad de comunicarse de forma oral y escrita.', 'Lenguaje'),
+(4, 'Conjunto de componentes que funcionan juntos para lograr un objetivo.', 'Sistemas'),
+(5, 'Rama de las matemáticas que estudia las magnitudes vectoriales.', 'Analisis Vectorial'),
+(6, 'Ciencia que estudia la materia y la energía, y sus interacciones.', 'Fisica');
+
+insert into seccion (id, codigo, carrera_id, decanato_id, materia_id, periodo_id , profesor_id  ) values 
+(1, 'mat-sec-1', 1, 1, 2, 1, 2), (2, 'mat-sec-2', 1, 1, 2, 1, 2), (3, 'prog-sec-1', 1, 1, 1, 1, 2), (4, 'leng-sec-1', 1, 1, 3, 1, 2);
+
+
 INSERT INTO Usuario 
   (id, administrador, profesor, estudiante, nombres, apellidos, cedula, nombreusuario, clave, edad, genero, promedio, periodo_id, semestre, carrera_id)
   VALUES
@@ -37,3 +49,6 @@ INSERT INTO Usuario
 
 insert into periodoacademico (id, codigo, fechacierre, fechainicio, fechatopeinclusion, fechatopeprimerparcial, fechatoperetiro, fechatopesegundoparcial, fechatopetercerparcial) values 
 (1, '2024-I', '2024-07-01', '2024-01-01', '2024-01-10', '2024-01-30', '2024-02-01', '2024-02-28', '2024-03-30'),  (2, '2024-II', '2025-04-10', '2024-10-10', '2024-10-30', '2024-11-20', '2024-11-30', '2025-01-28', '2025-03-11');
+
+
+

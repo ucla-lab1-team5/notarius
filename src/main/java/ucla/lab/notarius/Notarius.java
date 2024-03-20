@@ -26,8 +26,38 @@ public class Notarius {
     public static void main(String[] args) {
 
         PersistenceService persistenceService = new PersistenceService();
-        List<Seccion> secciones = persistenceService.seccion.findSeccionEntities();
-        System.out.println(secciones.toString());
+        //Inscripcion
+        //Paso 1: Buscar el estudiante por su cedula
+        Estudiante estudianteInscribiendo = persistenceService.estudiante.findEstudianteWithCedula("1234567890");
+        List<Seccion> seccionesAInscribir = (List)new ArrayList<Seccion>();
+        System.out.println(estudianteInscribiendo.toString());
+        
+        //Listar secciones disponibles segun la carrera y el semestre
+        for (Seccion seccionDisponible : estudianteInscribiendo.getSeccionesDisponibles()) {
+            //escoger las secciones, en este caso solo las de indice impar
+            if ((seccionDisponible.getId() % 2) == 0) {
+                seccionesAInscribir.add(seccionDisponible);
+            }
+        }
+        
+        Inscripcion estudianteInscripcion = new Inscripcion();
+        
+        estudianteInscripcion.setCarrera(estudianteInscribiendo.getCarrera());
+        estudianteInscripcion.setDecanato(estudianteInscribiendo.getCarrera().getDecanato());
+        estudianteInscripcion.setEstudiante(estudianteInscribiendo);
+        estudianteInscripcion.setPeriodo(persistenceService.periodoAcademico.findLastPeriodo());
+        estudianteInscripcion.setSecciones(seccionesAInscribir);
+        estudianteInscripcion.setSemestre(estudianteInscribiendo.getSemestre());
+
+        try {
+             persistenceService.inscripcion.create(estudianteInscripcion);
+            List<Inscripcion> inscripciones = persistenceService.inscripcion.findInscripcionEntities();
+            for (Inscripcion i : inscripciones) {
+                System.out.println(i.getSecciones().toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         
         

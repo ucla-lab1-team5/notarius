@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 
 
 
+
 @Entity
 public class Seccion implements Serializable {
 
@@ -37,6 +38,7 @@ public class Seccion implements Serializable {
      
     //OneToMany con calificaciones
     @OneToMany(mappedBy="seccion")
+    
     private List<Calificacion> calificaciones;
     // Many to One con periodo academico
     @ManyToOne
