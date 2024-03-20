@@ -5,12 +5,13 @@ Angel Goyo CI: 29.737.583
 Miller Arias CI: 29.561.941
 Luis Ochoa CI: 29.778.672
 */
-package ucla.lab.notarius.controllers.persistence;
+package ucla.lab.notarius.models.services;
 
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import ucla.lab.notarius.models.Calificacion;
@@ -25,14 +26,14 @@ import ucla.lab.notarius.models.Estudiante;
  *
  * @author antho
  */
-public class EstudianteJpaController implements Serializable {
+public class EstudianteService implements Serializable {
 
-    public EstudianteJpaController(EntityManagerFactory emf) {
+    public EstudianteService(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
-    public EstudianteJpaController () {
+    public EstudianteService () {
          emf = Persistence.createEntityManagerFactory("notariusPU");
     }
 
@@ -159,14 +160,19 @@ public class EstudianteJpaController implements Serializable {
     private List<Estudiante> findEstudianteEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Estudiante.class));
-            Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
+           CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Estudiante> cq = cb.createQuery(Estudiante.class);
+            Root<Estudiante> estudianteRoot = cq.from(Estudiante.class); 
+
+        // Add the condition
+        cq.where(cb.equal(estudianteRoot.get("estudiante"), true)); 
+
+        Query q = em.createQuery(cq);
+        if (!all) {
+            q.setMaxResults(maxResults);
+            q.setFirstResult(firstResult);
+        }
+        return q.getResultList();
         } finally {
             em.close();
         }
@@ -179,6 +185,30 @@ public class EstudianteJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public Estudiante findEstudianteWithCedula(String cedula) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Estudiante> cq = cb.createQuery(Estudiante.class);
+            Root<Estudiante> estudianteRoot = cq.from(Estudiante.class);
+            cq.where(cb.equal(estudianteRoot.get("cedula"), cedula));
+
+            Query q = em.createQuery(cq);
+            Estudiante estudiante = (Estudiante)q.getSingleResult();
+            if (!estudiante.isEstudiante()) {
+                throw new Error("El usuario de cedula " + cedula + " no es un Estudiante");
+            }
+
+            return estudiante;
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return null;
     }
 
     public int getEstudianteCount() {

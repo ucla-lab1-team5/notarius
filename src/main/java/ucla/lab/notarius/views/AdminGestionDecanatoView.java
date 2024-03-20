@@ -8,9 +8,12 @@ Luis Ochoa CI: 29.778.672
 package ucla.lab.notarius.views;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
-import ucla.lab.notarius.controllers.Controller;
+
 import ucla.lab.notarius.models.Decanato;
+import ucla.lab.notarius.models.services.PersistenceService;
 
 /**
  *
@@ -316,8 +319,8 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         tableDecnato.setModel(tableModel);
         
 //CARGAR DATOS DE LA DB
-        Controller control = new Controller();
-        ArrayList<Decanato> listaDecanatos = control.decanato.traerTodos();
+        PersistenceService control = new PersistenceService();
+        List<Decanato> listaDecanatos = control.decanato.findDecanatoEntities();
 
         
         if (listaDecanatos != null)

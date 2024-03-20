@@ -8,8 +8,10 @@ Luis Ochoa CI: 29.778.672
 package ucla.lab.notarius.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,7 @@ import javax.persistence.OneToOne;
 
 
 @Entity
+@DiscriminatorValue(value = "user")
 public class Estudiante extends Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -63,13 +66,6 @@ public class Estudiante extends Usuario implements Serializable {
         this.semestre = semestre;
     }
 
-
-
-
-
-
-   
-
     public List<Calificacion> getCalificaciones() {
         return calificaciones;
     }
@@ -112,9 +108,30 @@ public class Estudiante extends Usuario implements Serializable {
         this.id = id;
     }
 
+    public ArrayList<Seccion> getSeccionesDisponibles() {
+        ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
+        for (Materia materia : getCarrera().getMaterias()) {
+            for (Seccion seccion : materia.getSecciones()) {
+                seccionesDisponibles.add(seccion);
+            }
+        }
+        return seccionesDisponibles;
+    }
+
+    public List<Seccion> getSeccionesDisponibles(int semestre) {
+        ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
+
+        for (Materia materia : getCarrera().getMaterias()) {        
+            seccionesDisponibles.addAll(materia.getSecciones());    
+        }
+        return seccionesDisponibles;
+    }
+
     @Override
     public String toString() {
-        return "notarius.models.Estudiante[ id=" + id + " ]";
+        StringBuilder estudianteString = new StringBuilder("Estudiante ");
+        estudianteString.append(getNombres()).append(" - Cedula ").append(getCedula()).append(" - id: ").append(getId());
+        return estudianteString.toString();
     }
     
 }

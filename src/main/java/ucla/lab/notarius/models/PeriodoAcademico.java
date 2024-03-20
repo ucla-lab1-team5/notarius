@@ -48,6 +48,8 @@ public class PeriodoAcademico implements Serializable {
     private Date fechaTopeTercerParcial;
     private String codigo;
 
+
+
     public PeriodoAcademico() {
     }
 
@@ -64,9 +66,7 @@ public class PeriodoAcademico implements Serializable {
         this.codigo = codigo;
     }
     
-    
-    
-
+ 
     public List<Seccion> getSecciones() {
         return secciones;
     }

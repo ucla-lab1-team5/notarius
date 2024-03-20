@@ -8,17 +8,25 @@ Luis Ochoa CI: 29.778.672
 
 package ucla.lab.notarius;
 
-import ucla.lab.notarius.controllers.Controller;
-import ucla.lab.notarius.views.MainFrame;
+import java.util.ArrayList;
+import java.util.List;
 
+import ucla.lab.notarius.models.Carrera;
+import ucla.lab.notarius.models.Estudiante;
+import ucla.lab.notarius.models.Inscripcion;
+import ucla.lab.notarius.models.Materia;
+import ucla.lab.notarius.models.Profesor;
+import ucla.lab.notarius.models.Seccion;
+import ucla.lab.notarius.models.Usuario;
+import ucla.lab.notarius.models.services.PersistenceService;
 
 public class Notarius {
     public static void main(String[] args) {
 
-        Controller control = new Controller();
+        PersistenceService control = new PersistenceService();
 
-        MainFrame mainView = new MainFrame();
-        mainView.initIndexEstudianteView();
-        mainView.setVisible(true);
+        
+        
+        
     }
 }

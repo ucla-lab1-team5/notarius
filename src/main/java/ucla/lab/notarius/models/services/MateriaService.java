@@ -5,7 +5,7 @@ Angel Goyo CI: 29.737.583
 Miller Arias CI: 29.561.941
 Luis Ochoa CI: 29.778.672
 */
-package ucla.lab.notarius.controllers.persistence;
+package ucla.lab.notarius.models.services;
 
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -26,14 +26,14 @@ import ucla.lab.notarius.models.Materia;
  *
  * @author antho
  */
-public class MateriaJpaController implements Serializable {
+public class MateriaService implements Serializable {
 
-    public MateriaJpaController(EntityManagerFactory emf) {
+    public MateriaService(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
-    public MateriaJpaController () {
+    public MateriaService () {
          emf = Persistence.createEntityManagerFactory("notariusPU");
     }
 
