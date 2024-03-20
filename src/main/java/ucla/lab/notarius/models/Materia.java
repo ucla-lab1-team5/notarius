@@ -34,6 +34,7 @@ public class Materia implements Serializable {
     @Basic
     private String nombre;
     private String descripcion;
+    
 
     public Materia() {
     }
