@@ -11,12 +11,12 @@ package ucla.lab.notarius.views;
  *
  * @author ANGELITE
  */
-public class AdminReportesView extends javax.swing.JPanel {
+public class InscripcionView extends javax.swing.JPanel {
 
     /**
      * Creates new form LoginView
      */
-    public AdminReportesView() {
+    public InscripcionView() {
         initComponents();
     }
 
@@ -34,16 +34,16 @@ public class AdminReportesView extends javax.swing.JPanel {
         labelDecanatoText3 = new javax.swing.JLabel();
         textFieldApellidoUs1 = new javax.swing.JTextField();
         textFieldEstadoUs1 = new javax.swing.JTextField();
-        textFieldEstadUs1 = new javax.swing.JTextField();
-        textFieldContraUs1 = new javax.swing.JTextField();
-        buttonVolverEst1 = new javax.swing.JButton();
+        buttonVolverEst5 = new javax.swing.JButton();
+        buttonVolverEst6 = new javax.swing.JButton();
         labelUserEstudianteText2 = new javax.swing.JLabel();
         ComboBoxParaFiltrarEst1 = new javax.swing.JComboBox<>();
+        buttonBuscarEst1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableUsuario1 = new javax.swing.JTable();
         buttonVolverEst2 = new javax.swing.JButton();
-        textFieldBuscarEst1 = new javax.swing.JTextField();
-        buttonBuscarEst2 = new javax.swing.JButton();
+        buttonVolverEst1 = new javax.swing.JButton();
+        buttonVolverEst3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(840, 631));
@@ -51,7 +51,8 @@ public class AdminReportesView extends javax.swing.JPanel {
         panelUsuario1.setBackground(new java.awt.Color(153, 153, 153));
         panelUsuario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        textFieldNombreUs1.setText("DETALLES");
+        textFieldNombreUs1.setEditable(false);
+        textFieldNombreUs1.setText("JUAN CANUTO");
         textFieldNombreUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldNombreUs1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -71,7 +72,9 @@ public class AdminReportesView extends javax.swing.JPanel {
         labelDecanatoText3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelDecanatoText3.setText("REGISTRO");
 
+        textFieldApellidoUs1.setEditable(false);
         textFieldApellidoUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldApellidoUs1.setText("PEREZ CHAVEZ");
         textFieldApellidoUs1.setToolTipText("");
         textFieldApellidoUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldApellidoUs1.addActionListener(new java.awt.event.ActionListener() {
@@ -89,26 +92,11 @@ public class AdminReportesView extends javax.swing.JPanel {
             }
         });
 
-        textFieldEstadUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
-        textFieldEstadUs1.setToolTipText("");
-        textFieldEstadUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
-        textFieldEstadUs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldEstadUs1ActionPerformed(evt);
-            }
-        });
+        buttonVolverEst5.setText("CARGAR");
+        buttonVolverEst5.setBorder(new javax.swing.border.MatteBorder(null));
 
-        textFieldContraUs1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
-        textFieldContraUs1.setToolTipText("");
-        textFieldContraUs1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
-        textFieldContraUs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldContraUs1ActionPerformed(evt);
-            }
-        });
-
-        buttonVolverEst1.setText("IMPRIMIR");
-        buttonVolverEst1.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverEst6.setText("LIMPIAR");
+        buttonVolverEst6.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout panelUsuario1Layout = new javax.swing.GroupLayout(panelUsuario1);
         panelUsuario1.setLayout(panelUsuario1Layout);
@@ -117,42 +105,42 @@ public class AdminReportesView extends javax.swing.JPanel {
             .addGroup(panelUsuario1Layout.createSequentialGroup()
                 .addGroup(panelUsuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUsuario1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(panelUsuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textFieldNombreUs1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(textFieldApellidoUs1)
-                            .addComponent(textFieldEstadoUs1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(textFieldEstadUs1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(textFieldContraUs1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(buttonVolverEst1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelUsuario1Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addComponent(labelDecanatoText3)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(labelDecanatoText3))
+                    .addGroup(panelUsuario1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(panelUsuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUsuario1Layout.createSequentialGroup()
+                                .addComponent(buttonVolverEst5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonVolverEst6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelUsuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textFieldApellidoUs1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                .addComponent(textFieldNombreUs1)
+                                .addComponent(textFieldEstadoUs1)))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         panelUsuario1Layout.setVerticalGroup(
             panelUsuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuario1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(labelDecanatoText3)
+                .addGap(11, 11, 11)
+                .addComponent(textFieldEstadoUs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textFieldNombreUs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textFieldApellidoUs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFieldEstadoUs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFieldContraUs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(textFieldEstadUs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonVolverEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
+                .addGroup(panelUsuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonVolverEst5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonVolverEst6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
 
         labelUserEstudianteText2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labelUserEstudianteText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelUserEstudianteText2.setText("REPORTES GENERALES");
+        labelUserEstudianteText2.setText("INSCRIPCIÓN ESTUDIANTE");
         labelUserEstudianteText2.setToolTipText("");
 
         ComboBoxParaFiltrarEst1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "estudiantes que retiraron alguna asignatura ", "estudiantes por carrera", "estudiantes por semestre", "20 mejores promedios por carrera", "20 mejores promedios por Decanat", "por género de carrera y Decanato", "estudiantes con promedios por encima de 16 puntos por sección y por carrera" }));
@@ -163,6 +151,9 @@ public class AdminReportesView extends javax.swing.JPanel {
                 ComboBoxParaFiltrarEst1ActionPerformed(evt);
             }
         });
+
+        buttonBuscarEst1.setText("FILTRAR");
+        buttonBuscarEst1.setBorder(new javax.swing.border.MatteBorder(null));
 
         tableUsuario1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,71 +172,71 @@ public class AdminReportesView extends javax.swing.JPanel {
         buttonVolverEst2.setText("VOLVER");
         buttonVolverEst2.setBorder(new javax.swing.border.MatteBorder(null));
 
-        textFieldBuscarEst1.setText("  Buscar...");
-        textFieldBuscarEst1.setBorder(new javax.swing.border.MatteBorder(null));
-        textFieldBuscarEst1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldBuscarEst1ActionPerformed(evt);
-            }
-        });
+        buttonVolverEst1.setText("Inscribir");
+        buttonVolverEst1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        buttonBuscarEst2.setText("Buscar");
-        buttonBuscarEst2.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverEst3.setText("Imprimir");
+        buttonVolverEst3.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(labelUserEstudianteText2, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ComboBoxParaFiltrarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ComboBoxParaFiltrarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonBuscarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonVolverEst3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(textFieldBuscarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonBuscarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2)
-                    .addComponent(labelUserEstudianteText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(buttonVolverEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(646, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(44, 44, 44)
                 .addComponent(labelUserEstudianteText2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(118, 118, 118)
-                        .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ComboBoxParaFiltrarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFieldBuscarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonBuscarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(buttonBuscarEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(panelUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonVolverEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonVolverEst3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(560, Short.MAX_VALUE)
+                    .addComponent(buttonVolverEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(35, 35, 35)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ComboBoxParaFiltrarEst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarEst1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxParaFiltrarEst1ActionPerformed
-
-    private void textFieldContraUs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldContraUs1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldContraUs1ActionPerformed
-
-    private void textFieldEstadUs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldEstadUs1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldEstadUs1ActionPerformed
 
     private void textFieldEstadoUs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldEstadoUs1ActionPerformed
         // TODO add your handling code here:
@@ -263,25 +254,25 @@ public class AdminReportesView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldNombreUs1AncestorRemoved
 
-    private void textFieldBuscarEst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBuscarEst1ActionPerformed
+    private void ComboBoxParaFiltrarEst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarEst1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldBuscarEst1ActionPerformed
+    }//GEN-LAST:event_ComboBoxParaFiltrarEst1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarEst1;
-    private javax.swing.JButton buttonBuscarEst2;
+    private javax.swing.JButton buttonBuscarEst1;
     private javax.swing.JButton buttonVolverEst1;
     private javax.swing.JButton buttonVolverEst2;
+    private javax.swing.JButton buttonVolverEst3;
+    private javax.swing.JButton buttonVolverEst5;
+    private javax.swing.JButton buttonVolverEst6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelDecanatoText3;
     private javax.swing.JLabel labelUserEstudianteText2;
     private javax.swing.JPanel panelUsuario1;
     private javax.swing.JTable tableUsuario1;
     private javax.swing.JTextField textFieldApellidoUs1;
-    private javax.swing.JTextField textFieldBuscarEst1;
-    private javax.swing.JTextField textFieldContraUs1;
-    private javax.swing.JTextField textFieldEstadUs1;
     private javax.swing.JTextField textFieldEstadoUs1;
     private javax.swing.JTextField textFieldNombreUs1;
     // End of variables declaration//GEN-END:variables

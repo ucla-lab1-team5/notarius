@@ -19,12 +19,12 @@ import ucla.lab.notarius.models.services.PersistenceService;
  *
  * @author User
  */
-public class AdminGestionDecanatoView extends javax.swing.JFrame {
+public class GestionDecanatoView extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminGestionDecanatoView
      */
-    public AdminGestionDecanatoView() {
+    public GestionDecanatoView() {
         initComponents();
     }
 
@@ -70,6 +70,17 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
 
         panelDecanato.setBackground(new java.awt.Color(153, 153, 153));
         panelDecanato.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        textFieldNombreDec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldNombreDec.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                textFieldNombreDecAncestorRemoved(evt);
+            }
+        });
         textFieldNombreDec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldNombreDecActionPerformed(evt);
@@ -245,13 +256,14 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                     .addComponent(panelDecanato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonActualizarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAgregarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBuscarDec, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonActualizarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAgregarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -359,7 +371,6 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     private javax.swing.JLabel labelDecanatoText2;
     private javax.swing.JPanel panelDecanato;
     private javax.swing.JTable tableDecnato;
-    private javax.swing.JTextField textFieldBuscarCar;
     private javax.swing.JTextField textFieldBuscarDec;
     private javax.swing.JTextField textFieldCodigoDec;
     private javax.swing.JTextField textFieldNombreDec;

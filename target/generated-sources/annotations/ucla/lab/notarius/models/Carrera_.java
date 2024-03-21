@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import ucla.lab.notarius.models.Decanato;
 import ucla.lab.notarius.models.Materia;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-19T12:36:20", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-21T15:47:44", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Carrera.class)
 public class Carrera_ { 
 
