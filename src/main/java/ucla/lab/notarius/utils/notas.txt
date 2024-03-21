@@ -1,16 +1,12 @@
-  //Inscripcion
-        //Paso 1: Buscar el estudiante por su cedula
-
-        Estudiante estudianteInscribiendo = persistenceService.estudiante.findEstudianteWithCedula("0123456789");
+       Estudiante estudianteInscribiendo = persistenceService.estudiante.findEstudianteWithCedula("1234567890");
         List<Seccion> seccionesAInscribir = (List)new ArrayList<Seccion>();
         System.out.println(estudianteInscribiendo.toString());
         
-        //Listar secciones disponibles segun la carrera y el semestrez
+        //Listar secciones disponibles segun la carrera y el semestre
         for (Seccion seccionDisponible : estudianteInscribiendo.getSeccionesDisponibles()) {
             //escoger las secciones, en este caso solo las de indice impar
-            if ((seccionDisponible.getId() % 2) == 0) {
                 seccionesAInscribir.add(seccionDisponible);
-            }
+            
         }
         
         Inscripcion estudianteInscripcion = new Inscripcion();
@@ -23,12 +19,14 @@
         estudianteInscripcion.setSemestre(estudianteInscribiendo.getSemestre());
 
         try {
-            // persistenceService.inscripcion.create(estudianteInscripcion);
-            ArrayList<Inscripcion> inscripciones = new ArrayList<Inscripcion>()
-            inscripciones = (ArrayList)persistenceService.inscripcion.findInscripcionEntities();
+             persistenceService.inscripcion.create(estudianteInscripcion);
+            List<Inscripcion> inscripciones = persistenceService.inscripcion.findInscripcionEntities();
             for (Inscripcion i : inscripciones) {
                 System.out.println(i.getSecciones().toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        
+     

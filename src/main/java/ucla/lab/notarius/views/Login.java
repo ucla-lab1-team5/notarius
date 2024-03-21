@@ -267,11 +267,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldpassTxtMousePressed
 
     private void buttonloginTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonloginTxtMouseClicked
-        javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: " + textFielduserTxt.getText() + "\nContraseña: " + String.valueOf(textFieldpassTxt.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        
-    //  AdminGestionDecanatoView adminGestionDecanatoView = new AdminGestionDecanatoView();
-    //  adminGestionDecanatoView.setVisible(true);
-    //  adminGestionDecanatoView.setLocationRelativeTo(null);
+        javax.swing.JOptionPane.showMessageDialog(this, "sesión iniciada exitosamente");
+        MenuPrincipal menuPrincipal = new MenuPrincipal(); 
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+        this.setVisible(false);   
     // Los JPANELS DEPENDEN DE JFRAMES
         // AddUserEstudianteView addUserEstudianteView= new AddUserEstudianteView();
         // addUserEstudianteView.setVisible(true);

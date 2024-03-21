@@ -118,15 +118,6 @@ public class Estudiante extends Usuario implements Serializable {
         return seccionesDisponibles;
     }
 
-    public List<Seccion> getSeccionesDisponibles(int semestre) {
-        ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
-
-        for (Materia materia : getCarrera().getMaterias()) {        
-            seccionesDisponibles.addAll(materia.getSecciones());    
-        }
-        return seccionesDisponibles;
-    }
-
     @Override
     public String toString() {
         StringBuilder estudianteString = new StringBuilder("Estudiante ");

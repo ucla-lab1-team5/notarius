@@ -11,7 +11,7 @@ package ucla.lab.notarius.views;
  *
  * @author ANGELITE
  */
-public class PerfilView extends javax.swing.JPanel {
+public class PerfilView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView
@@ -59,6 +59,7 @@ public class PerfilView extends javax.swing.JPanel {
         buttonFiltrarPor = new javax.swing.JButton();
         textFieldFiltrarPor = new javax.swing.JTextField();
         labelInfo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,23 +99,23 @@ public class PerfilView extends javax.swing.JPanel {
         jLabel29.setToolTipText("");
 
         buttonIconoInicio.setBackground(new java.awt.Color(17, 8, 195));
-        buttonIconoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home.png"))); // NOI18N
+        buttonIconoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/home.png"))); // NOI18N
         buttonIconoInicio.setBorder(null);
 
         buttonIconoPerfil.setBackground(new java.awt.Color(17, 8, 195));
-        buttonIconoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
+        buttonIconoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
         buttonIconoPerfil.setBorder(null);
 
         buttonIconoConfig.setBackground(new java.awt.Color(17, 8, 195));
-        buttonIconoConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/settings.png"))); // NOI18N
+        buttonIconoConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/settings.png"))); // NOI18N
         buttonIconoConfig.setBorder(null);
 
         jButton33.setBackground(new java.awt.Color(17, 8, 195));
-        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/list.png"))); // NOI18N
+        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/list.png"))); // NOI18N
         jButton33.setBorder(null);
 
         jButton34.setBackground(new java.awt.Color(17, 8, 195));
-        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
+        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/logout.png"))); // NOI18N
         jButton34.setBorder(null);
 
         javax.swing.GroupLayout panelBarralateralLayout = new javax.swing.GroupLayout(panelBarralateral);
@@ -168,7 +169,7 @@ public class PerfilView extends javax.swing.JPanel {
 
         buttonFotoPerfil.setBackground(new java.awt.Color(0, 204, 204));
         buttonFotoPerfil.setForeground(new java.awt.Color(204, 204, 0));
-        buttonFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
+        buttonFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
         buttonFotoPerfil.setBorder(null);
         buttonFotoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,45 +262,59 @@ public class PerfilView extends javax.swing.JPanel {
         labelInfo.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         labelInfo.setText("INFO");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setText("Volver");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelBarralateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(labelSemestre, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelLapso, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(labelCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(195, 195, 195))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(labelSemestre, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                            .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelLapso, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(labelCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(195, 195, 195))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textFieldFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonFiltrarPor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelInfo)
-                                .addGap(91, 91, 91))))))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(textFieldFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(buttonFiltrarPor)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelInfo)
+                                        .addGap(91, 91, 91))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +336,7 @@ public class PerfilView extends javax.swing.JPanel {
                             .addComponent(labelLapso))
                         .addGap(18, 18, 18)
                         .addComponent(labelEstado)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -332,7 +347,9 @@ public class PerfilView extends javax.swing.JPanel {
                             .addComponent(labelInfo))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -348,6 +365,13 @@ public class PerfilView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonFiltrarPorActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBoletin;
@@ -359,6 +383,7 @@ public class PerfilView extends javax.swing.JPanel {
     private javax.swing.JButton buttonIconoPerfil;
     private javax.swing.JButton buttonInformacion;
     private javax.swing.JButton buttonMateria;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JFrame jFrame1;

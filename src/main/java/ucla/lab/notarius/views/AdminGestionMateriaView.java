@@ -11,7 +11,7 @@ package ucla.lab.notarius.views;
  *
  * @author ANGELITE
  */
-public class AdminGestionMateriaView extends javax.swing.JPanel {
+public class AdminGestionMateriaView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView
@@ -29,6 +29,25 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableMateria1 = new javax.swing.JTable();
+        textFieldBuscarMat1 = new javax.swing.JTextField();
+        buttonVolverMat1 = new javax.swing.JButton();
+        buttonBuscarMat1 = new javax.swing.JButton();
+        panelMateria1 = new javax.swing.JPanel();
+        textFieldNombreMat1 = new javax.swing.JTextField();
+        labelMateriaText3 = new javax.swing.JLabel();
+        textFieldApellidoMat1 = new javax.swing.JTextField();
+        comboBoxDecanatoMat1 = new javax.swing.JComboBox<>();
+        comboBoxCarreraMat1 = new javax.swing.JComboBox<>();
+        comboBoxSemestreMat1 = new javax.swing.JComboBox<>();
+        comboBoxProfesorMat1 = new javax.swing.JComboBox<>();
+        buttonAgregarMat1 = new javax.swing.JButton();
+        ComboBoxParaFiltrarMat1 = new javax.swing.JComboBox<>();
+        labelUserMateriaText2 = new javax.swing.JLabel();
+        buttonActualizarMat1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMateria = new javax.swing.JTable();
         textFieldBuscarMat = new javax.swing.JTextField();
@@ -46,6 +65,247 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
         ComboBoxParaFiltrarMat = new javax.swing.JComboBox<>();
         labelUserMateriaText1 = new javax.swing.JLabel();
         buttonActualizarMat = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(840, 631));
+
+        tableMateria1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tableMateria1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"", "", "", "5", null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo Materia", "Materia", "Decanato", "Carrera", "Semestre", "Profesor", "..."
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableMateria1);
+
+        textFieldBuscarMat1.setText("Buscar...");
+        textFieldBuscarMat1.setBorder(new javax.swing.border.MatteBorder(null));
+        textFieldBuscarMat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldBuscarMat1ActionPerformed(evt);
+            }
+        });
+
+        buttonVolverMat1.setText("VOLVER");
+        buttonVolverMat1.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverMat1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverMat1MouseClicked(evt);
+            }
+        });
+
+        buttonBuscarMat1.setText("Buscar");
+        buttonBuscarMat1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        panelMateria1.setBackground(new java.awt.Color(153, 153, 153));
+        panelMateria1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        textFieldNombreMat1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Codigo de Materia ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldNombreMat1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                textFieldNombreMat1AncestorRemoved(evt);
+            }
+        });
+        textFieldNombreMat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldNombreMat1ActionPerformed(evt);
+            }
+        });
+
+        labelMateriaText3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelMateriaText3.setText("REGISTRO");
+
+        textFieldApellidoMat1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldApellidoMat1.setToolTipText("");
+        textFieldApellidoMat1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Materia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldApellidoMat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldApellidoMat1ActionPerformed(evt);
+            }
+        });
+
+        comboBoxDecanatoMat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DECANATO", "DCyT", "UNAM", " ", " " }));
+
+        comboBoxCarreraMat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CARRERA", "Matematicas II", "Ingles ", "Administracion", " " }));
+        comboBoxCarreraMat1.setToolTipText("");
+        comboBoxCarreraMat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCarreraMat1ActionPerformed(evt);
+            }
+        });
+
+        comboBoxSemestreMat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SEMESTRE", "1", "2", "3", "4" }));
+        comboBoxSemestreMat1.setToolTipText("");
+
+        comboBoxProfesorMat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROFESOR", "MIGUEL VIVAS", "ANTONI ROGELIO", " " }));
+        comboBoxProfesorMat1.setToolTipText("");
+
+        javax.swing.GroupLayout panelMateria1Layout = new javax.swing.GroupLayout(panelMateria1);
+        panelMateria1.setLayout(panelMateria1Layout);
+        panelMateria1Layout.setHorizontalGroup(
+            panelMateria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMateria1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelMateria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMateria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(textFieldNombreMat1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addComponent(textFieldApellidoMat1))
+                    .addGroup(panelMateria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(comboBoxProfesorMat1, javax.swing.GroupLayout.Alignment.LEADING, 0, 148, Short.MAX_VALUE)
+                        .addComponent(comboBoxSemestreMat1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboBoxCarreraMat1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboBoxDecanatoMat1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMateria1Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(labelMateriaText3)
+                .addGap(63, 63, 63))
+        );
+        panelMateria1Layout.setVerticalGroup(
+            panelMateria1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMateria1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelMateriaText3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldNombreMat1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldApellidoMat1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comboBoxDecanatoMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxCarreraMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxSemestreMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxProfesorMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+
+        buttonAgregarMat1.setText("Agregar");
+        buttonAgregarMat1.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonAgregarMat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarMat1ActionPerformed(evt);
+            }
+        });
+
+        ComboBoxParaFiltrarMat1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "DECANATO", " " }));
+        ComboBoxParaFiltrarMat1.setToolTipText(""); // NOI18N
+        ComboBoxParaFiltrarMat1.setBorder(new javax.swing.border.MatteBorder(null));
+        ComboBoxParaFiltrarMat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxParaFiltrarMat1ActionPerformed(evt);
+            }
+        });
+
+        labelUserMateriaText2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelUserMateriaText2.setText("GESTION DE MATERIA");
+        labelUserMateriaText2.setToolTipText("");
+
+        buttonActualizarMat1.setText("Actualizar");
+        buttonActualizarMat1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(labelUserMateriaText2)
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(panelMateria1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(buttonAgregarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonActualizarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ComboBoxParaFiltrarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textFieldBuscarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonBuscarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))))
+                .addGap(26, 26, 26))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(buttonVolverMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(labelUserMateriaText2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelMateria1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBuscarMat1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonActualizarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAgregarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBoxParaFiltrarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textFieldBuscarMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addComponent(buttonVolverMat1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(840, 631));
@@ -89,6 +349,11 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
 
         buttonVolverMat.setText("VOLVER");
         buttonVolverMat.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverMat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverMatMouseClicked(evt);
+            }
+        });
 
         buttonBuscarMat.setText("Buscar");
         buttonBuscarMat.setBorder(new javax.swing.border.MatteBorder(null));
@@ -98,9 +363,9 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
 
         textFieldNombreMat.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Codigo de Materia ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldNombreMat.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 textFieldNombreMatAncestorRemoved(evt);
@@ -205,8 +470,8 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
         buttonActualizarMat.setText("Actualizar");
         buttonActualizarMat.setBorder(new javax.swing.border.MatteBorder(null));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -250,12 +515,13 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
                     .addComponent(panelMateria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonActualizarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAgregarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBoxParaFiltrarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldBuscarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBuscarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBuscarMat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonActualizarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAgregarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBoxParaFiltrarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textFieldBuscarMat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32)
                 .addComponent(buttonVolverMat, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -290,26 +556,84 @@ public class AdminGestionMateriaView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxCarreraMatActionPerformed
 
+    private void buttonVolverMatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverMatMouseClicked
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonVolverMatMouseClicked
+
+    private void textFieldBuscarMat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBuscarMat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldBuscarMat1ActionPerformed
+
+    private void buttonVolverMat1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverMat1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonVolverMat1MouseClicked
+
+    private void textFieldNombreMat1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldNombreMat1AncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreMat1AncestorRemoved
+
+    private void textFieldNombreMat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreMat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreMat1ActionPerformed
+
+    private void textFieldApellidoMat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidoMat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldApellidoMat1ActionPerformed
+
+    private void comboBoxCarreraMat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCarreraMat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxCarreraMat1ActionPerformed
+
+    private void buttonAgregarMat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarMat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAgregarMat1ActionPerformed
+
+    private void ComboBoxParaFiltrarMat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarMat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxParaFiltrarMat1ActionPerformed
+
                                                     
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarMat;
+    private javax.swing.JComboBox<String> ComboBoxParaFiltrarMat1;
     private javax.swing.JButton buttonActualizarMat;
+    private javax.swing.JButton buttonActualizarMat1;
     private javax.swing.JButton buttonAgregarMat;
+    private javax.swing.JButton buttonAgregarMat1;
     private javax.swing.JButton buttonBuscarMat;
+    private javax.swing.JButton buttonBuscarMat1;
     private javax.swing.JButton buttonVolverMat;
+    private javax.swing.JButton buttonVolverMat1;
     private javax.swing.JComboBox<String> comboBoxCarreraMat;
+    private javax.swing.JComboBox<String> comboBoxCarreraMat1;
     private javax.swing.JComboBox<String> comboBoxDecanatoMat;
+    private javax.swing.JComboBox<String> comboBoxDecanatoMat1;
     private javax.swing.JComboBox<String> comboBoxProfesorMat;
+    private javax.swing.JComboBox<String> comboBoxProfesorMat1;
     private javax.swing.JComboBox<String> comboBoxSemestreMat;
+    private javax.swing.JComboBox<String> comboBoxSemestreMat1;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelMateriaText2;
+    private javax.swing.JLabel labelMateriaText3;
     private javax.swing.JLabel labelUserMateriaText1;
+    private javax.swing.JLabel labelUserMateriaText2;
     private javax.swing.JPanel panelMateria;
+    private javax.swing.JPanel panelMateria1;
     private javax.swing.JTable tableMateria;
+    private javax.swing.JTable tableMateria1;
     private javax.swing.JTextField textFieldApellidoMat;
+    private javax.swing.JTextField textFieldApellidoMat1;
     private javax.swing.JTextField textFieldBuscarMat;
+    private javax.swing.JTextField textFieldBuscarMat1;
     private javax.swing.JTextField textFieldNombreMat;
+    private javax.swing.JTextField textFieldNombreMat1;
     // End of variables declaration//GEN-END:variables
 }

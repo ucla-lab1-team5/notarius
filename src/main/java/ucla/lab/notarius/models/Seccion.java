@@ -8,12 +8,16 @@ Luis Ochoa CI: 29.778.672
 package ucla.lab.notarius.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -38,7 +42,6 @@ public class Seccion implements Serializable {
      
     //OneToMany con calificaciones
     @OneToMany(mappedBy="seccion")
-    
     private List<Calificacion> calificaciones;
     // Many to One con periodo academico
     @ManyToOne
@@ -46,15 +49,18 @@ public class Seccion implements Serializable {
     // Many to One con profesor
     @ManyToOne
     private Profesor profesor;
-    @ManyToMany(mappedBy = "secciones")
-    private List<Seccion> secciones;
+
+   
+     @ManyToMany(mappedBy = "secciones", cascade = CascadeType.ALL)
+    private List<Inscripcion> inscripciones;
+
     @Basic
     private String codigo;
 
     public Seccion() {
     }
 
-    public Seccion(int id, Materia materia, Decanato decanato, Carrera carrera, List<Calificacion> calificaciones, List<Seccion> secciones, PeriodoAcademico periodo, Profesor profesor, String codigo) {
+    public Seccion(int id, Materia materia, Decanato decanato, Carrera carrera, List<Calificacion> calificaciones, List<Inscripcion> inscripciones, PeriodoAcademico periodo, Profesor profesor, String codigo) {
         this.id = id;
         this.materia = materia;
         this.decanato = decanato;
@@ -63,16 +69,16 @@ public class Seccion implements Serializable {
         this.periodo = periodo;
         this.profesor = profesor;
         this.codigo = codigo;
-        this.secciones = secciones;
+        this.inscripciones = inscripciones;
     }
 
 
-    public List<Seccion> getSecciones() {
-        return secciones;
+    public List<Inscripcion> getInscripciones() {
+        return inscripciones;
     }
 
-    public void setSecciones(List<Seccion> secciones) {
-        this.secciones = secciones;
+    public void setInscripciones(List<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
     }
     
 

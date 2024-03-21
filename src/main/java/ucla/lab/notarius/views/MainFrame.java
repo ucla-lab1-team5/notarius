@@ -9,7 +9,7 @@ public class MainFrame extends JFrame {
    private AdminGestionSeccionView adminSeccionView;
    private AdminGestionSemestreView adminSemestreView;
    private AdminGestionUsuarioView adminUsuarioView;
-   private IndexEstudianteView indexEstudiante;
+//    private IndexEstudianteView indexEstudiante;
    private PerfilView perfilView;
    private ProfCalificarStudentView profCalificarStudentView;
    private ProfGestionMateriaView profGestionMateriaView;
@@ -57,11 +57,11 @@ public class MainFrame extends JFrame {
         this.getContentPane().add(this.adminUsuarioView);
     }
 
-    public void initIndexEstudianteView() {
-        this.getContentPane().removeAll();
-        this.indexEstudiante = new IndexEstudianteView();
-        this.getContentPane().add(this.indexEstudiante);
-    }
+    // public void initIndexEstudianteView() {
+    //     this.getContentPane().removeAll();
+    //     this.indexEstudiante = new IndexEstudianteView();
+    //     this.getContentPane().add(this.indexEstudiante);
+    // }
 
     public void initPerfilView() {
         this.getContentPane().removeAll();

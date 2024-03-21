@@ -19,6 +19,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.models.Carrera;
+import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.Inscripcion;
 import ucla.lab.notarius.models.Materia;
 import ucla.lab.notarius.models.Seccion;
@@ -41,36 +42,11 @@ public class InscripcionService implements Serializable {
         return emf.createEntityManager();
     }
 
-    // public void create(Inscripcion inscripcion) {
-    //     EntityManager em = null;
-    //     try {
-    //         em = getEntityManager();
-    //         em.getTransaction().begin();
-    //         em.persist(inscripcion);
-    //         em.getTransaction().commit();
-    //     } finally {
-    //         if (em != null) {
-    //             em.close();
-    //         }
-    //     }
-    // }
-
-
     public void create(Inscripcion inscripcion) {
-        if (inscripcion.getSecciones() == null) {
-            inscripcion.setSecciones(new ArrayList<Seccion>());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Seccion> attachedSecciones = new ArrayList<Seccion>();
-            for (Seccion SeccionToAttach : inscripcion.getSecciones()) {
-                SeccionToAttach = em.getReference(SeccionToAttach.getClass(), SeccionToAttach.getId());
-                attachedSecciones.add(SeccionToAttach);
-            }
-            inscripcion.setSecciones(attachedSecciones);
-
             em.persist(inscripcion);
             em.getTransaction().commit();
         } finally {
@@ -79,6 +55,9 @@ public class InscripcionService implements Serializable {
             }
         }
     }
+
+
+
 
     public void edit(Inscripcion inscripcion) throws NonexistentEntityException, Exception {
         EntityManager em = null;

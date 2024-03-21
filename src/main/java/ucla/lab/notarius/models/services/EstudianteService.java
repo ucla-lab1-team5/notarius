@@ -15,12 +15,16 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import ucla.lab.notarius.models.Calificacion;
+import ucla.lab.notarius.models.Carrera;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.models.Estudiante;
+import ucla.lab.notarius.models.Materia;
+import ucla.lab.notarius.models.Seccion;
 
 /**
  *
@@ -209,6 +213,25 @@ public class EstudianteService implements Serializable {
             em.close();
         }
         return null;
+    }
+
+    public List<Seccion> findSeccionesDisponibles (Estudiante estudiante) {
+        List<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
+        EntityManager em = getEntityManager();
+        try {
+            Carrera carrera = em.find(Carrera.class, estudiante.getCarrera().getId());
+            for (Materia m : carrera.getMaterias()) {
+                for (Seccion s : m.getSecciones()) {
+
+                     System.out.println("Seccion: " + s);
+                     seccionesDisponibles.add(s);
+                }
+
+            }
+        } catch (Exception e) {
+            
+        }
+        return seccionesDisponibles;
     }
 
     public int getEstudianteCount() {

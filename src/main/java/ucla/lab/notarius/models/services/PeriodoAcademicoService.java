@@ -190,7 +190,7 @@ public class PeriodoAcademicoService implements Serializable {
         EntityManager em = getEntityManager();
         PeriodoAcademico lastPeriodo = new PeriodoAcademico();
         try {
-            lastPeriodo = (PeriodoAcademico)em.createQuery("SELECT OBJECT(p) FROM PeriodoAcademico p order by p.fechaInicio asc").setMaxResults(1).getSingleResult();
+            lastPeriodo = (PeriodoAcademico)em.createQuery("SELECT OBJECT(p) FROM PeriodoAcademico p order by p.fechaInicio desc").setMaxResults(1).getSingleResult();
 
         } catch (Exception e) {
             e.printStackTrace();

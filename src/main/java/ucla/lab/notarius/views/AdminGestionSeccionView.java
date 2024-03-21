@@ -11,7 +11,7 @@ package ucla.lab.notarius.views;
  *
  * @author ANGELITE
  */
-public class AdminGestionSeccionView extends javax.swing.JPanel {
+public class AdminGestionSeccionView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView
@@ -29,6 +29,23 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        buttonBuscarSecc1 = new javax.swing.JButton();
+        buttonActualizarSecc1 = new javax.swing.JButton();
+        panelSeccion1 = new javax.swing.JPanel();
+        textFieldNombreSecc1 = new javax.swing.JTextField();
+        labelSeccionText3 = new javax.swing.JLabel();
+        textFieldApellidoSecc1 = new javax.swing.JTextField();
+        comboBoxMateriaSecc1 = new javax.swing.JComboBox<>();
+        comboBoxProfesorSecc1 = new javax.swing.JComboBox<>();
+        buttonAgregarSecc1 = new javax.swing.JButton();
+        textFieldBuscarSecc1 = new javax.swing.JTextField();
+        ComboBoxParaFiltrarSecc1 = new javax.swing.JComboBox<>();
+        buttonVolverSecc1 = new javax.swing.JButton();
+        labelUserSeccionText2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableSeccion1 = new javax.swing.JTable();
         buttonBuscarSecc = new javax.swing.JButton();
         buttonActualizarSecc = new javax.swing.JButton();
         panelSeccion = new javax.swing.JPanel();
@@ -45,6 +62,222 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSeccion = new javax.swing.JTable();
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(840, 631));
+
+        buttonBuscarSecc1.setText("Buscar");
+        buttonBuscarSecc1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonActualizarSecc1.setText("Actualizar");
+        buttonActualizarSecc1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        panelSeccion1.setBackground(new java.awt.Color(153, 153, 153));
+        panelSeccion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        textFieldNombreSecc1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Num - Seccion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldNombreSecc1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                textFieldNombreSecc1AncestorRemoved(evt);
+            }
+        });
+        textFieldNombreSecc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldNombreSecc1ActionPerformed(evt);
+            }
+        });
+
+        labelSeccionText3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelSeccionText3.setText("REGISTRO");
+
+        textFieldApellidoSecc1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldApellidoSecc1.setToolTipText("");
+        textFieldApellidoSecc1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Carrera", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldApellidoSecc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldApellidoSecc1ActionPerformed(evt);
+            }
+        });
+
+        comboBoxMateriaSecc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MATERIA", " ", " ", " " }));
+
+        comboBoxProfesorSecc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROFESOR", "MIGUEL VIVAS", "ANTONI ROGELIO", " " }));
+        comboBoxProfesorSecc1.setToolTipText("");
+
+        javax.swing.GroupLayout panelSeccion1Layout = new javax.swing.GroupLayout(panelSeccion1);
+        panelSeccion1.setLayout(panelSeccion1Layout);
+        panelSeccion1Layout.setHorizontalGroup(
+            panelSeccion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSeccion1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelSeccion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSeccion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(textFieldNombreSecc1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addComponent(textFieldApellidoSecc1))
+                    .addGroup(panelSeccion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(comboBoxProfesorSecc1, javax.swing.GroupLayout.Alignment.LEADING, 0, 148, Short.MAX_VALUE)
+                        .addComponent(comboBoxMateriaSecc1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSeccion1Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(labelSeccionText3)
+                .addGap(63, 63, 63))
+        );
+        panelSeccion1Layout.setVerticalGroup(
+            panelSeccion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSeccion1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelSeccionText3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldNombreSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldApellidoSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comboBoxMateriaSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboBoxProfesorSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
+        );
+
+        buttonAgregarSecc1.setText("Agregar");
+        buttonAgregarSecc1.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonAgregarSecc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarSecc1ActionPerformed(evt);
+            }
+        });
+
+        textFieldBuscarSecc1.setText("Buscar...");
+        textFieldBuscarSecc1.setBorder(new javax.swing.border.MatteBorder(null));
+        textFieldBuscarSecc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldBuscarSecc1ActionPerformed(evt);
+            }
+        });
+
+        ComboBoxParaFiltrarSecc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "DECANATO", " " }));
+        ComboBoxParaFiltrarSecc1.setToolTipText(""); // NOI18N
+        ComboBoxParaFiltrarSecc1.setBorder(new javax.swing.border.MatteBorder(null));
+        ComboBoxParaFiltrarSecc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxParaFiltrarSecc1ActionPerformed(evt);
+            }
+        });
+
+        buttonVolverSecc1.setText("VOLVER");
+        buttonVolverSecc1.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverSecc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverSecc1MouseClicked(evt);
+            }
+        });
+
+        labelUserSeccionText2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelUserSeccionText2.setText("GESTION DE SECCION");
+        labelUserSeccionText2.setToolTipText("");
+
+        tableSeccion1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "2", "ING INFORMATICA", "MATEMATICAS", null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Seccion", "Carrera", "Materia", "Profesor", "..."
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableSeccion1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(labelUserSeccionText2)
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(287, 287, 287)
+                                .addComponent(buttonVolverSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(panelSeccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(buttonAgregarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonActualizarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ComboBoxParaFiltrarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textFieldBuscarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonBuscarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)))
+                .addGap(26, 26, 26))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(labelUserSeccionText2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelSeccion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBuscarSecc1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonActualizarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAgregarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBoxParaFiltrarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textFieldBuscarSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addComponent(buttonVolverSecc1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(840, 631));
 
@@ -59,9 +292,9 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
 
         textFieldNombreSecc.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Num - Seccion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
         textFieldNombreSecc.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 textFieldNombreSeccAncestorRemoved(evt);
@@ -152,6 +385,11 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
 
         buttonVolverSecc.setText("VOLVER");
         buttonVolverSecc.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverSecc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverSeccMouseClicked(evt);
+            }
+        });
 
         labelUserSeccionText1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labelUserSeccionText1.setText("GESTION DE SECCION");
@@ -178,8 +416,8 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableSeccion);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -223,12 +461,13 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
                     .addComponent(panelSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonActualizarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAgregarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBoxParaFiltrarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldBuscarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBuscarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBuscarSecc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonActualizarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAgregarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBoxParaFiltrarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textFieldBuscarSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32)
                 .addComponent(buttonVolverSecc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
@@ -259,22 +498,74 @@ public class AdminGestionSeccionView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxParaFiltrarSeccActionPerformed
 
+    private void buttonVolverSeccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverSeccMouseClicked
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonVolverSeccMouseClicked
+
+    private void textFieldNombreSecc1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldNombreSecc1AncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreSecc1AncestorRemoved
+
+    private void textFieldNombreSecc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreSecc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreSecc1ActionPerformed
+
+    private void textFieldApellidoSecc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidoSecc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldApellidoSecc1ActionPerformed
+
+    private void buttonAgregarSecc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarSecc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAgregarSecc1ActionPerformed
+
+    private void textFieldBuscarSecc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBuscarSecc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldBuscarSecc1ActionPerformed
+
+    private void ComboBoxParaFiltrarSecc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarSecc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxParaFiltrarSecc1ActionPerformed
+
+    private void buttonVolverSecc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverSecc1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonVolverSecc1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarSecc;
+    private javax.swing.JComboBox<String> ComboBoxParaFiltrarSecc1;
     private javax.swing.JButton buttonActualizarSecc;
+    private javax.swing.JButton buttonActualizarSecc1;
     private javax.swing.JButton buttonAgregarSecc;
+    private javax.swing.JButton buttonAgregarSecc1;
     private javax.swing.JButton buttonBuscarSecc;
+    private javax.swing.JButton buttonBuscarSecc1;
     private javax.swing.JButton buttonVolverSecc;
+    private javax.swing.JButton buttonVolverSecc1;
     private javax.swing.JComboBox<String> comboBoxMateriaSecc;
+    private javax.swing.JComboBox<String> comboBoxMateriaSecc1;
     private javax.swing.JComboBox<String> comboBoxProfesorSecc;
+    private javax.swing.JComboBox<String> comboBoxProfesorSecc1;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelSeccionText2;
+    private javax.swing.JLabel labelSeccionText3;
     private javax.swing.JLabel labelUserSeccionText1;
+    private javax.swing.JLabel labelUserSeccionText2;
     private javax.swing.JPanel panelSeccion;
+    private javax.swing.JPanel panelSeccion1;
     private javax.swing.JTable tableSeccion;
+    private javax.swing.JTable tableSeccion1;
     private javax.swing.JTextField textFieldApellidoSecc;
+    private javax.swing.JTextField textFieldApellidoSecc1;
     private javax.swing.JTextField textFieldBuscarSecc;
+    private javax.swing.JTextField textFieldBuscarSecc1;
     private javax.swing.JTextField textFieldNombreSecc;
+    private javax.swing.JTextField textFieldNombreSecc1;
     // End of variables declaration//GEN-END:variables
 }

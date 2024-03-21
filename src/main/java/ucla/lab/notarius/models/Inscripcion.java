@@ -9,12 +9,16 @@ package ucla.lab.notarius.models;
 
 import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 
 @Entity
@@ -25,8 +29,14 @@ public class Inscripcion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+        name = "inscripcion_seccion", 
+        joinColumns = @JoinColumn(name="inscripcion_id"), 
+        inverseJoinColumns = @JoinColumn(name="seccion_id")
+        )
     private List<Seccion> secciones;
+
     @OneToOne
     private PeriodoAcademico periodo;
     @OneToOne
@@ -48,6 +58,16 @@ public class Inscripcion implements Serializable {
         this.carrera = carrera;
         this.decanato = decanato;
         this.semestre = semestre;
+    }
+
+    public Inscripcion (Estudiante estudiante, List<Seccion> secciones, PeriodoAcademico periodoMasReciente) {
+        this.secciones = secciones;
+        this.periodo = periodoMasReciente;
+        this.estudiante = estudiante;
+        this.carrera = estudiante.getCarrera();
+        this.decanato = estudiante.getCarrera().getDecanato();
+        this.semestre = estudiante.getSemestre();
+    
     }
 
     public List<Seccion> getSecciones() {
@@ -107,6 +127,8 @@ public class Inscripcion implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    
 
 
     @Override

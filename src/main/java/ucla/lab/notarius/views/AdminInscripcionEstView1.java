@@ -11,7 +11,7 @@ package ucla.lab.notarius.views;
  *
  * @author ANGELITE
  */
-public class AdminInscripcionEstView1 extends javax.swing.JPanel {
+public class AdminInscripcionEstView1 extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView
@@ -29,6 +29,23 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        panelUsuario2 = new javax.swing.JPanel();
+        textFieldNombreUs2 = new javax.swing.JTextField();
+        labelDecanatoText4 = new javax.swing.JLabel();
+        textFieldApellidoUs2 = new javax.swing.JTextField();
+        textFieldEstadoUs2 = new javax.swing.JTextField();
+        buttonVolverEst7 = new javax.swing.JButton();
+        buttonVolverEst8 = new javax.swing.JButton();
+        labelUserEstudianteText3 = new javax.swing.JLabel();
+        ComboBoxParaFiltrarEst2 = new javax.swing.JComboBox<>();
+        buttonBuscarEst2 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableUsuario2 = new javax.swing.JTable();
+        buttonVolverEst4 = new javax.swing.JButton();
+        buttonVolverEst9 = new javax.swing.JButton();
+        buttonVolverEst10 = new javax.swing.JButton();
         panelUsuario1 = new javax.swing.JPanel();
         textFieldNombreUs1 = new javax.swing.JTextField();
         labelDecanatoText3 = new javax.swing.JLabel();
@@ -44,6 +61,224 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
         buttonVolverEst2 = new javax.swing.JButton();
         buttonVolverEst1 = new javax.swing.JButton();
         buttonVolverEst3 = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(840, 631));
+
+        panelUsuario2.setBackground(new java.awt.Color(153, 153, 153));
+        panelUsuario2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        textFieldNombreUs2.setEditable(false);
+        textFieldNombreUs2.setText("JUAN CANUTO");
+        textFieldNombreUs2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldNombreUs2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                textFieldNombreUs2AncestorRemoved(evt);
+            }
+        });
+        textFieldNombreUs2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldNombreUs2ActionPerformed(evt);
+            }
+        });
+
+        labelDecanatoText4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelDecanatoText4.setText("REGISTRO");
+
+        textFieldApellidoUs2.setEditable(false);
+        textFieldApellidoUs2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldApellidoUs2.setText("PEREZ CHAVEZ");
+        textFieldApellidoUs2.setToolTipText("");
+        textFieldApellidoUs2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldApellidoUs2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldApellidoUs2ActionPerformed(evt);
+            }
+        });
+
+        textFieldEstadoUs2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldEstadoUs2.setToolTipText("");
+        textFieldEstadoUs2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cedula", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldEstadoUs2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldEstadoUs2ActionPerformed(evt);
+            }
+        });
+
+        buttonVolverEst7.setText("CARGAR");
+        buttonVolverEst7.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonVolverEst8.setText("LIMPIAR");
+        buttonVolverEst8.setBorder(new javax.swing.border.MatteBorder(null));
+
+        javax.swing.GroupLayout panelUsuario2Layout = new javax.swing.GroupLayout(panelUsuario2);
+        panelUsuario2.setLayout(panelUsuario2Layout);
+        panelUsuario2Layout.setHorizontalGroup(
+            panelUsuario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuario2Layout.createSequentialGroup()
+                .addGroup(panelUsuario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUsuario2Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(labelDecanatoText4))
+                    .addGroup(panelUsuario2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(panelUsuario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelUsuario2Layout.createSequentialGroup()
+                                .addComponent(buttonVolverEst7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonVolverEst8, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelUsuario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textFieldApellidoUs2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                .addComponent(textFieldNombreUs2)
+                                .addComponent(textFieldEstadoUs2)))))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        panelUsuario2Layout.setVerticalGroup(
+            panelUsuario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuario2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelDecanatoText4)
+                .addGap(11, 11, 11)
+                .addComponent(textFieldEstadoUs2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldNombreUs2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldApellidoUs2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
+                .addGroup(panelUsuario2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonVolverEst7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonVolverEst8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+
+        labelUserEstudianteText3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelUserEstudianteText3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelUserEstudianteText3.setText("INSCRIPCIÓN ESTUDIANTE");
+        labelUserEstudianteText3.setToolTipText("");
+
+        ComboBoxParaFiltrarEst2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "estudiantes que retiraron alguna asignatura ", "estudiantes por carrera", "estudiantes por semestre", "20 mejores promedios por carrera", "20 mejores promedios por Decanat", "por género de carrera y Decanato", "estudiantes con promedios por encima de 16 puntos por sección y por carrera" }));
+        ComboBoxParaFiltrarEst2.setToolTipText(""); // NOI18N
+        ComboBoxParaFiltrarEst2.setBorder(new javax.swing.border.MatteBorder(null));
+        ComboBoxParaFiltrarEst2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxParaFiltrarEst2ActionPerformed(evt);
+            }
+        });
+
+        buttonBuscarEst2.setText("FILTRAR");
+        buttonBuscarEst2.setBorder(new javax.swing.border.MatteBorder(null));
+
+        tableUsuario2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "CED_EST", "Usuario", "Nombre", "Apellido", "Contraseña", "Rol", "Estado", "..."
+            }
+        ));
+        jScrollPane3.setViewportView(tableUsuario2);
+
+        buttonVolverEst4.setText("VOLVER");
+        buttonVolverEst4.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverEst4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverEst4MouseClicked(evt);
+            }
+        });
+
+        buttonVolverEst9.setText("Inscribir");
+        buttonVolverEst9.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonVolverEst10.setText("Imprimir");
+        buttonVolverEst10.setBorder(new javax.swing.border.MatteBorder(null));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(labelUserEstudianteText3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(panelUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ComboBoxParaFiltrarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonBuscarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonVolverEst10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonVolverEst9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(buttonVolverEst4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(646, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(labelUserEstudianteText3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ComboBoxParaFiltrarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonBuscarEst2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(panelUsuario2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonVolverEst9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonVolverEst10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(560, Short.MAX_VALUE)
+                    .addComponent(buttonVolverEst4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(35, 35, 35)))
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(840, 631));
@@ -164,13 +399,18 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CED_EST", "Usuario", "Nombre", "Apellido", "Contraseña", "Rol", "Estado", "..."
+                "C.I", "Carrera", "Nombre", "Apellido", "Contraseña", "Rol", "Estado", "..."
             }
         ));
         jScrollPane2.setViewportView(tableUsuario1);
 
         buttonVolverEst2.setText("VOLVER");
         buttonVolverEst2.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverEst2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverEst2MouseClicked(evt);
+            }
+        });
 
         buttonVolverEst1.setText("Inscribir");
         buttonVolverEst1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -178,8 +418,8 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
         buttonVolverEst3.setText("Imprimir");
         buttonVolverEst3.setBorder(new javax.swing.border.MatteBorder(null));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -187,9 +427,9 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
                 .addComponent(labelUserEstudianteText2, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(panelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +440,7 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane2)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonVolverEst3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonVolverEst1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -258,22 +498,70 @@ public class AdminInscripcionEstView1 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxParaFiltrarEst1ActionPerformed
 
+    private void buttonVolverEst2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverEst2MouseClicked
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonVolverEst2MouseClicked
+
+    private void textFieldNombreUs2AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldNombreUs2AncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreUs2AncestorRemoved
+
+    private void textFieldNombreUs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreUs2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreUs2ActionPerformed
+
+    private void textFieldApellidoUs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidoUs2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldApellidoUs2ActionPerformed
+
+    private void textFieldEstadoUs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldEstadoUs2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldEstadoUs2ActionPerformed
+
+    private void ComboBoxParaFiltrarEst2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarEst2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxParaFiltrarEst2ActionPerformed
+
+    private void buttonVolverEst4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverEst4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonVolverEst4MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarEst1;
+    private javax.swing.JComboBox<String> ComboBoxParaFiltrarEst2;
     private javax.swing.JButton buttonBuscarEst1;
+    private javax.swing.JButton buttonBuscarEst2;
     private javax.swing.JButton buttonVolverEst1;
+    private javax.swing.JButton buttonVolverEst10;
     private javax.swing.JButton buttonVolverEst2;
     private javax.swing.JButton buttonVolverEst3;
+    private javax.swing.JButton buttonVolverEst4;
     private javax.swing.JButton buttonVolverEst5;
     private javax.swing.JButton buttonVolverEst6;
+    private javax.swing.JButton buttonVolverEst7;
+    private javax.swing.JButton buttonVolverEst8;
+    private javax.swing.JButton buttonVolverEst9;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelDecanatoText3;
+    private javax.swing.JLabel labelDecanatoText4;
     private javax.swing.JLabel labelUserEstudianteText2;
+    private javax.swing.JLabel labelUserEstudianteText3;
     private javax.swing.JPanel panelUsuario1;
+    private javax.swing.JPanel panelUsuario2;
     private javax.swing.JTable tableUsuario1;
+    private javax.swing.JTable tableUsuario2;
     private javax.swing.JTextField textFieldApellidoUs1;
+    private javax.swing.JTextField textFieldApellidoUs2;
     private javax.swing.JTextField textFieldEstadoUs1;
+    private javax.swing.JTextField textFieldEstadoUs2;
     private javax.swing.JTextField textFieldNombreUs1;
+    private javax.swing.JTextField textFieldNombreUs2;
     // End of variables declaration//GEN-END:variables
 }
