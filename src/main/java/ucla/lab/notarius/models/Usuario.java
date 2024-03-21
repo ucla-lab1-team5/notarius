@@ -9,6 +9,8 @@ package ucla.lab.notarius.models;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +21,8 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="user_type")
+@DiscriminatorValue(value = "user")
 public class Usuario implements Serializable {
     
 
@@ -42,7 +46,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(int id, String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean administrador, boolean estudiante, boolean profesor) {
+    public Usuario(int id , String nombreUsuario, String clave, String cedula, String nombres, String apellidos, int edad, char genero, boolean administrador, boolean estudiante, boolean profesor) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.clave = clave;
@@ -55,7 +59,6 @@ public class Usuario implements Serializable {
         this.estudiante = estudiante;
         this.profesor = profesor;
     }
-    
     
 
     public String getNombreUsuario() {

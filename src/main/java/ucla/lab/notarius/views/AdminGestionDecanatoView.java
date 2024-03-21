@@ -7,9 +7,9 @@ Luis Ochoa CI: 29.778.672
 */
 package ucla.lab.notarius.views;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import ucla.lab.notarius.controllers.Controller;
 import ucla.lab.notarius.models.Decanato;
 
 /**
@@ -34,25 +34,24 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
+        panelDecanato = new javax.swing.JPanel();
+        textFieldNombreDec = new javax.swing.JTextField();
+        labelDecanatoText2 = new javax.swing.JLabel();
+        textFieldCodigoDec = new javax.swing.JTextField();
+        textFieldUbicacionDec = new javax.swing.JTextField();
+        textFieldRectorDec = new javax.swing.JTextField();
+        labelDecanatoText1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        tableDecnato = new javax.swing.JTable();
+        textFieldBuscarDec = new javax.swing.JTextField();
+        buttonVolverDec = new javax.swing.JButton();
+        buttonBuscarDec = new javax.swing.JButton();
+        buttonAgregarDec = new javax.swing.JButton();
+        ComboBoxParaFiltrarDec = new javax.swing.JComboBox<>();
+        buttonEliminarDec = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -66,309 +65,357 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(17, 8, 195));
+        panelDecanato.setBackground(new java.awt.Color(153, 153, 153));
+        panelDecanato.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton14.setBackground(new java.awt.Color(17, 8, 195));
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/list.png"))); // NOI18N
-        jButton14.setBorder(null);
-
-        jButton12.setBackground(new java.awt.Color(17, 8, 195));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/users.png"))); // NOI18N
-        jButton12.setBorder(null);
-
-        jButton11.setBackground(new java.awt.Color(17, 8, 195));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/home.png"))); // NOI18N
-        jButton11.setToolTipText("");
-        jButton11.setBorder(null);
-
-        jButton15.setBackground(new java.awt.Color(17, 8, 195));
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/logout.png"))); // NOI18N
-        jButton15.setBorder(null);
-
-        jButton13.setBackground(new java.awt.Color(17, 8, 195));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/settings.png"))); // NOI18N
-        jButton13.setBorder(null);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton15)
-                    .addComponent(jButton14)
-                    .addComponent(jButton13)
-                    .addComponent(jButton12)
-                    .addComponent(jButton11))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jButton11)
-                .addGap(45, 45, 45)
-                .addComponent(jButton12)
-                .addGap(46, 46, 46)
-                .addComponent(jButton13)
-                .addGap(47, 47, 47)
-                .addComponent(jButton14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
-                .addComponent(jButton15)
-                .addGap(15, 15, 15))
-        );
-
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        jLabel8.setText("GESTIÓN DECANATO");
-
-        jButton9.setBackground(new java.awt.Color(255, 51, 51));
-        jButton9.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("ELIMINAR");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        textFieldNombreDec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldNombreDec.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                textFieldNombreDecAncestorRemoved(evt);
+            }
+        });
+        textFieldNombreDec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                textFieldNombreDecActionPerformed(evt);
             }
         });
 
-        jTextField5.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jTextField5.setText("BUSCAR");
-        jTextField5.setBorder(null);
+        labelDecanatoText2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelDecanatoText2.setText("REGISTRO");
 
-        jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        textFieldCodigoDec.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        textFieldCodigoDec.setToolTipText("");
+        textFieldCodigoDec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Codigo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldCodigoDec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldCodigoDecActionPerformed(evt);
+            }
+        });
 
-        jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        textFieldUbicacionDec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ubicación", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldUbicacionDec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldUbicacionDecActionPerformed(evt);
+            }
+        });
+
+        textFieldRectorDec.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rector", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Rounded MT Bold", 0, 11))); // NOI18N
+        textFieldRectorDec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldRectorDecActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelDecanatoLayout = new javax.swing.GroupLayout(panelDecanato);
+        panelDecanato.setLayout(panelDecanatoLayout);
+        panelDecanatoLayout.setHorizontalGroup(
+            panelDecanatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDecanatoLayout.createSequentialGroup()
+                .addGroup(panelDecanatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDecanatoLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(panelDecanatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textFieldNombreDec, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(textFieldCodigoDec)
+                            .addComponent(textFieldUbicacionDec)
+                            .addComponent(textFieldRectorDec)))
+                    .addGroup(panelDecanatoLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(labelDecanatoText2)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        panelDecanatoLayout.setVerticalGroup(
+            panelDecanatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDecanatoLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(labelDecanatoText2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldNombreDec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldCodigoDec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(textFieldUbicacionDec, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldRectorDec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+
+        labelDecanatoText1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelDecanatoText1.setText("GESTION DE DECANATO");
+        labelDecanatoText1.setToolTipText("");
+
+        tableDecnato.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tableDecnato.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"3422432", "ING EN ZAMUREAR", "DPUTA", "5", null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-
+                "NOMBRE", "CODIGO", "UBICACION", "RECTOR", "..."
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, false
+            };
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/search.png"))); // NOI18N
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel9.setText("TABLA DE DECANATOS");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableDecnato);
 
-        jButton16.setBackground(new java.awt.Color(17, 8, 195));
-        jButton16.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jButton16.setForeground(new java.awt.Color(255, 255, 255));
-        jButton16.setText("MODIFICAR");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        textFieldBuscarDec.setText("Buscar...");
+        textFieldBuscarDec.setBorder(new javax.swing.border.MatteBorder(null));
+        textFieldBuscarDec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                textFieldBuscarDecActionPerformed(evt);
             }
         });
 
-        jButton17.setBackground(new java.awt.Color(51, 204, 0));
-        jButton17.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jButton17.setForeground(new java.awt.Color(255, 255, 255));
-        jButton17.setText("CREAR");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+        buttonVolverDec.setText("VOLVER");
+        buttonVolverDec.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonVolverDec.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonVolverDecMouseClicked(evt);
             }
         });
 
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notarius/img/recargarIcono.png"))); // NOI18N
-        jButton18.setText("Recargar");
+        buttonBuscarDec.setText("Buscar");
+        buttonBuscarDec.setBorder(new javax.swing.border.MatteBorder(null));
+
+        buttonAgregarDec.setText("Agregar");
+        buttonAgregarDec.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonAgregarDec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarDecActionPerformed(evt);
+            }
+        });
+
+        ComboBoxParaFiltrarDec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "DECANATO", " " }));
+        ComboBoxParaFiltrarDec.setToolTipText(""); // NOI18N
+        ComboBoxParaFiltrarDec.setBorder(new javax.swing.border.MatteBorder(null));
+        ComboBoxParaFiltrarDec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxParaFiltrarDecActionPerformed(evt);
+            }
+        });
+
+        buttonEliminarDec.setText("Eliminar");
+        buttonEliminarDec.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 229, Short.MAX_VALUE)
+                .addComponent(labelDecanatoText1)
+                .addGap(227, 227, 227))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                            .addComponent(jSeparator5))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton16)
-                                .addGap(39, 39, 39)
-                                .addComponent(jButton17)
-                                .addGap(39, 39, 39)
-                                .addComponent(jButton9))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(panelDecanato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(22, 22, 22))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(buttonAgregarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonEliminarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel8)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(labelDecanatoText1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton10))
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelDecanato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(103, 103, 103))
+                    .addComponent(buttonBuscarDec, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonEliminarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAgregarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        cargarDecanatos();
+        // cargarDecanatos();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        AddDecanatoView addDecView = new AddDecanatoView();
-        addDecView.setVisible(true);
-        addDecView.setLocationRelativeTo(this);
-        this.dispose();
-        
-    }//GEN-LAST:event_jButton17ActionPerformed
-
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        cargarDecanatos();
+        // cargarDecanatos();
     }//GEN-LAST:event_formWindowGainedFocus
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if (jTable1.getRowCount() > 0) {
-            
-            if (jTable1.getSelectedRow() != -1) {
-                String valorDelaRowId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-                int decId = Integer.parseInt(valorDelaRowId);
-        
-                Controller control = null;
-                control = new Controller();
-                control.eliminarDecanato(decId);
-                jTable1.removeAll();
-                cargarDecanatos();
-            } else {
-                System.out.println("NO HAS SELECCIONADO NINGUN DECANATO");
-            
-            } 
-        
-        } else {
-            System.out.println("NO HAY DECANATOS");
-        
-        }
-    }//GEN-LAST:event_jButton9ActionPerformed
-    //IR A MODIFICAR DCANATO VIEW
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-         if (jTable1.getRowCount() > 0) {
-            
-            if (jTable1.getSelectedRow() != -1) {
-                String valorDelaRowId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-                int decId = Integer.parseInt(valorDelaRowId);
-        
-                ModDecanatoView modDecView = new ModDecanatoView(decId);
-                modDecView.setVisible(true);
-                modDecView.setLocationRelativeTo(this);
-                this.dispose();
-            } else {
-                System.out.println("NO HAS SELECCIONADO NINGUN DECANATO");
-            
-            } 
-        
-        } else {
-            System.out.println("NO HAY DECANATOS");
-        
-        }
-    }//GEN-LAST:event_jButton16ActionPerformed
+    private void textFieldNombreDecAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldNombreDecAncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreDecAncestorRemoved
 
-    public void cargarDecanatos() {
+    private void textFieldNombreDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNombreDecActionPerformed
 
-        //CONSTRUIR TITULOS DE TABLA
-        String decanatoColumns[] =
-        {
-            "ID", "Nombre", "Ubicacion", "Rector"
-        };
-        // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
-        DefaultTableModel tableModel = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int col) {
-                return false;
-            }
-        };
+    private void textFieldCodigoDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCodigoDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldCodigoDecActionPerformed
 
-        tableModel.setColumnIdentifiers(decanatoColumns);
-        jTable1.setModel(tableModel);
+    private void textFieldUbicacionDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUbicacionDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldUbicacionDecActionPerformed
+
+    private void textFieldRectorDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldRectorDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldRectorDecActionPerformed
+
+    private void textFieldBuscarDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBuscarDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldBuscarDecActionPerformed
+
+    private void buttonAgregarDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAgregarDecActionPerformed
+
+    private void ComboBoxParaFiltrarDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxParaFiltrarDecActionPerformed
+
+    private void buttonVolverDecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonVolverDecMouseClicked
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonVolverDecMouseClicked
+
+//     public void cargarDecanatos() {
+
+//         //CONSTRUIR TITULOS DE TABLA
+//         String decanatoColumns[] =
+//         {
+//             "ID", "Nombre", "Ubicacion", "Rector"
+//         };
+//         // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
+//         DefaultTableModel tableModel = new DefaultTableModel() {
+//             @Override
+//             public boolean isCellEditable(int row, int col) {
+//                 return false;
+//             }
+//         };
+
+//         tableModel.setColumnIdentifiers(decanatoColumns);
+//         tableDecnato.setModel(tableModel);
         
-//CARGAR DATOS DE LA DB
-        Controller control = new Controller();
-        ArrayList<Decanato> listaDecanatos = control.traerDecanatos();
+// //CARGAR DATOS DE LA DB
+//         Controller control = new Controller();
+//         ArrayList<Decanato> listaDecanatos = control.decanato.traerTodos();
 
         
-        if (listaDecanatos != null)
-        {
+//         if (listaDecanatos != null)
+//         {
 
-            for (Decanato d : listaDecanatos)
-            {
-                String id = Long.toString(d.getId());
-                String nombre = d.getNombre();
-                String ubicacion = d.getUbicacion();
-                String rector = d.getRector();
+//             for (Decanato d : listaDecanatos)
+//             {
+//                 String id = Long.toString(d.getId());
+//                 String nombre = d.getNombre();
+//                 String ubicacion = d.getUbicacion();
+//                 String rector = d.getRector();
 
-                String decanatoRow[] =
-                {
-                    id ,nombre, ubicacion, rector
-                };
+//                 String decanatoRow[] =
+//                 {
+//                     id ,nombre, ubicacion, rector
+//                 };
 
-                tableModel.addRow(decanatoRow);
-            }
+//                 tableModel.addRow(decanatoRow);
+//             }
 
-        }
-        control = null;
+//         }
+//         control = null;
 
+//     }
+
+     //listeners
+     public void submitButtonAgregarDec(ActionListener actionListener) {
+        buttonAgregarDec.addActionListener(actionListener);
+    }
+    public void submitButtonEliminarDec(ActionListener actionListener) {
+        buttonEliminarDec.addActionListener(actionListener);
+    }
+
+  
+
+
+    // getters
+    public  String getNombreDecanato() {
+        return textFieldNombreDec.getText();
+    }
+
+    public  String getRectorDecanato() {
+        return textFieldRectorDec.getText();
+    }
+    public  String getCodigoDecanato() {
+        return textFieldCodigoDec.getText();
+    }
+    public  String getUbicacionDecanato() {
+        return textFieldUbicacionDec.getText();
+    }
+
+    public String getDecanatoSeleccionado() {
+        int selectedRow = tableDecnato.getSelectedRow();
+        Object id = tableDecnato.getValueAt(selectedRow, 0);
+        System.out.println(id.getClass());
+        return (String)id;
     }
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> ComboBoxParaFiltrarDec;
+    private javax.swing.JButton buttonEliminarDec;
+    private javax.swing.JButton buttonAgregarDec;
+    private javax.swing.JButton buttonBuscarDec;
+    private javax.swing.JButton buttonVolverDec;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel labelDecanatoText1;
+    private javax.swing.JLabel labelDecanatoText2;
+    private javax.swing.JPanel panelDecanato;
+    public javax.swing.JTable tableDecnato;
+    private javax.swing.JTextField textFieldBuscarDec;
+    private javax.swing.JTextField textFieldCodigoDec;
+    private javax.swing.JTextField textFieldNombreDec;
+    private javax.swing.JTextField textFieldRectorDec;
+    private javax.swing.JTextField textFieldUbicacionDec;
     // End of variables declaration//GEN-END:variables
 }
