@@ -1,5 +1,6 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/PeriodoAcademicoService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/PerfilView.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/AdminInscripcionEstController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/ProfGestionMateriaView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionSemestreView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Inscripcion.java
@@ -36,7 +37,9 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/DecanatoService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionUsuarioView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/utils/ConfigManager.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/MenuPrincipal.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionSeccionView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/exceptions/IllegalOrphanException.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/InscripcionService.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/LoginController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/EstudianteService.java

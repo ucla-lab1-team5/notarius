@@ -7,6 +7,7 @@ Luis Ochoa CI: 29.778.672
 */
 package ucla.lab.notarius.views;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import ucla.lab.notarius.models.Decanato;
@@ -47,7 +48,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         buttonBuscarDec = new javax.swing.JButton();
         buttonAgregarDec = new javax.swing.JButton();
         ComboBoxParaFiltrarDec = new javax.swing.JComboBox<>();
-        buttonActualizarDec = new javax.swing.JButton();
+        buttonEliminarDec = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -212,8 +213,8 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
             }
         });
 
-        buttonActualizarDec.setText("Actualizar");
-        buttonActualizarDec.setBorder(new javax.swing.border.MatteBorder(null));
+        buttonEliminarDec.setText("Eliminar");
+        buttonEliminarDec.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -238,7 +239,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(buttonAgregarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonActualizarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEliminarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -263,7 +264,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                         .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonActualizarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonEliminarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonAgregarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,11 +275,11 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        cargarDecanatos();
+        // cargarDecanatos();
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        cargarDecanatos();
+        // cargarDecanatos();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void textFieldNombreDecAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textFieldNombreDecAncestorRemoved
@@ -320,57 +321,89 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_buttonVolverDecMouseClicked
 
-    public void cargarDecanatos() {
+//     public void cargarDecanatos() {
 
-        //CONSTRUIR TITULOS DE TABLA
-        String decanatoColumns[] =
-        {
-            "ID", "Nombre", "Ubicacion", "Rector"
-        };
-        // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
-        DefaultTableModel tableModel = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int col) {
-                return false;
-            }
-        };
+//         //CONSTRUIR TITULOS DE TABLA
+//         String decanatoColumns[] =
+//         {
+//             "ID", "Nombre", "Ubicacion", "Rector"
+//         };
+//         // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
+//         DefaultTableModel tableModel = new DefaultTableModel() {
+//             @Override
+//             public boolean isCellEditable(int row, int col) {
+//                 return false;
+//             }
+//         };
 
-        tableModel.setColumnIdentifiers(decanatoColumns);
-        tableDecnato.setModel(tableModel);
+//         tableModel.setColumnIdentifiers(decanatoColumns);
+//         tableDecnato.setModel(tableModel);
         
-//CARGAR DATOS DE LA DB
-        Controller control = new Controller();
-        ArrayList<Decanato> listaDecanatos = control.decanato.traerTodos();
+// //CARGAR DATOS DE LA DB
+//         Controller control = new Controller();
+//         ArrayList<Decanato> listaDecanatos = control.decanato.traerTodos();
 
         
-        if (listaDecanatos != null)
-        {
+//         if (listaDecanatos != null)
+//         {
 
-            for (Decanato d : listaDecanatos)
-            {
-                String id = Long.toString(d.getId());
-                String nombre = d.getNombre();
-                String ubicacion = d.getUbicacion();
-                String rector = d.getRector();
+//             for (Decanato d : listaDecanatos)
+//             {
+//                 String id = Long.toString(d.getId());
+//                 String nombre = d.getNombre();
+//                 String ubicacion = d.getUbicacion();
+//                 String rector = d.getRector();
 
-                String decanatoRow[] =
-                {
-                    id ,nombre, ubicacion, rector
-                };
+//                 String decanatoRow[] =
+//                 {
+//                     id ,nombre, ubicacion, rector
+//                 };
 
-                tableModel.addRow(decanatoRow);
-            }
+//                 tableModel.addRow(decanatoRow);
+//             }
 
-        }
-        control = null;
+//         }
+//         control = null;
 
+//     }
+
+     //listeners
+     public void submitButtonAgregarDec(ActionListener actionListener) {
+        buttonAgregarDec.addActionListener(actionListener);
+    }
+    public void submitButtonEliminarDec(ActionListener actionListener) {
+        buttonEliminarDec.addActionListener(actionListener);
     }
 
+  
+
+
+    // getters
+    public  String getNombreDecanato() {
+        return textFieldNombreDec.getText();
+    }
+
+    public  String getRectorDecanato() {
+        return textFieldRectorDec.getText();
+    }
+    public  String getCodigoDecanato() {
+        return textFieldCodigoDec.getText();
+    }
+    public  String getUbicacionDecanato() {
+        return textFieldUbicacionDec.getText();
+    }
+
+    public String getDecanatoSeleccionado() {
+        int selectedRow = tableDecnato.getSelectedRow();
+        Object id = tableDecnato.getValueAt(selectedRow, 0);
+        System.out.println(id.getClass());
+        return (String)id;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxParaFiltrarDec;
-    private javax.swing.JButton buttonActualizarDec;
+    private javax.swing.JButton buttonEliminarDec;
     private javax.swing.JButton buttonAgregarDec;
     private javax.swing.JButton buttonBuscarDec;
     private javax.swing.JButton buttonVolverDec;
@@ -378,7 +411,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     private javax.swing.JLabel labelDecanatoText1;
     private javax.swing.JLabel labelDecanatoText2;
     private javax.swing.JPanel panelDecanato;
-    private javax.swing.JTable tableDecnato;
+    public javax.swing.JTable tableDecnato;
     private javax.swing.JTextField textFieldBuscarDec;
     private javax.swing.JTextField textFieldCodigoDec;
     private javax.swing.JTextField textFieldNombreDec;

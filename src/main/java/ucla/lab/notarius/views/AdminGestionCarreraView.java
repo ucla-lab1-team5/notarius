@@ -295,7 +295,6 @@ public class AdminGestionCarreraView extends javax.swing.JFrame {
         );
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         labelCarreraText1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labelCarreraText1.setText("GESTION DE CARRERA");
@@ -451,8 +450,8 @@ public class AdminGestionCarreraView extends javax.swing.JFrame {
         buttonActualizarCar.setText("Actualizar");
         buttonActualizarCar.setBorder(new javax.swing.border.MatteBorder(null));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -504,6 +503,8 @@ public class AdminGestionCarreraView extends javax.swing.JFrame {
                 .addComponent(buttonVolverCar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(69, Short.MAX_VALUE))
         );
+
+        setBounds(0, 0, 810, 631);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textFieldCodigoCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCodigoCarActionPerformed

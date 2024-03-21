@@ -28,5 +28,28 @@
             e.printStackTrace();
         }
 
+// FLUJO NUEVO DE Inscripcion
+ Estudiante estudianteInscribiendo = persistenceService.estudiante.findEstudianteWithCedula("1234567890");
+
+
+        List<Seccion> seccionesDisponibles = persistenceService.estudiante.findSeccionesDisponibles(estudianteInscribiendo);
+
+        List<Seccion> seccionesElegidas = new ArrayList<Seccion>();
+
+        for (Seccion seccion : seccionesDisponibles) {
+            if (seccion.getId() % 2 != 0) {
+                seccionesElegidas.add(seccion);
+            }
+        }
+
+
+        System.out.println(seccionesDisponibles.size());
+
+        PeriodoAcademico ultimoPeriodo = persistenceService.periodoAcademico.findLastPeriodo();
+
+        Inscripcion inscripcion = new Inscripcion(estudianteInscribiendo, seccionesElegidas, ultimoPeriodo);
+
+        persistenceService.inscripcion.create(inscripcion);
+
         
      

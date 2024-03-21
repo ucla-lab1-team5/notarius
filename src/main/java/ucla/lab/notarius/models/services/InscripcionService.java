@@ -48,6 +48,7 @@ public class InscripcionService implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(inscripcion);
+            System.out.println("Inscripcion completada");
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -55,8 +56,6 @@ public class InscripcionService implements Serializable {
             }
         }
     }
-
-
 
 
     public void edit(Inscripcion inscripcion) throws NonexistentEntityException, Exception {
@@ -135,6 +134,7 @@ public class InscripcionService implements Serializable {
             em.close();
         }
     }
+    
 
     public int getInscripcionCount() {
         EntityManager em = getEntityManager();

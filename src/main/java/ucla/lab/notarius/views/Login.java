@@ -270,11 +270,9 @@ public class Login extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this, "sesión iniciada exitosamente");
         MenuPrincipal menuPrincipal = new MenuPrincipal(); 
         menuPrincipal.setVisible(true);
-        menuPrincipal.setLocationRelativeTo(null);
+        menuPrincipal.setLocationRelativeTo(this);
         this.setVisible(false);   
-    // Los JPANELS DEPENDEN DE JFRAMES
-        // AddUserEstudianteView addUserEstudianteView= new AddUserEstudianteView();
-        // addUserEstudianteView.setVisible(true);
+
     
     }//GEN-LAST:event_buttonloginTxtMouseClicked
 

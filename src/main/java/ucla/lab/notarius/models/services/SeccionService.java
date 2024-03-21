@@ -299,6 +299,10 @@ public void create(Seccion seccion) {
         }
     }
 
+    
+
+   
+
     public int getSeccionCount() {
         EntityManager em = getEntityManager();
         try {

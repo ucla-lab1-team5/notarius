@@ -8,44 +8,19 @@ Luis Ochoa CI: 29.778.672
 
 package ucla.lab.notarius;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ucla.lab.notarius.models.Estudiante;
-import ucla.lab.notarius.models.Inscripcion;
-import ucla.lab.notarius.models.PeriodoAcademico;
-import ucla.lab.notarius.models.Seccion;
-
-import ucla.lab.notarius.models.services.PersistenceService;
+import ucla.lab.notarius.controllers.AdminGestionDecanatoController;
+import ucla.lab.notarius.controllers.AdminInscripcionEstController;
+import ucla.lab.notarius.views.AdminGestionDecanatoView;
+import ucla.lab.notarius.views.AdminInscripcionEstView1;
+import ucla.lab.notarius.views.Login;
 
 
 public class Notarius {
     public static void main(String[] args) {
-
-        PersistenceService persistenceService = new PersistenceService();
-
-        Estudiante estudianteInscribiendo = persistenceService.estudiante.findEstudianteWithCedula("1234567890");
-
-
-        List<Seccion> seccionesDisponibles = persistenceService.estudiante.findSeccionesDisponibles(estudianteInscribiendo);
-
-        List<Seccion> seccionesElegidas = new ArrayList<Seccion>();
-
-        for (Seccion seccion : seccionesDisponibles) {
-            if (seccion.getId() % 2 != 0) {
-                seccionesElegidas.add(seccion);
-            }
-        }
-
-
-        System.out.println(seccionesDisponibles.size());
-
-        PeriodoAcademico ultimoPeriodo = persistenceService.periodoAcademico.findLastPeriodo();
-
-        Inscripcion inscripcion = new Inscripcion(estudianteInscribiendo, seccionesElegidas, ultimoPeriodo);
-
-        persistenceService.inscripcion.create(inscripcion);
-
+        
+        // PersistenceService persistenceService = new PersistenceService();
+        // AdminInscripcionEstController inscripcionEstController = new AdminInscripcionEstController(new AdminInscripcionEstView1());
+        AdminGestionDecanatoController decanatoController = new AdminGestionDecanatoController(new AdminGestionDecanatoView());
         
     }
 }
