@@ -23,18 +23,18 @@ public class Login extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
-        logoNameNotarius = new javax.swing.JLabel();
+        logoname = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        titleInicioSesion = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
-        textFielduserTxt = new javax.swing.JTextField();
+        userTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         passLabel = new javax.swing.JLabel();
-        textFieldpassTxt = new javax.swing.JPasswordField();
+        passTxt = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         loginBtn = new javax.swing.JPanel();
-        buttonloginTxt = new javax.swing.JLabel();
+        loginBtnTxt = new javax.swing.JLabel();
         backgroud = new javax.swing.JLabel();
         notariusLogo = new javax.swing.JLabel();
 
@@ -58,11 +58,11 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        logoNameNotarius.setBackground(new java.awt.Color(255, 255, 255));
-        logoNameNotarius.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        logoNameNotarius.setForeground(new java.awt.Color(0, 0, 0));
-        logoNameNotarius.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoNameNotarius.setText("Notarius");
+        logoname.setBackground(new java.awt.Color(255, 255, 255));
+        logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        logoname.setForeground(new java.awt.Color(0, 0, 0));
+        logoname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoname.setText("Notarius");
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,7 +102,7 @@ public class Login extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap(279, Short.MAX_VALUE)
-                .addComponent(logoNameNotarius, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoname, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(231, 231, 231)
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -111,38 +111,38 @@ public class Login extends javax.swing.JFrame {
             .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoNameNotarius, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        logoNameNotarius.getAccessibleContext().setAccessibleName("windowTitle");
+        logoname.getAccessibleContext().setAccessibleName("windowTitle");
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 40));
 
-        titleInicioSesion.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        titleInicioSesion.setText("INICIAR SESIÓN");
-        bg.add(titleInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
+        title.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        title.setText("INICIAR SESIÓN");
+        bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
 
         userLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         userLabel.setText("USUARIO");
         bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 70, -1));
 
-        textFielduserTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        textFielduserTxt.setForeground(new java.awt.Color(204, 204, 204));
-        textFielduserTxt.setText("Ingrese su nombre de usuario");
-        textFielduserTxt.setBorder(null);
-        textFielduserTxt.setSelectionColor(new java.awt.Color(66, 60, 195));
-        textFielduserTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        userTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        userTxt.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt.setText("Ingrese su nombre de usuario");
+        userTxt.setBorder(null);
+        userTxt.setSelectionColor(new java.awt.Color(66, 60, 195));
+        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                textFielduserTxtMousePressed(evt);
+                userTxtMousePressed(evt);
             }
         });
-        textFielduserTxt.addActionListener(new java.awt.event.ActionListener() {
+        userTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFielduserTxtActionPerformed(evt);
+                userTxtActionPerformed(evt);
             }
         });
-        bg.add(textFielduserTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 410, 30));
+        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 410, 30));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 410, 20));
@@ -151,41 +151,41 @@ public class Login extends javax.swing.JFrame {
         passLabel.setText("CONTRASEÑA");
         bg.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
-        textFieldpassTxt.setForeground(new java.awt.Color(204, 204, 204));
-        textFieldpassTxt.setText("Contraseña");
-        textFieldpassTxt.setBorder(null);
-        textFieldpassTxt.setSelectionColor(new java.awt.Color(66, 60, 195));
-        textFieldpassTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        passTxt.setForeground(new java.awt.Color(204, 204, 204));
+        passTxt.setText("Contraseña");
+        passTxt.setBorder(null);
+        passTxt.setSelectionColor(new java.awt.Color(66, 60, 195));
+        passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                textFieldpassTxtMousePressed(evt);
+                passTxtMousePressed(evt);
             }
         });
-        textFieldpassTxt.addActionListener(new java.awt.event.ActionListener() {
+        passTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldpassTxtActionPerformed(evt);
+                passTxtActionPerformed(evt);
             }
         });
-        bg.add(textFieldpassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 410, 30));
+        bg.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 410, 30));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 410, 20));
 
         loginBtn.setBackground(new java.awt.Color(17, 8, 197));
 
-        buttonloginTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        buttonloginTxt.setForeground(new java.awt.Color(255, 255, 255));
-        buttonloginTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        buttonloginTxt.setText("ENTRAR");
-        buttonloginTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonloginTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        loginBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        loginBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loginBtnTxt.setText("ENTRAR");
+        loginBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        loginBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonloginTxtMouseClicked(evt);
+                loginBtnTxtMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buttonloginTxtMouseEntered(evt);
+                loginBtnTxtMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                buttonloginTxtMouseExited(evt);
+                loginBtnTxtMouseExited(evt);
             }
         });
 
@@ -195,12 +195,12 @@ public class Login extends javax.swing.JFrame {
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginBtnLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(buttonloginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                .addComponent(loginBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addGap(31, 31, 31))
         );
         loginBtnLayout.setVerticalGroup(
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buttonloginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(loginBtnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 130, 40));
@@ -236,53 +236,53 @@ public class Login extends javax.swing.JFrame {
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged
 
-    private void buttonloginTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonloginTxtMouseEntered
+    private void loginBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseEntered
         loginBtn.setBackground(new Color(66, 60, 195));
-    }//GEN-LAST:event_buttonloginTxtMouseEntered
+    }//GEN-LAST:event_loginBtnTxtMouseEntered
 
-    private void buttonloginTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonloginTxtMouseExited
+    private void loginBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseExited
         loginBtn.setBackground(new Color(17,9,197));
-    }//GEN-LAST:event_buttonloginTxtMouseExited
+    }//GEN-LAST:event_loginBtnTxtMouseExited
 
-    private void textFielduserTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFielduserTxtMousePressed
-        if (textFielduserTxt.getText().equals("Ingrese su nombre de usuario")) {
-            textFielduserTxt.setText("");
-            textFielduserTxt.setForeground(Color.black);
+    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
+        if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
+            userTxt.setText("");
+            userTxt.setForeground(Color.black);
         }
-        if (String.valueOf(textFieldpassTxt.getPassword()).isEmpty()) {
-            textFieldpassTxt.setText("Contraseña");
-            textFieldpassTxt.setForeground(Color.gray);
+        if (String.valueOf(passTxt.getPassword()).isEmpty()) {
+            passTxt.setText("Contraseña");
+            passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_textFielduserTxtMousePressed
+    }//GEN-LAST:event_userTxtMousePressed
 
-    private void textFieldpassTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldpassTxtMousePressed
-        if (String.valueOf(textFieldpassTxt.getPassword()).equals("Contraseña")) {
-            textFieldpassTxt.setText("");
-            textFieldpassTxt.setForeground(Color.black);
+    private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
+        if (String.valueOf(passTxt.getPassword()).equals("Contraseña")) {
+            passTxt.setText("");
+            passTxt.setForeground(Color.black);
         }
-        if (textFielduserTxt.getText().isEmpty()) {
-            textFielduserTxt.setText("Ingrese su nombre de usuario");
-            textFielduserTxt.setForeground(Color.gray);
+        if (userTxt.getText().isEmpty()) {
+            userTxt.setText("Ingrese su nombre de usuario");
+            userTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_textFieldpassTxtMousePressed
+    }//GEN-LAST:event_passTxtMousePressed
 
-    private void buttonloginTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonloginTxtMouseClicked
-        javax.swing.JOptionPane.showMessageDialog(this, "sesión iniciada exitosamente");
-        MenuPrincipal menuPrincipal = new MenuPrincipal(); 
-        menuPrincipal.setVisible(true);
-        menuPrincipal.setLocationRelativeTo(this);
-        this.setVisible(false);   
-
+    private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
+        javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: " + userTxt.getText() + "\nContraseña: " + String.valueOf(passTxt.getPassword()), "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
+     AdminGestionDecanatoView adminGestionDecanatoView = new AdminGestionDecanatoView();
+     adminGestionDecanatoView.setVisible(true);
+     adminGestionDecanatoView.setLocationRelativeTo(null);
+        this.setVisible(false);
     
-    }//GEN-LAST:event_buttonloginTxtMouseClicked
+    }//GEN-LAST:event_loginBtnTxtMouseClicked
 
-    private void textFieldpassTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldpassTxtActionPerformed
+    private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldpassTxtActionPerformed
+    }//GEN-LAST:event_passTxtActionPerformed
 
-    private void textFielduserTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFielduserTxtActionPerformed
+    private void userTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFielduserTxtActionPerformed
+    }//GEN-LAST:event_userTxtActionPerformed
 
     private void exitTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseExited
         exitBtn.setBackground(Color.white);
@@ -336,19 +336,19 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroud;
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel buttonloginTxt;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel loginBtn;
-    private javax.swing.JLabel logoNameNotarius;
+    private javax.swing.JLabel loginBtnTxt;
+    private javax.swing.JLabel logoname;
     private javax.swing.JLabel notariusLogo;
     private javax.swing.JLabel passLabel;
-    private javax.swing.JPasswordField textFieldpassTxt;
-    private javax.swing.JTextField textFielduserTxt;
-    private javax.swing.JLabel titleInicioSesion;
+    private javax.swing.JPasswordField passTxt;
+    private javax.swing.JLabel title;
     private javax.swing.JLabel userLabel;
+    private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }

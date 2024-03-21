@@ -9,8 +9,6 @@ package ucla.lab.notarius.models;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +20,6 @@ import javax.persistence.OneToMany;
  * @author hanumonke
  */
 @Entity
-@DiscriminatorValue(value = "user")
 public class Profesor extends Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;

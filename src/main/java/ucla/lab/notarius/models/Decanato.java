@@ -86,14 +86,10 @@ public class Decanato implements Serializable {
         this.id = id;
     }
 
-    public void agregarCarrera(Carrera c) {
-        c.setDecanato(this);
-        this.carreras.add(c);
-    }
    
     @Override
     public String toString() {
-        return "notarius.models.Decanato[ id=" + id + ", " + nombre +", " + rector +"," + ubicacion +"]";
+        return "notarius.models.Decanato[ id=" + id + " ]";
     }
     
 }
