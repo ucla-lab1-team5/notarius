@@ -2,12 +2,14 @@ package ucla.lab.notarius.controllers;
 // importando todo de los eventos
 import java.awt.event.*;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.table.DefaultTableModel;
 
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.models.Decanato;
-import ucla.lab.notarius.models.services.DecanatoService;
+//import ucla.lab.notarius.models.services.DecanatoService;
 import ucla.lab.notarius.models.services.PersistenceService;
 import ucla.lab.notarius.views.AdminGestionDecanatoView;
 
@@ -20,6 +22,7 @@ public class AdminGestionDecanatoController {
         this.ps = null;
 
         this.view.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowOpened(WindowEvent evt) {
                 cargarDecanatos();
             }
@@ -27,6 +30,7 @@ public class AdminGestionDecanatoController {
 
         this.view.submitButtonAgregarDec(e -> agregarDecanato());
         this.view.submitButtonEliminarDec(e -> eliminarDecanato());
+        this.view.submitActualizarButtonDec(e -> actualizarDecanato());
 
         this.view.setVisible(true);
         this.view.setLocationRelativeTo(null);
@@ -81,6 +85,12 @@ public class AdminGestionDecanatoController {
     }
 
     public void agregarDecanato() {
+        
+        
+      if (validarCampos()){
+        System.err.println("Error, hay campos vacíos");
+        return;
+    }
         Decanato decanatoAAgregar = new Decanato();
         decanatoAAgregar.setNombre(view.getNombreDecanato());
         decanatoAAgregar.setRector(view.getRectorDecanato());
@@ -91,7 +101,31 @@ public class AdminGestionDecanatoController {
         cargarDecanatos();
         
     }
+    
+   
+    
+   public void actualizarDecanato(){
+       
+       int id = Integer.valueOf(view.getDecanatoSeleccionado());
+       ps = new PersistenceService();
+         try {
+           Decanato d = ps.decanato.findDecanato(id);
+           d.setNombre(view.getNombreDecanato());
+           d.setRector(view.getRectorDecanato());
+           d.setUbicacion(view.getUbicacionDecanato());
+           
+            ps.decanato.edit(d);
+        }catch (NonexistentEntityException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception ex) {
+            Logger.getLogger(AdminGestionDecanatoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cargarDecanatos();
+       
 
+   }
+    
     public void eliminarDecanato() {
         int id = Integer.valueOf(view.getDecanatoSeleccionado());
         ps = new PersistenceService();
@@ -103,4 +137,22 @@ public class AdminGestionDecanatoController {
         }
         cargarDecanatos();
     }
+    
+     public boolean validarCampos () {
+         System.out.println("Comprobando campos");
+         if (this.view.getNombreDecanato() == null || this.view.getNombreDecanato().trim().isEmpty()) {
+            return true;}
+         if (this.view.getRectorDecanato() == null || this.view.getRectorDecanato().trim().isEmpty()){   
+              return true;
+          }
+         if (this.view.getUbicacionDecanato() == null || this.view.getUbicacionDecanato().trim().isEmpty()){   
+              return true;
+          }
+          
+                return false;
+     } 
+     
+     
+     
 }
+

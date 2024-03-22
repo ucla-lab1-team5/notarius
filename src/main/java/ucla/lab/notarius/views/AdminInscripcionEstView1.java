@@ -355,7 +355,6 @@ public class AdminInscripcionEstView1 extends javax.swing.JFrame {
 
         seccionesElegidasList.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane4.setViewportView(seccionesElegidasList);
-        seccionesElegidasList.getAccessibleContext().setAccessibleParent(seccionesComboBox);
 
         materiasCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Materia 1", "Materia 2", "Materia 3", "Materia 4" }));
 
@@ -498,7 +497,7 @@ public class AdminInscripcionEstView1 extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
