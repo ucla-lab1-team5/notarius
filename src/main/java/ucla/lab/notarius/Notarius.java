@@ -9,9 +9,9 @@ Luis Ochoa CI: 29.778.672
 package ucla.lab.notarius;
 
 import ucla.lab.notarius.controllers.AdminGestionDecanatoController;
-import ucla.lab.notarius.controllers.AdminInscripcionEstController;
+import ucla.lab.notarius.controllers.InscripcionController;
 import ucla.lab.notarius.views.AdminGestionDecanatoView;
-import ucla.lab.notarius.views.AdminInscripcionEstView1;
+import ucla.lab.notarius.views.InscripcionView;
 import ucla.lab.notarius.views.Login;
 
 
@@ -19,8 +19,8 @@ public class Notarius {
     public static void main(String[] args) {
         
         // PersistenceService persistenceService = new PersistenceService();
-        // AdminInscripcionEstController inscripcionEstController = new AdminInscripcionEstController(new AdminInscripcionEstView1());
-        AdminGestionDecanatoController decanatoController = new AdminGestionDecanatoController(new AdminGestionDecanatoView());
+         InscripcionController inscripcionEstController = new InscripcionController(new InscripcionView());
+//        AdminGestionDecanatoController decanatoController = new AdminGestionDecanatoController(new AdminGestionDecanatoView());
         
     }
 }

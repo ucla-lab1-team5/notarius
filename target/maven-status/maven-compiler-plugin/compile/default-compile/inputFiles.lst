@@ -1,6 +1,5 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/PeriodoAcademicoService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/PerfilView.java
-/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/AdminInscripcionEstController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/ProfGestionMateriaView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionSemestreView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Inscripcion.java
@@ -13,6 +12,7 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/PersistenceService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionCarreraView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/SeccionService.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/InscripcionController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/AdminGestionDecanatoController.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/MainFrame.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/MateriaService.java
@@ -20,14 +20,15 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/ProfCalificarStudentView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/IndexEstudianteView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/CalificacionService.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/InscripcionView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/Notarius.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Usuario.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Calificacion.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/utils/Reporte.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/exceptions/PreexistingEntityException.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Decanato.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionDecanatoView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/PeriodoAcademico.java
-/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminInscripcionEstView1.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminReportesView.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/controllers/exceptions/NonexistentEntityException.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/ProfesorService.java

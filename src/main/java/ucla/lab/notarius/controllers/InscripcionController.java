@@ -12,6 +12,7 @@ package ucla.lab.notarius.controllers;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.Inscripcion;
@@ -19,17 +20,18 @@ import ucla.lab.notarius.models.Materia;
 import ucla.lab.notarius.models.PeriodoAcademico;
 import ucla.lab.notarius.models.Seccion;
 import ucla.lab.notarius.models.services.PersistenceService;
-import ucla.lab.notarius.views.AdminInscripcionEstView1;
+import ucla.lab.notarius.utils.Reporte;
+import ucla.lab.notarius.views.InscripcionView;
 
 
-public class AdminInscripcionEstController {
-    private AdminInscripcionEstView1 view;
+public class InscripcionController {
+    private InscripcionView view;
     private Estudiante estudianteAInscribir;
     private List<Seccion> seccionesDisponibles;
     private List<Seccion> seccionesPaLaInscripcion;
     private List<String> seccionesSeleccioniadas;
     private PersistenceService ps;
-    public AdminInscripcionEstController(AdminInscripcionEstView1 view) {
+    public InscripcionController(InscripcionView view) {
         this.view = view;
         this.seccionesPaLaInscripcion = new ArrayList<>();
         this.seccionesSeleccioniadas = new ArrayList<>();
@@ -49,6 +51,26 @@ public class AdminInscripcionEstController {
         this.view.setVisible(true);
         this.view.setLocationRelativeTo(null);
     
+    }
+    
+    public boolean camposVacios () {
+        System.out.println("Comprobando campos");
+        if (this.view.getNombre().trim().isEmpty()) {
+            return true;
+        }
+         if (this.view.getApellido().trim().isEmpty()) {
+            return true;
+        }
+         
+         if (this.view.getCedula().isEmpty()) {
+            return true;
+        }
+          return false;
+         
+    }
+    
+    public boolean sinSeccionesSeleccionadas() {
+        return seccionesSeleccioniadas.isEmpty();
     }
 
     public void cerrarVista () {
@@ -81,7 +103,7 @@ public class AdminInscripcionEstController {
             materiasDisponiblesString.add(m.getNombre());
         }
 
-        this.view.setComboBoxMaterias(materiasDisponiblesString.toArray(new String[0]));
+       this.view.setComboBoxMaterias(materiasDisponiblesString.toArray(new String[0]));
         
 
         ps = null;
@@ -110,6 +132,18 @@ public class AdminInscripcionEstController {
     }
 
     public void inscribirEstudiante() {
+        if (camposVacios()) {
+           JOptionPane.showMessageDialog(this.view, "Error, hay campos vacios", 
+                                   "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (sinSeccionesSeleccionadas()) {
+             JOptionPane.showMessageDialog(this.view, "Error, no has seleccionado secciones", 
+                                   "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         for (Seccion sd : seccionesDisponibles) {
             if(seccionesSeleccioniadas.contains(sd.getCodigo())) {
                 System.out.println(sd.getCodigo());
@@ -126,6 +160,10 @@ public class AdminInscripcionEstController {
         inscripcion.setPeriodo(ultimoPeriodo);
         inscripcion.setSecciones(seccionesDisponibles);
         ps.inscripcion.create(inscripcion);
+        
+       Reporte r =  new Reporte("jasper/Notarius_Students_Per_Career.jrxml");
+       r.showReport();
+        
     }
 
     public void clear(){
