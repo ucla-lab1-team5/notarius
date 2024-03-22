@@ -1,6 +1,4 @@
-ucla\lab\notarius\controllers\AdminGestionDecanatoController$1.class
 ucla\lab\notarius\views\AdminGestionSemestreView$18.class
-ucla\lab\notarius\views\Login$7.class
 ucla\lab\notarius\views\AdminGestionSemestreView$1.class
 ucla\lab\notarius\models\services\CarreraService.class
 ucla\lab\notarius\views\AdminReportesView$5.class
@@ -29,7 +27,6 @@ ucla\lab\notarius\views\AdminGestionUsuarioView$19.class
 ucla\lab\notarius\views\ProfCalificarStudentView$8.class
 ucla\lab\notarius\controllers\exceptions\NonexistentEntityException.class
 ucla\lab\notarius\models\Estudiante_.class
-ucla\lab\notarius\views\AdminGestionDecanatoView$14.class
 ucla\lab\notarius\views\AdminGestionCarreraView$20.class
 ucla\lab\notarius\views\AdminGestionUsuarioView$20.class
 ucla\lab\notarius\models\services\DecanatoService.class
@@ -51,7 +48,6 @@ ucla\lab\notarius\models\Carrera.class
 ucla\lab\notarius\views\AdminGestionSemestreView$19.class
 ucla\lab\notarius\views\AdminGestionSeccionView$4.class
 ucla\lab\notarius\views\AdminInscripcionEstView1$13.class
-ucla\lab\notarius\controllers\AdminGestionDecanatoController$2.class
 ucla\lab\notarius\models\services\SeccionService.class
 ucla\lab\notarius\views\AdminGestionCarreraView$13.class
 ucla\lab\notarius\views\AdminInscripcionEstView1$3.class
@@ -72,7 +68,6 @@ ucla\lab\notarius\views\AdminGestionUsuarioView$12.class
 ucla\lab\notarius\views\AdminGestionMateriaView$5.class
 ucla\lab\notarius\views\AdminGestionUsuarioView$3.class
 ucla\lab\notarius\views\AdminGestionDecanatoView$7.class
-ucla\lab\notarius\views\AdminGestionDecanatoView$13.class
 ucla\lab\notarius\views\AdminGestionSemestreView$14.class
 ucla\lab\notarius\controllers\exceptions\IllegalOrphanException.class
 ucla\lab\notarius\views\AdminGestionMateriaView$13.class

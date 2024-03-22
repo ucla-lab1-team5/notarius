@@ -47,10 +47,7 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         labelDecanatoText1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDecnato = new javax.swing.JTable();
-        textFieldBuscarDec = new javax.swing.JTextField();
         buttonVolverDec = new javax.swing.JButton();
-        buttonBuscarDec = new javax.swing.JButton();
-        ComboBoxParaFiltrarDec = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -179,10 +176,11 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 .addGroup(panelDecanatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(actualizarButtonDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CleanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         labelDecanatoText1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelDecanatoText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelDecanatoText1.setText("GESTION DE DECANATO");
         labelDecanatoText1.setToolTipText("");
 
@@ -208,14 +206,6 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableDecnato);
 
-        textFieldBuscarDec.setText("Buscar...");
-        textFieldBuscarDec.setBorder(new javax.swing.border.MatteBorder(null));
-        textFieldBuscarDec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldBuscarDecActionPerformed(evt);
-            }
-        });
-
         buttonVolverDec.setText("VOLVER");
         buttonVolverDec.setBorder(new javax.swing.border.MatteBorder(null));
         buttonVolverDec.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,16 +213,9 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 buttonVolverDecMouseClicked(evt);
             }
         });
-
-        buttonBuscarDec.setText("Buscar");
-        buttonBuscarDec.setBorder(new javax.swing.border.MatteBorder(null));
-
-        ComboBoxParaFiltrarDec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por", "DECANATO", " " }));
-        ComboBoxParaFiltrarDec.setToolTipText(""); // NOI18N
-        ComboBoxParaFiltrarDec.setBorder(new javax.swing.border.MatteBorder(null));
-        ComboBoxParaFiltrarDec.addActionListener(new java.awt.event.ActionListener() {
+        buttonVolverDec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxParaFiltrarDecActionPerformed(evt);
+                buttonVolverDecActionPerformed(evt);
             }
         });
 
@@ -240,28 +223,17 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelDecanatoText1)
-                .addGap(227, 227, 227))
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(panelDecanato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, 22))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(labelDecanatoText1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,18 +242,11 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
                 .addComponent(labelDecanatoText1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 35, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(panelDecanato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComboBoxParaFiltrarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonBuscarDec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(buttonVolverDec, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -326,14 +291,6 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_buttonEliminarDecActionPerformed
 
-    private void textFieldBuscarDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldBuscarDecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldBuscarDecActionPerformed
-
-    private void ComboBoxParaFiltrarDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxParaFiltrarDecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxParaFiltrarDecActionPerformed
-
     private void CleanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanButtonActionPerformed
  
       this.textFieldNombreDec.setText("  ");
@@ -345,6 +302,10 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     private void actualizarButtonDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarButtonDecActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_actualizarButtonDecActionPerformed
+
+    private void buttonVolverDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVolverDecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonVolverDecActionPerformed
 
 //     public void cargarDecanatos() {
 
@@ -439,10 +400,8 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CleanButton;
-    private javax.swing.JComboBox<String> ComboBoxParaFiltrarDec;
     public javax.swing.JButton actualizarButtonDec;
     private javax.swing.JButton buttonAgregarDec;
-    private javax.swing.JButton buttonBuscarDec;
     private javax.swing.JButton buttonEliminarDec;
     private javax.swing.JButton buttonVolverDec;
     private javax.swing.JScrollPane jScrollPane1;
@@ -450,7 +409,6 @@ public class AdminGestionDecanatoView extends javax.swing.JFrame {
     private javax.swing.JLabel labelDecanatoText2;
     private javax.swing.JPanel panelDecanato;
     public javax.swing.JTable tableDecnato;
-    private javax.swing.JTextField textFieldBuscarDec;
     public javax.swing.JTextField textFieldNombreDec;
     public javax.swing.JTextField textFieldRectorDec;
     public javax.swing.JTextField textFieldUbicacionDec;

@@ -105,7 +105,9 @@ public class AdminGestionDecanatoController {
    
     
    public void actualizarDecanato(){
-       
+       if (validarCampos()){
+        System.err.println("Error, hay campos vacíos");
+        return;}
        int id = Integer.valueOf(view.getDecanatoSeleccionado());
        ps = new PersistenceService();
          try {
@@ -127,6 +129,11 @@ public class AdminGestionDecanatoController {
    }
     
     public void eliminarDecanato() {
+        
+        if (validarCampos()){
+        System.err.println("Error, hay campos vacíos");
+        return;}
+        
         int id = Integer.valueOf(view.getDecanatoSeleccionado());
         ps = new PersistenceService();
         try {
