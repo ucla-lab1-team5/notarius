@@ -113,8 +113,14 @@ public class InscripcionController {
             materiasDisponiblesString.add(m.getNombre());
         }
 
+        List<PeriodoAcademico> periodoAcademicos = ps.periodoAcademico.findPeriodoAcademicoEntities();
+        List<String> periodoAcademicosString = new ArrayList<>();
+        for (PeriodoAcademico p : periodoAcademicos) {
+            periodoAcademicosString.add(p.getCodigo());
+        }
+
        this.view.setComboBoxMaterias(materiasDisponiblesString.toArray(new String[0]));
-        
+        this.view.setComboBoxLapso(periodoAcademicosString.toArray(new String[0]));
 
         ps = null;
 
@@ -162,7 +168,7 @@ public class InscripcionController {
         }
        
         ps = new PersistenceService();
-        PeriodoAcademico ultimoPeriodo = ps.periodoAcademico.findLastPeriodo();
+        PeriodoAcademico ultimoPeriodo = ps.periodoAcademico.findByCodigo(view.getCodigo());
         Inscripcion inscripcion = new Inscripcion();
         inscripcion.setCarrera(this.estudianteAInscribir.getCarrera());
         inscripcion.setDecanato(this.estudianteAInscribir.getCarrera().getDecanato());

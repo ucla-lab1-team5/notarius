@@ -96,7 +96,7 @@ JOIN carrera c ON c.id = u.carrera_id
 ;
 
 SELECT * 
-FROM usuario 
+FROM usuario e WHERE e.estudiante = true
 ;
 
 

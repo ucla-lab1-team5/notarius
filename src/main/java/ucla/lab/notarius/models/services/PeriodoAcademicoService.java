@@ -199,6 +199,19 @@ public class PeriodoAcademicoService implements Serializable {
         return lastPeriodo;
     }
 
+    public PeriodoAcademico findByCodigo(String codigo) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            PeriodoAcademico periodoCodigo = (PeriodoAcademico)em.createQuery("SELECT OBJECT(p) FROM PeriodoAcademico p where p.codigo= :codigo").setParameter("codigo", codigo).setMaxResults(1).getSingleResult();
+            return periodoCodigo;
+        } finally {
+            em.close();
+        }
+       
+
+    }
+
     public int getPeriodoAcademicoCount() {
         EntityManager em = getEntityManager();
         try {

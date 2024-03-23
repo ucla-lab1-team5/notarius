@@ -606,6 +606,10 @@ public class InscripcionView extends javax.swing.JFrame {
         materiasCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(materias));
     }
 
+    public void setComboBoxLapso(String[] lapsos) {
+        lapsoAcademico.setModel(new javax.swing.DefaultComboBoxModel<>(lapsos));
+    }
+
     public void setComboBoxSecciones(String[] secciones) {
         seccionesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(secciones));
     }
@@ -618,6 +622,10 @@ public class InscripcionView extends javax.swing.JFrame {
     public void seccionListAgregar(String item) {
         DefaultListModel<String> modelo = (DefaultListModel<String>)seccionesElegidasList.getModel();
         modelo.addElement(item);
+    }
+
+    public String getCodigo() {
+        return (String)lapsoAcademico.getSelectedItem();
     }
 
 
