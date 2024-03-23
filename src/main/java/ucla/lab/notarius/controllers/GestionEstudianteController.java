@@ -224,23 +224,29 @@ public class GestionEstudianteController {
         Reporte r = null;
         switch (view.getReporteSeleccionado()) {
             case 1:
+                r = null;
                 r = new Reporte("jasper/1_Notarius_Students_With_Materia_Retirada.jrxml");
           
                 break;
             case 2:
+                r = null;
                 r = new Reporte("jasper/2_Notarius_Students_Per_Career.jrxml");
                 
                 break;
             case 3:
+                r=null;
                 r = new Reporte("jasper/3_Notarius_Students_Per_Semester.jrxml");
                 break;
               case 4:
+                  r=null;
                 r = new Reporte("jasper/4_Notarius_Students_20_Best_By_Decanato.jrxml");
                 break;
               case 5:
+                  r = null;
                 r = new Reporte("jasper/4_Notarius_Students_20_Best_By_Decanato.jrxml");
                 break;
               case 6:
+                  r = null;
                 r = new Reporte("jasper/4_Notarius_Students_20_Best_By_Decanato.jrxml");
                 break;
               case 7:

@@ -22,9 +22,9 @@ public class Notarius {
     public static void main(String[] args) {
         
          PersistenceService persistenceService = new PersistenceService();
-         InscripcionController inscripcionEstController = new InscripcionController(new InscripcionView());
+         //InscripcionController inscripcionEstController = new InscripcionController(new InscripcionView());
     //  AdminGestionDecanatoController decanatoController = new AdminGestionDecanatoController(new AdminGestionDecanatoView());
-    // GestionEstudianteController ge = new GestionEstudianteController(new GestionEstudianteView());
+     GestionEstudianteController ge = new GestionEstudianteController(new GestionEstudianteView());
      
         
     }

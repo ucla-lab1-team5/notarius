@@ -1,0 +1,817 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.11 (Ubuntu 14.11-0ubuntu0.22.04.1)
+-- Dumped by pg_dump version 14.11 (Ubuntu 14.11-0ubuntu0.22.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: calificacion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.calificacion (
+    id integer NOT NULL,
+    notafinal double precision,
+    primeranota double precision,
+    segundanota double precision,
+    status character varying(255),
+    terceranota double precision,
+    estudiante_id integer,
+    periodo_id integer,
+    seccion_id integer,
+    materia_id integer
+);
+
+
+ALTER TABLE public.calificacion OWNER TO postgres;
+
+--
+-- Name: calificacion_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.calificacion_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.calificacion_seq OWNER TO postgres;
+
+--
+-- Name: calification_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.calification_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.calification_seq OWNER TO postgres;
+
+--
+-- Name: carrera; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.carrera (
+    id integer NOT NULL,
+    descripcion character varying(255),
+    nombre character varying(255),
+    decanato_id integer
+);
+
+
+ALTER TABLE public.carrera OWNER TO postgres;
+
+--
+-- Name: carrera_materia; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.carrera_materia (
+    carreras_id integer NOT NULL,
+    materias_id integer NOT NULL
+);
+
+
+ALTER TABLE public.carrera_materia OWNER TO postgres;
+
+--
+-- Name: carrera_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.carrera_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.carrera_seq OWNER TO postgres;
+
+--
+-- Name: decanato; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.decanato (
+    id integer NOT NULL,
+    nombre character varying(255),
+    rector character varying(255),
+    ubicacion character varying(255)
+);
+
+
+ALTER TABLE public.decanato OWNER TO postgres;
+
+--
+-- Name: decanato_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.decanato_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.decanato_seq OWNER TO postgres;
+
+--
+-- Name: inscripcion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.inscripcion (
+    id integer NOT NULL,
+    semestre integer,
+    carrera_id integer,
+    decanato_id integer,
+    estudiante_id integer,
+    periodo_id integer
+);
+
+
+ALTER TABLE public.inscripcion OWNER TO postgres;
+
+--
+-- Name: inscripcion_seccion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.inscripcion_seccion (
+    inscripcion_id integer NOT NULL,
+    seccion_id integer NOT NULL
+);
+
+
+ALTER TABLE public.inscripcion_seccion OWNER TO postgres;
+
+--
+-- Name: inscripcion_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.inscripcion_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inscripcion_seq OWNER TO postgres;
+
+--
+-- Name: materia; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.materia (
+    id integer NOT NULL,
+    descripcion character varying(255),
+    nombre character varying(255)
+);
+
+
+ALTER TABLE public.materia OWNER TO postgres;
+
+--
+-- Name: materia_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.materia_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.materia_seq OWNER TO postgres;
+
+--
+-- Name: periodoacademico; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.periodoacademico (
+    id integer NOT NULL,
+    codigo character varying(255),
+    fechacierre date,
+    fechainicio date,
+    fechatopeinclusion date,
+    fechatopeprimerparcial date,
+    fechatoperetiro date,
+    fechatopesegundoparcial date,
+    fechatopetercerparcial date
+);
+
+
+ALTER TABLE public.periodoacademico OWNER TO postgres;
+
+--
+-- Name: periodoacademico_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.periodoacademico_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.periodoacademico_seq OWNER TO postgres;
+
+--
+-- Name: seccion; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.seccion (
+    id integer NOT NULL,
+    codigo character varying(255),
+    carrera_id integer,
+    decanato_id integer,
+    materia_id integer,
+    periodo_id integer,
+    profesor_id integer
+);
+
+
+ALTER TABLE public.seccion OWNER TO postgres;
+
+--
+-- Name: seq_gen_sequence; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.seq_gen_sequence
+    START WITH 50
+    INCREMENT BY 50
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.seq_gen_sequence OWNER TO postgres;
+
+--
+-- Name: sequence; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.sequence (
+    seq_name character varying(50) NOT NULL,
+    seq_count numeric(38,0)
+);
+
+
+ALTER TABLE public.sequence OWNER TO postgres;
+
+--
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.usuario (
+    id integer NOT NULL,
+    user_type character varying(31),
+    administrador boolean,
+    apellidos character varying(255),
+    cedula character varying(255),
+    clave character varying(255),
+    edad integer,
+    estudiante boolean,
+    genero character(1),
+    nombreusuario character varying(255),
+    nombres character varying(255),
+    profesor boolean,
+    promedio double precision,
+    semestre integer,
+    periodo_id integer,
+    carrera_id integer
+);
+
+
+ALTER TABLE public.usuario OWNER TO postgres;
+
+--
+-- Name: usuario_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.usuario_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.usuario_seq OWNER TO postgres;
+
+--
+-- Data for Name: calificacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.calificacion (id, notafinal, primeranota, segundanota, status, terceranota, estudiante_id, periodo_id, seccion_id, materia_id) FROM stdin;
+5	0	0	0	cursando	0	1	2	4	3
+3	0	0	0	cursando	0	1	2	1	2
+4	0	0	0	cursando	0	1	2	2	2
+55	0	0	0	cursando	0	3	2	4	3
+54	0	0	0	cursando	0	3	2	2	2
+53	0	0	0	cursando	0	3	2	1	2
+52	0	0	0	reprobado	0	3	2	3	1
+2	0	0	0	retirada	0	1	2	3	1
+155	0	0	0	cursando	0	1	3	4	3
+154	0	0	0	cursando	0	1	3	2	2
+153	0	0	0	cursando	0	1	3	1	2
+152	0	0	0	cursando	0	1	3	3	1
+502	0	0	0	cursando	0	452	1	3	1
+505	0	0	0	cursando	0	452	1	4	3
+503	0	0	0	cursando	0	452	1	1	2
+504	0	0	0	cursando	0	452	1	2	2
+552	0	0	0	cursando	0	1	1	3	1
+555	0	0	0	cursando	0	1	1	4	3
+553	0	0	0	cursando	0	1	1	1	2
+554	0	0	0	cursando	0	1	1	2	2
+\.
+
+
+--
+-- Data for Name: carrera; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.carrera (id, descripcion, nombre, decanato_id) FROM stdin;
+1	Carrera que se encarga del estudio y desarrollo de sistemas informáticos.	Ingeniería Informática	1
+2	Carrera que se encarga del estudio y tratamiento de enfermedades.	Medicina	2
+3	Carrera que se encarga del estudio del sistema jurídico y su aplicación.	Derecho	3
+4	Carrera que se encarga del estudio y gestión de las empresas.	Administración de Empresas	4
+5	Carrera que se encarga del estudio de la mente y el comportamiento humano.	Psicología	5
+6	Carrera que se encarga del diseño y construcción de edificios.	Arquitectura	6
+7	Carrera que se encarga del estudio y la práctica de la enseñanza.	Educación	7
+8	Carrera que se encarga del estudio y la práctica de la comunicación.	Comunicación Social	8
+9	Carrera que se encarga del estudio y la práctica de las artes.	Artes	9
+10	Carrera que se encarga del estudio y construcción de obras civiles.	Ingeniería Civil	1
+\.
+
+
+--
+-- Data for Name: carrera_materia; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.carrera_materia (carreras_id, materias_id) FROM stdin;
+1	1
+1	2
+1	3
+\.
+
+
+--
+-- Data for Name: decanato; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.decanato (id, nombre, rector, ubicacion) FROM stdin;
+1	Decanato de Ciencias y Tecnología	Dr. Juan Pérez	Barquisimeto
+2	Decanato de Ciencias Humanas	Dra. María González	Cabudare
+3	Decanato de Artes	Dr. Pedro Rodríguez	Coco e Mono
+4	Decanato de Ingeniería	Dra. Ana López	La Piedad
+5	Decanato de Medicina	Dr. Carlos García	Av Vargas
+6	Decanato de Educación	Dra. Beatriz Moreno	Obelisco
+7	Decanato de Derecho	Dr. Miguel Santos	Las Mercedes
+8	Decanato de Economía	Dr. Rafael Delgado	Barquisimeto
+9	Decanato de Ciencias Sociales	Dra. Diana Fernández	La Miel
+\.
+
+
+--
+-- Data for Name: inscripcion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.inscripcion (id, semestre, carrera_id, decanato_id, estudiante_id, periodo_id) FROM stdin;
+1	0	1	1	1	2
+51	0	1	1	3	2
+151	0	1	1	1	3
+501	0	1	1	452	1
+551	0	1	1	1	1
+\.
+
+
+--
+-- Data for Name: inscripcion_seccion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.inscripcion_seccion (inscripcion_id, seccion_id) FROM stdin;
+1	3
+1	1
+1	2
+1	4
+51	3
+51	1
+51	2
+51	4
+151	3
+151	1
+151	2
+151	4
+501	3
+501	1
+501	2
+501	4
+551	3
+551	1
+551	2
+551	4
+\.
+
+
+--
+-- Data for Name: materia; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.materia (id, descripcion, nombre) FROM stdin;
+1	Ciencia de la computación que se encarga de crear programas para que las computadoras puedan ejecutar tareas.	Programacion
+2	Ciencia que estudia las propiedades de los números y las relaciones que existen entre ellos.	Matematica
+3	Capacidad de comunicarse de forma oral y escrita.	Lenguaje
+4	Conjunto de componentes que funcionan juntos para lograr un objetivo.	Sistemas
+5	Rama de las matemáticas que estudia las magnitudes vectoriales.	Analisis Vectorial
+6	Ciencia que estudia la materia y la energía, y sus interacciones.	Fisica
+\.
+
+
+--
+-- Data for Name: periodoacademico; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.periodoacademico (id, codigo, fechacierre, fechainicio, fechatopeinclusion, fechatopeprimerparcial, fechatoperetiro, fechatopesegundoparcial, fechatopetercerparcial) FROM stdin;
+1	2024-I	2024-07-01	2024-01-01	2024-01-10	2024-01-30	2024-02-01	2024-02-28	2024-03-30
+2	2024-II	2025-04-10	2024-10-10	2024-10-30	2024-11-20	2024-11-30	2025-01-28	2025-03-11
+3	2024-III	2024-07-01	2024-01-01	2024-01-10	2024-01-30	2024-02-01	2024-02-28	2024-03-30
+\.
+
+
+--
+-- Data for Name: seccion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.seccion (id, codigo, carrera_id, decanato_id, materia_id, periodo_id, profesor_id) FROM stdin;
+1	mat-sec-1	1	1	2	1	2
+2	mat-sec-2	1	1	2	1	2
+3	prog-sec-1	1	1	1	1	2
+4	leng-sec-1	1	1	3	1	2
+5	sis-sec-1	1	1	4	1	2
+\.
+
+
+--
+-- Data for Name: sequence; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.sequence (seq_name, seq_count) FROM stdin;
+SEQ_GEN	600
+\.
+
+
+--
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.usuario (id, user_type, administrador, apellidos, cedula, clave, edad, estudiante, genero, nombreusuario, nombres, profesor, promedio, semestre, periodo_id, carrera_id) FROM stdin;
+3	user	f	Gonzalez	0123456789	pedrogonz	18	t	M	pedrogonz	Pedro	f	3.8	\N	\N	1
+2	user	f	Garcia	9876543210	anagarcia	35	f	F	anagarcia	Ana	t	4	\N	\N	1
+4	user	t	Rodriguez	5432198760	mariarod	40	f	F	mariarod	Maria	f	8	\N	\N	1
+5	user	f	Hernandez	1112223334	davidher	22	t	M	davidher	David	f	10	\N	\N	4
+6	user	f	Prono	433498492	richar	40	t	M	richar	Richard	f	10	\N	\N	10
+7	user	f	Hernandez	98789732	lorocal	10	t	M	lorocal	Loro	f	9	\N	\N	5
+8	user	f	Sanches	979489023	sanches	18	t	M	sanches	Sanches	f	17	\N	\N	2
+452	user	f	moreno	28204620	\N	21	t	F	\N	anthony	f	0	1	\N	1
+1	user	t	Colmenarez	1234567890	luiscol	20	t	M	luiscol	Luis	f	5	\N	1	1
+\.
+
+
+--
+-- Name: calificacion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.calificacion_seq', 1, false);
+
+
+--
+-- Name: calification_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.calification_seq', 1, false);
+
+
+--
+-- Name: carrera_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.carrera_seq', 1, false);
+
+
+--
+-- Name: decanato_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.decanato_seq', 1, false);
+
+
+--
+-- Name: inscripcion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.inscripcion_seq', 1, false);
+
+
+--
+-- Name: materia_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.materia_seq', 1, false);
+
+
+--
+-- Name: periodoacademico_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.periodoacademico_seq', 1, false);
+
+
+--
+-- Name: seq_gen_sequence; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.seq_gen_sequence', 50, false);
+
+
+--
+-- Name: usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.usuario_seq', 1, false);
+
+
+--
+-- Name: calificacion calificacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.calificacion
+    ADD CONSTRAINT calificacion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: carrera_materia carrera_materia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carrera_materia
+    ADD CONSTRAINT carrera_materia_pkey PRIMARY KEY (carreras_id, materias_id);
+
+
+--
+-- Name: carrera carrera_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carrera
+    ADD CONSTRAINT carrera_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: decanato decanato_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.decanato
+    ADD CONSTRAINT decanato_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inscripcion inscripcion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion
+    ADD CONSTRAINT inscripcion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inscripcion_seccion inscripcion_seccion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion_seccion
+    ADD CONSTRAINT inscripcion_seccion_pkey PRIMARY KEY (inscripcion_id, seccion_id);
+
+
+--
+-- Name: materia materia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.materia
+    ADD CONSTRAINT materia_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: periodoacademico periodoacademico_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.periodoacademico
+    ADD CONSTRAINT periodoacademico_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: seccion seccion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.seccion
+    ADD CONSTRAINT seccion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sequence sequence_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sequence
+    ADD CONSTRAINT sequence_pkey PRIMARY KEY (seq_name);
+
+
+--
+-- Name: usuario usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: calificacion fk_calificacion_estudiante_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.calificacion
+    ADD CONSTRAINT fk_calificacion_estudiante_id FOREIGN KEY (estudiante_id) REFERENCES public.usuario(id);
+
+
+--
+-- Name: calificacion fk_calificacion_materia_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.calificacion
+    ADD CONSTRAINT fk_calificacion_materia_id FOREIGN KEY (materia_id) REFERENCES public.materia(id);
+
+
+--
+-- Name: calificacion fk_calificacion_periodo_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.calificacion
+    ADD CONSTRAINT fk_calificacion_periodo_id FOREIGN KEY (periodo_id) REFERENCES public.periodoacademico(id);
+
+
+--
+-- Name: calificacion fk_calificacion_seccion_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.calificacion
+    ADD CONSTRAINT fk_calificacion_seccion_id FOREIGN KEY (seccion_id) REFERENCES public.seccion(id);
+
+
+--
+-- Name: carrera fk_carrera_decanato_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carrera
+    ADD CONSTRAINT fk_carrera_decanato_id FOREIGN KEY (decanato_id) REFERENCES public.decanato(id);
+
+
+--
+-- Name: carrera_materia fk_carrera_materia_carreras_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carrera_materia
+    ADD CONSTRAINT fk_carrera_materia_carreras_id FOREIGN KEY (carreras_id) REFERENCES public.carrera(id);
+
+
+--
+-- Name: carrera_materia fk_carrera_materia_materias_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carrera_materia
+    ADD CONSTRAINT fk_carrera_materia_materias_id FOREIGN KEY (materias_id) REFERENCES public.materia(id);
+
+
+--
+-- Name: inscripcion fk_inscripcion_carrera_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion
+    ADD CONSTRAINT fk_inscripcion_carrera_id FOREIGN KEY (carrera_id) REFERENCES public.carrera(id);
+
+
+--
+-- Name: inscripcion fk_inscripcion_decanato_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion
+    ADD CONSTRAINT fk_inscripcion_decanato_id FOREIGN KEY (decanato_id) REFERENCES public.decanato(id);
+
+
+--
+-- Name: inscripcion fk_inscripcion_estudiante_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion
+    ADD CONSTRAINT fk_inscripcion_estudiante_id FOREIGN KEY (estudiante_id) REFERENCES public.usuario(id);
+
+
+--
+-- Name: inscripcion fk_inscripcion_periodo_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion
+    ADD CONSTRAINT fk_inscripcion_periodo_id FOREIGN KEY (periodo_id) REFERENCES public.periodoacademico(id);
+
+
+--
+-- Name: inscripcion_seccion fk_inscripcion_seccion_inscripcion_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion_seccion
+    ADD CONSTRAINT fk_inscripcion_seccion_inscripcion_id FOREIGN KEY (inscripcion_id) REFERENCES public.inscripcion(id);
+
+
+--
+-- Name: inscripcion_seccion fk_inscripcion_seccion_seccion_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.inscripcion_seccion
+    ADD CONSTRAINT fk_inscripcion_seccion_seccion_id FOREIGN KEY (seccion_id) REFERENCES public.seccion(id);
+
+
+--
+-- Name: seccion fk_seccion_carrera_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.seccion
+    ADD CONSTRAINT fk_seccion_carrera_id FOREIGN KEY (carrera_id) REFERENCES public.carrera(id);
+
+
+--
+-- Name: seccion fk_seccion_decanato_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.seccion
+    ADD CONSTRAINT fk_seccion_decanato_id FOREIGN KEY (decanato_id) REFERENCES public.decanato(id);
+
+
+--
+-- Name: seccion fk_seccion_materia_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.seccion
+    ADD CONSTRAINT fk_seccion_materia_id FOREIGN KEY (materia_id) REFERENCES public.materia(id);
+
+
+--
+-- Name: seccion fk_seccion_periodo_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.seccion
+    ADD CONSTRAINT fk_seccion_periodo_id FOREIGN KEY (periodo_id) REFERENCES public.periodoacademico(id);
+
+
+--
+-- Name: seccion fk_seccion_profesor_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.seccion
+    ADD CONSTRAINT fk_seccion_profesor_id FOREIGN KEY (profesor_id) REFERENCES public.usuario(id);
+
+
+--
+-- Name: usuario fk_usuario_carrera_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT fk_usuario_carrera_id FOREIGN KEY (carrera_id) REFERENCES public.carrera(id);
+
+
+--
+-- Name: usuario fk_usuario_periodo_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT fk_usuario_periodo_id FOREIGN KEY (periodo_id) REFERENCES public.periodoacademico(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
