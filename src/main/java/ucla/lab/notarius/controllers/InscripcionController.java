@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.Inscripcion;
 import ucla.lab.notarius.models.Materia;
@@ -38,7 +39,17 @@ public class InscripcionController {
         this.seccionesPaLaInscripcion = new ArrayList<>();
         this.seccionesSeleccioniadas = new ArrayList<>();
         this.view.submitCargarButton(e -> cargarEstudiante());
-        this.view.submitInscribirButton(e -> inscribirEstudiante());
+        this.view.submitInscribirButton(e -> {
+            try {
+                inscribirEstudiante();
+            } catch (NonexistentEntityException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
         this.view.submitAgregarSeccionButton(e -> agregarSecccionAInscripcion());
         this.view.submitMateriaSeccionada(new ItemListener() {
                     @Override
@@ -147,7 +158,7 @@ public class InscripcionController {
     }
 
 
-    public void inscribirEstudiante() {
+    public void inscribirEstudiante() throws NonexistentEntityException, Exception {
         if (camposVacios()) {
            JOptionPane.showMessageDialog(this.view, "Error, hay campos vacios", 
                                    "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -174,8 +185,10 @@ public class InscripcionController {
         inscripcion.setDecanato(this.estudianteAInscribir.getCarrera().getDecanato());
         inscripcion.setEstudiante(estudianteAInscribir);
         inscripcion.setPeriodo(ultimoPeriodo);
+        estudianteAInscribir.setPeriodo(ultimoPeriodo);
         inscripcion.setSecciones(seccionesDisponibles);
         ps.inscripcion.create(inscripcion);
+        ps.estudiante.edit(estudianteAInscribir);
         
      JOptionPane.showMessageDialog(view, "Estudiante Inscrito Exitosamente!", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
        

@@ -46,7 +46,7 @@ public class GestionEstudianteController {
         //CONSTRUIR TITULOS DE TABLA
         String estudianteColumns[]
                 = {
-                    "ID", "Cedula", "Nombres", "Apellidos", "Carrera", "Genero", "Edad", "Semestre"
+                    "Cedula", "Nombres", "Apellidos", "Carrera", "Genero", "Edad", "Semestre"
                 };
         // INSTANCIAR MODELO DE LA TABLA Y DESACTIVAR EDICION DE CELDAS
         DefaultTableModel tableModel = new DefaultTableModel() {
@@ -66,8 +66,7 @@ public class GestionEstudianteController {
         if (listaEstudiantes != null) {
             
             for (Estudiante e : listaEstudiantes) {
-                System.out.println(e.getId());
-                String id = Long.toString(e.getId());
+                
                 String cedula = e.getCedula();
                 String nombres = e.getNombres();
                 String apellidos = e.getApellidos();
@@ -78,7 +77,7 @@ public class GestionEstudianteController {
 
                 String estudianteRow[]
                         = {
-                            id, cedula, nombres, apellidos, carrera, genero, edad, semestre
+                            cedula, nombres, apellidos, carrera, genero, edad, semestre
                         };
 
                 tableModel.addRow(estudianteRow);
@@ -112,37 +111,54 @@ public class GestionEstudianteController {
     }
 
     public void eliminarEstudiante() {
-        if (validarCampos()) {
-            System.err.println("Error, hay campos vacíos");
+        if (view.getEstudianteSeleccionado().equals(null) || view.getEstudianteSeleccionado().isEmpty()) {
+            System.out.println("No se ha seleccionado un estudiante para eliminar");
             return;
         }
-        int id = Integer.valueOf(view.getEstudianteSeleccionado());
+        String cedula = view.getEstudianteSeleccionado();
         ps = new PersistenceService();
         try {
-            ps.estudiante.destroy(id);
+            ps.estudiante.destroyWithCedula(cedula);
         } catch (NonexistentEntityException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception ex) {
            ex.printStackTrace(); 
         }
+        cargarEstudiantes();
 
     }
 
     public void actualizarEstudiante() {
-        int id = Integer.valueOf(view.getEstudianteSeleccionado());
+        String cedula = view.getEstudianteSeleccionado();
         ps = new PersistenceService();
         if (validarCampos()) {
             System.err.println("Error, hay campos vacíos");
             return;
         }
         // logica de actualizacion
-        Estudiante e = ps.estudiante.findEstudiante(id);
+        Estudiante e = ps.estudiante.findEstudianteWithCedula(cedula);
             e.setCedula(view.getCedula());
             e.setNombres(view.getNombre());
             e.setApellidos(view.getApellido());
             e.setEdad(Integer.parseInt(view.getEdad()));
             e.setGenero(view.getGenero().charAt(0));
+            Carrera carreraEstudiante = ps.carrera.findCarreraByNombre(view.getCarrera());
+            e.setCarrera(carreraEstudiante);
+            System.out.println(e.toString());
+            try {
+                ps.estudiante.edit(e);
+            } catch (NonexistentEntityException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            cargarEstudiantes();
+
+        
     }
 
     public void alertaCampoVacio(String campoNombre) {

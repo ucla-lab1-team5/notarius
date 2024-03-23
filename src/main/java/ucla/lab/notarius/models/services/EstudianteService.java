@@ -82,7 +82,7 @@ public class EstudianteService implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Estudiante persistentEstudiante = em.find(Estudiante.class, estudiante.getId());
+            Estudiante persistentEstudiante = findEstudianteWithCedula(estudiante.getCedula());
             List<Calificacion> calificacionesOld = persistentEstudiante.getCalificaciones();
             List<Calificacion> calificacionesNew = estudiante.getCalificaciones();
             List<Calificacion> attachedCalificacionesNew = new ArrayList<Calificacion>();
@@ -138,6 +138,32 @@ public class EstudianteService implements Serializable {
                 estudiante.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The estudiante with id " + id + " no longer exists.", enfe);
+            }
+            List<Calificacion> calificaciones = estudiante.getCalificaciones();
+            for (Calificacion calificacionesCalificacion : calificaciones) {
+                calificacionesCalificacion.setEstudiante(null);
+                calificacionesCalificacion = em.merge(calificacionesCalificacion);
+            }
+            em.remove(estudiante);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void destroyWithCedula(String cedula) throws NonexistentEntityException {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            Estudiante estudiante;
+            try {
+                estudiante = (Estudiante)em.createQuery("SELECT OBJECT(e) FROM Estudiante e where e.cedula = :cedula").setParameter("cedula", cedula).setMaxResults(1).getSingleResult();
+                estudiante.getId();
+            } catch (EntityNotFoundException enfe) {
+                throw new NonexistentEntityException("The estudiante with cedula " + cedula + " no longer exists.", enfe);
             }
             List<Calificacion> calificaciones = estudiante.getCalificaciones();
             for (Calificacion calificacionesCalificacion : calificaciones) {

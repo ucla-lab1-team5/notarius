@@ -93,10 +93,12 @@ JOIN carrera c ON c.id = u.carrera_id
 
 
 		
-;
+; // GestionEstudianteController ge = new GestionEstudianteController(new GestionEstudianteView());
 
 SELECT * 
 FROM usuario e WHERE e.estudiante = true
 ;
+
+
 
 
