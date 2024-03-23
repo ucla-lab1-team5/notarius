@@ -17,6 +17,10 @@ import ucla.lab.notarius.models.Materia;
 import ucla.lab.notarius.models.PeriodoAcademico;
 import ucla.lab.notarius.models.Profesor;
 import ucla.lab.notarius.models.Calificacion;
+import ucla.lab.notarius.models.Carrera;
+import ucla.lab.notarius.models.Decanato;
+import ucla.lab.notarius.models.Inscripcion;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -43,56 +47,83 @@ public class SeccionService implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Seccion seccion) {
-        if (seccion.getCalificaciones() == null) {
-            seccion.setCalificaciones(new ArrayList<Calificacion>());
+    // public void create(Seccion seccion) {
+    //     if (seccion.getCalificaciones() == null) {
+    //         seccion.setCalificaciones(new ArrayList<Calificacion>());
+    //     }
+    //     EntityManager em = null;
+    //     try {
+    //         em = getEntityManager();
+    //         em.getTransaction().begin();
+    //         Materia materia = seccion.getMateria();
+    //         if (materia != null) {
+    //             materia = em.getReference(materia.getClass(), materia.getId());
+    //             seccion.setMateria(materia);
+    //         }
+    //         PeriodoAcademico periodo = seccion.getPeriodo();
+    //         if (periodo != null) {
+    //             periodo = em.getReference(periodo.getClass(), periodo.getId());
+    //             seccion.setPeriodo(periodo);
+    //         }
+    //         Profesor profesor = seccion.getProfesor();
+    //         if (profesor != null) {
+    //             profesor = em.getReference(profesor.getClass(), profesor.getId());
+    //             seccion.setProfesor(profesor);
+    //         }
+    //         List<Calificacion> attachedCalificaciones = new ArrayList<Calificacion>();
+    //         for (Calificacion calificacionesCalificacionToAttach : seccion.getCalificaciones()) {
+    //             calificacionesCalificacionToAttach = em.getReference(calificacionesCalificacionToAttach.getClass(), calificacionesCalificacionToAttach.getId());
+    //             attachedCalificaciones.add(calificacionesCalificacionToAttach);
+    //         }
+    //         seccion.setCalificaciones(attachedCalificaciones);
+    //         em.persist(seccion);
+    //         if (materia != null) {
+    //             materia.getSecciones().add(seccion);
+    //             materia = em.merge(materia);
+    //         }
+    //         if (periodo != null) {
+    //             periodo.getSecciones().add(seccion);
+    //             periodo = em.merge(periodo);
+    //         }
+    //         if (profesor != null) {
+    //             profesor.getSecciones().add(seccion);
+    //             profesor = em.merge(profesor);
+    //         }
+    //         for (Calificacion calificacionesCalificacion : seccion.getCalificaciones()) {
+    //             Seccion oldSeccionOfCalificacionesCalificacion = calificacionesCalificacion.getSeccion();
+    //             calificacionesCalificacion.setSeccion(seccion);
+    //             calificacionesCalificacion = em.merge(calificacionesCalificacion);
+    //             if (oldSeccionOfCalificacionesCalificacion != null) {
+    //                 oldSeccionOfCalificacionesCalificacion.getCalificaciones().remove(calificacionesCalificacion);
+    //                 oldSeccionOfCalificacionesCalificacion = em.merge(oldSeccionOfCalificacionesCalificacion);
+    //             }
+    //         }
+    //         em.getTransaction().commit();
+    //     } finally {
+    //         if (em != null) {
+    //             em.close();
+    //         }
+    //     }
+    // }
+
+public void create(Seccion seccion) {
+        if (seccion.getInscripciones() == null) {
+            seccion.setInscripciones(new ArrayList<Inscripcion>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Materia materia = seccion.getMateria();
-            if (materia != null) {
-                materia = em.getReference(materia.getClass(), materia.getId());
-                seccion.setMateria(materia);
+            List<Inscripcion> attachedInscripciones = new ArrayList<Inscripcion>();
+            for (Inscripcion inscripcionToAttach : seccion.getInscripciones()) {
+                inscripcionToAttach = em.getReference(inscripcionToAttach.getClass(), inscripcionToAttach.getId());
+                attachedInscripciones.add(inscripcionToAttach);
             }
-            PeriodoAcademico periodo = seccion.getPeriodo();
-            if (periodo != null) {
-                periodo = em.getReference(periodo.getClass(), periodo.getId());
-                seccion.setPeriodo(periodo);
-            }
-            Profesor profesor = seccion.getProfesor();
-            if (profesor != null) {
-                profesor = em.getReference(profesor.getClass(), profesor.getId());
-                seccion.setProfesor(profesor);
-            }
-            List<Calificacion> attachedCalificaciones = new ArrayList<Calificacion>();
-            for (Calificacion calificacionesCalificacionToAttach : seccion.getCalificaciones()) {
-                calificacionesCalificacionToAttach = em.getReference(calificacionesCalificacionToAttach.getClass(), calificacionesCalificacionToAttach.getId());
-                attachedCalificaciones.add(calificacionesCalificacionToAttach);
-            }
-            seccion.setCalificaciones(attachedCalificaciones);
+            seccion.setInscripciones(attachedInscripciones);
             em.persist(seccion);
-            if (materia != null) {
-                materia.getSecciones().add(seccion);
-                materia = em.merge(materia);
-            }
-            if (periodo != null) {
-                periodo.getSecciones().add(seccion);
-                periodo = em.merge(periodo);
-            }
-            if (profesor != null) {
-                profesor.getSecciones().add(seccion);
-                profesor = em.merge(profesor);
-            }
-            for (Calificacion calificacionesCalificacion : seccion.getCalificaciones()) {
-                Seccion oldSeccionOfCalificacionesCalificacion = calificacionesCalificacion.getSeccion();
-                calificacionesCalificacion.setSeccion(seccion);
-                calificacionesCalificacion = em.merge(calificacionesCalificacion);
-                if (oldSeccionOfCalificacionesCalificacion != null) {
-                    oldSeccionOfCalificacionesCalificacion.getCalificaciones().remove(calificacionesCalificacion);
-                    oldSeccionOfCalificacionesCalificacion = em.merge(oldSeccionOfCalificacionesCalificacion);
-                }
+            for (Inscripcion inscripcion : seccion.getInscripciones()) {
+                inscripcion.getSecciones().add(seccion);
+                inscripcion = em.merge(inscripcion);
             }
             em.getTransaction().commit();
         } finally {
@@ -267,6 +298,10 @@ public class SeccionService implements Serializable {
             em.close();
         }
     }
+
+    
+
+   
 
     public int getSeccionCount() {
         EntityManager em = getEntityManager();

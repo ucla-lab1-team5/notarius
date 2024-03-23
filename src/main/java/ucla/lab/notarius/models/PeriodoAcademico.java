@@ -13,8 +13,10 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 
 /**
@@ -26,6 +28,8 @@ public class PeriodoAcademico implements Serializable {
     
     private static final long serialVersionUID = 1L;
     @Id
+    // @SequenceGenerator(name="PeriodoAcademico_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="PeriodoAcademico_Seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     

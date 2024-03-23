@@ -11,14 +11,19 @@ import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
+import org.eclipse.persistence.sessions.Project;
+
 import ucla.lab.notarius.models.Seccion;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
+import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.PeriodoAcademico;
 
 /**
@@ -181,15 +186,31 @@ public class PeriodoAcademicoService implements Serializable {
         }
     }
 
-    // public PeriodoAcademico findLastPeriodo() {
-    //     EntityManager em = getEntityManager();
-    //     PeriodoAcademico LastPeriodo = new PeriodoAcademico();
-    //     try {
-    //         CriteriaQuery cq 
-    //     } 
-    //     finally {em.close();}
-    //     return LastPeriodo;
-    // }
+    public PeriodoAcademico findLastPeriodo() {
+        EntityManager em = getEntityManager();
+        PeriodoAcademico lastPeriodo = new PeriodoAcademico();
+        try {
+            lastPeriodo = (PeriodoAcademico)em.createQuery("SELECT OBJECT(p) FROM PeriodoAcademico p order by p.fechaInicio desc").setMaxResults(1).getSingleResult();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {em.close();}
+        return lastPeriodo;
+    }
+
+    public PeriodoAcademico findByCodigo(String codigo) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            PeriodoAcademico periodoCodigo = (PeriodoAcademico)em.createQuery("SELECT OBJECT(p) FROM PeriodoAcademico p where p.codigo= :codigo").setParameter("codigo", codigo).setMaxResults(1).getSingleResult();
+            return periodoCodigo;
+        } finally {
+            em.close();
+        }
+       
+
+    }
 
     public int getPeriodoAcademicoCount() {
         EntityManager em = getEntityManager();

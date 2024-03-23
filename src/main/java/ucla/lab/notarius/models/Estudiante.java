@@ -15,10 +15,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 
 @Entity
@@ -27,6 +29,7 @@ public class Estudiante extends Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    // @GeneratedValue(strategy=SEQUENCE, generator="Usuario_Seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
@@ -114,15 +117,6 @@ public class Estudiante extends Usuario implements Serializable {
             for (Seccion seccion : materia.getSecciones()) {
                 seccionesDisponibles.add(seccion);
             }
-        }
-        return seccionesDisponibles;
-    }
-
-    public List<Seccion> getSeccionesDisponibles(int semestre) {
-        ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();
-
-        for (Materia materia : getCarrera().getMaterias()) {        
-            seccionesDisponibles.addAll(materia.getSecciones());    
         }
         return seccionesDisponibles;
     }

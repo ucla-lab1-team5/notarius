@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05d6145b-f16d-4c4d-bdd3-d7e972cbd066">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Notarius"/>
+	<parameter name="career_id" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString language="plsql">
+		<![CDATA[SELECT u.cedula
+	  ,u.nombres
+	  ,u.apellidos
+	  ,u.cedula
+	  ,m.nombre as materia
+FROM usuario u 
+	JOIN calificacion c ON c.estudiante_id = u.id
+	JOIN materia m ON c.materia_id = m.id
+WHERE u.estudiante = TRUE
+	AND c.status = 'reprobado'
+;]]>
+	</queryString>
+	<field name="cedula" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cedula"/>
+		<property name="com.jaspersoft.studio.field.label" value="cedula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellidos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="materia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="materia"/>
+		<property name="com.jaspersoft.studio.field.label" value="materia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materia"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="162" y="20" width="230" height="30" uuid="cc2de72f-3cae-4ada-89a5-f45a08f1a4ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estudiantes con Materias Reprobadas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="145" height="30" backcolor="#7A8FEB" uuid="6eeb52a1-618a-406f-bccf-6d0a31e10113">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="145" y="0" width="149" height="30" backcolor="#7A8FEB" uuid="9ae7ae25-7bfe-414a-a6cf-5de83601ba15">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="294" y="0" width="130" height="30" backcolor="#7A8FEB" uuid="fee7ec6e-c81b-426b-9d78-88d688198cde">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[C.I.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="424" y="0" width="130" height="30" backcolor="#7A8FEB" uuid="16e1c4f3-9306-4c26-88ea-4f1acccd2474">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Materia Reprobada]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="30" width="149" height="30" uuid="4cd9dde9-8bb3-4241-b2c9-6e7561092a25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="30" width="145" height="30" uuid="f43028a5-f5b4-4348-b2c4-fb495c5ad196"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="30" width="130" height="30" uuid="741ccbef-9643-4be8-acbc-82b7dad39e5d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="30" width="130" height="30" uuid="57d27725-741a-4e78-89b7-0e4ed388a223"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{materia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

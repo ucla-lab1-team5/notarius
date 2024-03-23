@@ -203,6 +203,17 @@ public class CarreraService implements Serializable {
             em.close();
         }
     }
+    
+    public Carrera findCarreraByNombre(String nombre) {
+         EntityManager em = null;
+        try {
+            em = getEntityManager();
+            Carrera carrera = (Carrera)em.createQuery("SELECT OBJECT(c) FROM Carrera c where c.nombre= :nombre").setParameter("nombre", nombre).setMaxResults(1).getSingleResult();
+            return carrera;
+        } finally {
+            em.close();
+        }
+    }
 
     public int getCarreraCount() {
         EntityManager em = getEntityManager();

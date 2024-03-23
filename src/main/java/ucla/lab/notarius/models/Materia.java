@@ -13,15 +13,20 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Materia implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    // @SequenceGenerator(name="Materia_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="Materia_Seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
@@ -34,6 +39,7 @@ public class Materia implements Serializable {
     @Basic
     private String nombre;
     private String descripcion;
+    
 
     public Materia() {
     }

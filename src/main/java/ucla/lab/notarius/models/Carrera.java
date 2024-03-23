@@ -12,20 +12,31 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Carrera implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    // @SequenceGenerator(name="Carrera_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="Carrera_Seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     @ManyToMany
+    @JoinTable(
+        name = "carrera_materia", 
+        joinColumns = @JoinColumn(name="carreras_id"), 
+        inverseJoinColumns = @JoinColumn(name="materias_id")
+        )
     private List<Materia> materias;
     
     @ManyToOne

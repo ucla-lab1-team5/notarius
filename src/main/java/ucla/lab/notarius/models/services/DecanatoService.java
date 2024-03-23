@@ -64,6 +64,7 @@ public class DecanatoService implements Serializable {
                     oldDecanatoOfCarrerasCarrera = em.merge(oldDecanatoOfCarrerasCarrera);
                 }
             }
+            System.out.println("Decanato agregado");
             em.getTransaction().commit();
         } finally {
             if (em != null) {
