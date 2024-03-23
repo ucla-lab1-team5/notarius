@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.StyledEditorKit;
+
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
 import ucla.lab.notarius.models.Carrera;
 import ucla.lab.notarius.models.Estudiante;
@@ -62,8 +64,9 @@ public class GestionEstudianteController {
         List<Estudiante> listaEstudiantes = ps.estudiante.findEstudianteEntities();
 
         if (listaEstudiantes != null) {
-
+            
             for (Estudiante e : listaEstudiantes) {
+                System.out.println(e.getId());
                 String id = Long.toString(e.getId());
                 String cedula = e.getCedula();
                 String nombres = e.getNombres();
@@ -116,30 +119,30 @@ public class GestionEstudianteController {
         int id = Integer.valueOf(view.getEstudianteSeleccionado());
         ps = new PersistenceService();
         try {
-            Estudiante e = ps.estudiante.findEstudiante(id);
-            e.setCedula(view.getCedula());
-            e.setNombres(view.getNombre());
-            e.setApellidos(view.getApellido());
-            e.setEdad(Integer.parseInt(view.getEdad()));
-            e.setGenero(view.getGenero().charAt(0));
-            // e.setCarrera(getNombre(view.getCarrera()));        //PENDIENTE POR REVISAAR NO FUNCIONOY FALTA PROBAR
-
-            ps.estudiante.edit(e);
+            ps.estudiante.destroy(id);
         } catch (NonexistentEntityException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception ex) {
-            Logger.getLogger(GestionEstudianteController.class.getName()).log(Level.SEVERE, null, ex);
+           ex.printStackTrace(); 
         }
 
     }
 
     public void actualizarEstudiante() {
+        int id = Integer.valueOf(view.getEstudianteSeleccionado());
+        ps = new PersistenceService();
         if (validarCampos()) {
             System.err.println("Error, hay campos vacíos");
             return;
         }
         // logica de actualizacion
+        Estudiante e = ps.estudiante.findEstudiante(id);
+            e.setCedula(view.getCedula());
+            e.setNombres(view.getNombre());
+            e.setApellidos(view.getApellido());
+            e.setEdad(Integer.parseInt(view.getEdad()));
+            e.setGenero(view.getGenero().charAt(0));
     }
 
     public void alertaCampoVacio(String campoNombre) {
