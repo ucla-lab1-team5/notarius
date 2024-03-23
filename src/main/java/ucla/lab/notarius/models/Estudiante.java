@@ -7,6 +7,7 @@ Luis Ochoa CI: 29.778.672
 */
 package ucla.lab.notarius.models;
 
+//import ucla.lab.notarius.models.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,9 @@ public class Estudiante extends Usuario implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+    
+    
+    
 
     public ArrayList<Seccion> getSeccionesDisponibles() {
         ArrayList<Seccion> seccionesDisponibles = new ArrayList<Seccion>();

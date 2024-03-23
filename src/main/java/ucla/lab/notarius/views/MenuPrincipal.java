@@ -26,77 +26,84 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButtonDecanatos = new javax.swing.JButton();
+        buttonEstudiante = new javax.swing.JButton();
+        jButtonSecciones = new javax.swing.JButton();
+        jButtonUsuarios = new javax.swing.JButton();
+        jButtonMaterias = new javax.swing.JButton();
+        jButtonSemestre = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButtonCarrera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/decanato.png"))); // NOI18N
-        jButton1.setText("DECANATOS");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonDecanatos.setText("DECANATOS");
+        jButtonDecanatos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jButtonDecanatosMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDecanatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonDecanatosActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrera.png"))); // NOI18N
-        jButton2.setText("CARRERAS");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonEstudiante.setText("ESTUDIANTES");
+        buttonEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                buttonEstudianteMouseClicked(evt);
             }
         });
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/secciones.png"))); // NOI18N
-        jButton3.setText("SECCIONES");
-        jButton3.setToolTipText("");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuarios.png"))); // NOI18N
-        jButton4.setText("USUARIOS");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonEstudianteActionPerformed(evt);
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/materias.png"))); // NOI18N
-        jButton5.setText("MATERIAS");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonSecciones.setText("SECCIONES");
+        jButtonSecciones.setToolTipText("");
+        jButtonSecciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                jButtonSeccionesMouseClicked(evt);
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/semestre.png"))); // NOI18N
-        jButton6.setText("SEMESTRE");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonUsuarios.setText("USUARIOS");
+        jButtonUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                jButtonUsuariosMouseClicked(evt);
+            }
+        });
+        jButtonUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUsuariosActionPerformed(evt);
+            }
+        });
+
+        jButtonMaterias.setText("MATERIAS");
+        jButtonMaterias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonMateriasMouseClicked(evt);
+            }
+        });
+
+        jButtonSemestre.setText("SEMESTRE");
+        jButtonSemestre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSemestreMouseClicked(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Menú Principal");
+
+        jButtonCarrera.setText("CARRERAS");
+        jButtonCarrera.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCarreraMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,8 +112,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jButtonDecanatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
@@ -114,12 +121,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                            .addComponent(jButtonMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButtonSecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,71 +135,84 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(103, 103, 103)
+                .addGap(44, 44, 44)
+                .addComponent(buttonEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonDecanatos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(198, 198, 198))
         );
 
-        pack();
+        setBounds(0, 0, 569, 453);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jButtonDecanatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDecanatosMouseClicked
         AdminGestionDecanatoView adminGestionDecanatoView = new AdminGestionDecanatoView();
         adminGestionDecanatoView.setVisible(true);
         adminGestionDecanatoView.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jButtonDecanatosMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        AdminGestionCarreraView adminGestionCarreraView = new AdminGestionCarreraView();
-        adminGestionCarreraView.setVisible(true);
-        adminGestionCarreraView.setLocationRelativeTo(null);
+    private void buttonEstudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEstudianteMouseClicked
+         GestionEstudianteView gestionEstudianteView = new GestionEstudianteView();
+        gestionEstudianteView.setVisible(true);
+        gestionEstudianteView.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_buttonEstudianteMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void jButtonSeccionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSeccionesMouseClicked
         AdminGestionSeccionView adminGestionSeccionView = new AdminGestionSeccionView();
         adminGestionSeccionView.setVisible(true);
         adminGestionSeccionView.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_jButtonSeccionesMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void jButtonUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonUsuariosMouseClicked
         AdminGestionUsuarioView adminGestionUsuarioView = new AdminGestionUsuarioView();
         adminGestionUsuarioView.setVisible(true);
         adminGestionUsuarioView.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_jButtonUsuariosMouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void jButtonMateriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMateriasMouseClicked
         AdminGestionMateriaView adminGestionMateriaView = new AdminGestionMateriaView();
         adminGestionMateriaView.setVisible(true);
         adminGestionMateriaView.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_jButtonMateriasMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void jButtonSemestreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSemestreMouseClicked
         AdminGestionSemestreView adminGestionSemestreView = new AdminGestionSemestreView();
         adminGestionSemestreView.setVisible(true);
         adminGestionSemestreView.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_jButtonSemestreMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonDecanatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDecanatosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonDecanatosActionPerformed
+
+    private void jButtonCarreraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCarreraMouseClicked
+        AdminGestionCarreraView adminGestionCarreraView = new AdminGestionCarreraView();
+        adminGestionCarreraView.setVisible(true);
+        adminGestionCarreraView.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCarreraMouseClicked
+
+    private void buttonEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEstudianteActionPerformed
+    
+    }//GEN-LAST:event_buttonEstudianteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,12 +250,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton buttonEstudiante;
+    private javax.swing.JButton jButtonCarrera;
+    private javax.swing.JButton jButtonDecanatos;
+    private javax.swing.JButton jButtonMaterias;
+    private javax.swing.JButton jButtonSecciones;
+    private javax.swing.JButton jButtonSemestre;
+    private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

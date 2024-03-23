@@ -1,7 +1,6 @@
 package ucla.lab.notarius.controllers;
 
 import java.awt.event.*;
-
 import ucla.lab.notarius.views.Login;
 import ucla.lab.notarius.views.AdminGestionCarreraView;
 

@@ -6,6 +6,7 @@ C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\views\MainFrame.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionCarreraView.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\views\AdminGestionSemestreView.java
+C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\controllers\GestionEstudianteController.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\utils\NotariusConfig.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\controllers\exceptions\PreexistingEntityException.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\models\Usuario.java
@@ -38,6 +39,7 @@ C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\models\Seccion.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\models\services\CalificacionService.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\models\services\UsuarioService.java
+C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\views\GestionEstudianteView.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\views\IndexEstudianteView.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\models\Carrera.java
 C:\Users\antho\OneDrive\Escritorio\proyectosJavaTODOCODE\notarius\src\main\java\ucla\lab\notarius\models\Decanato.java
