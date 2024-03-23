@@ -20,6 +20,7 @@ import ucla.lab.notarius.models.Materia;
 import ucla.lab.notarius.models.PeriodoAcademico;
 import ucla.lab.notarius.models.Seccion;
 import ucla.lab.notarius.models.services.PersistenceService;
+import ucla.lab.notarius.utils.Folder;
 import ucla.lab.notarius.utils.Reporte;
 import ucla.lab.notarius.views.InscripcionView;
 
@@ -79,7 +80,15 @@ public class InscripcionController {
     }
 
     public void cargarEstudiante () {
-
+        
+          if (camposVacios()) {
+           JOptionPane.showMessageDialog(this.view, "Error, hay campos vacios", 
+                                   "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+          
+      
+       
         String cedula = this.view.getCedula();
         ps = null;
         ps = new PersistenceService();
@@ -131,6 +140,7 @@ public class InscripcionController {
 
     }
 
+
     public void inscribirEstudiante() {
         if (camposVacios()) {
            JOptionPane.showMessageDialog(this.view, "Error, hay campos vacios", 
@@ -163,6 +173,8 @@ public class InscripcionController {
         
        Reporte r =  new Reporte("jasper/Notarius_Students_Per_Career.jrxml");
        r.showReport();
+       
+       
         
     }
 

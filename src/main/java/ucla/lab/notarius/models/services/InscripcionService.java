@@ -18,6 +18,7 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import ucla.lab.notarius.controllers.exceptions.NonexistentEntityException;
+import ucla.lab.notarius.models.Calificacion;
 import ucla.lab.notarius.models.Carrera;
 import ucla.lab.notarius.models.Estudiante;
 import ucla.lab.notarius.models.Inscripcion;
@@ -48,6 +49,16 @@ public class InscripcionService implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(inscripcion);
+           inscripcion = em.find(Inscripcion.class, inscripcion.getId());
+           for (Seccion s : inscripcion.getSecciones()) {
+               Calificacion c = new Calificacion();
+               c.setEstudiante(inscripcion.getEstudiante());
+               c.setMateria(s.getMateria());
+               c.setSeccion(s);
+               c.setPeriodo(inscripcion.getPeriodo());
+               c.setStatus("cursando");
+               em.persist(c);
+           }
             System.out.println("Inscripcion completada");
             em.getTransaction().commit();
         } finally {

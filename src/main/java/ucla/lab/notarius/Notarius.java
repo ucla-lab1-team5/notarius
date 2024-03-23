@@ -8,11 +8,9 @@ Luis Ochoa CI: 29.778.672
 
 package ucla.lab.notarius;
 
-import ucla.lab.notarius.controllers.AdminGestionDecanatoController;
 import ucla.lab.notarius.controllers.InscripcionController;
-import ucla.lab.notarius.views.AdminGestionDecanatoView;
 import ucla.lab.notarius.views.InscripcionView;
-import ucla.lab.notarius.views.Login;
+
 
 
 public class Notarius {

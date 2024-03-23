@@ -13,8 +13,10 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 
 @Entity
@@ -22,7 +24,8 @@ public class Decanato implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="Decanato_Seq", allocationSize=1)
+    @GeneratedValue(strategy=SEQUENCE, generator="Decanato_Seq")
     private int id;
     
     // lista carreras
