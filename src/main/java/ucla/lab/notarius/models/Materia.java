@@ -25,8 +25,9 @@ public class Materia implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name="Materia_Seq", allocationSize=1)
-    @GeneratedValue(strategy=SEQUENCE, generator="Materia_Seq")
+    // @SequenceGenerator(name="Materia_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="Materia_Seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     //many to many con carreras

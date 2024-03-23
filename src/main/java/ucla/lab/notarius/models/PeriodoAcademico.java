@@ -28,8 +28,9 @@ public class PeriodoAcademico implements Serializable {
     
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name="PeriodoAcademico_Seq", allocationSize=1)
-    @GeneratedValue(strategy=SEQUENCE, generator="PeriodoAcademico_Seq")
+    // @SequenceGenerator(name="PeriodoAcademico_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="PeriodoAcademico_Seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     @OneToMany(mappedBy="periodo")

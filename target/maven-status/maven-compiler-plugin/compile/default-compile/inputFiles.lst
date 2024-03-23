@@ -35,6 +35,7 @@
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/ProfesorService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/Estudiante.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/Login.java
+/home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/utils/Sequence.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/UsuarioService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/models/services/DecanatoService.java
 /home/hanumonke/Dev/LAB1/notarius/src/main/java/ucla/lab/notarius/views/AdminGestionUsuarioView.java

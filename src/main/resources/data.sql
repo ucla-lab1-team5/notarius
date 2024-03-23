@@ -40,9 +40,9 @@ INSERT INTO Usuario
   (id, user_type,administrador, profesor, estudiante, nombres, apellidos, cedula, nombreusuario, clave, edad, genero, promedio, periodo_id, semestre, carrera_id)
   VALUES
     (1, 'user', TRUE, FALSE, TRUE, 'Luis', 'Colmenarez', '1234567890', 'luiscol', 'luiscol', 20, 'M', NULL, NULL, NULL, 1 ),
-    (2, 'user', FALSE, TRUE, FALSE, 'Ana', 'Garcia', '9876543210', 'anagarcia', 'anagarcia', 35, 'F', NULL, NULL, NULL, 3),
-    (3, 'user', FALSE, FALSE, TRUE, 'Pedro', 'Gonzalez', '0123456789', 'pedrogonz', 'pedrogonz', 18, 'M', 3.8, NULL, NULL, 6),
-    (4, 'user', TRUE, FALSE, FALSE, 'Maria', 'Rodriguez', '5432198760', 'mariarod', 'mariarod', 40, 'F', NULL, NULL, NULL, 7),
+    (2, 'user', FALSE, TRUE, FALSE, 'Ana', 'Garcia', '9876543210', 'anagarcia', 'anagarcia', 35, 'F', NULL, NULL, NULL, 1),
+    (3, 'user', FALSE, FALSE, TRUE, 'Pedro', 'Gonzalez', '0123456789', 'pedrogonz', 'pedrogonz', 18, 'M', 3.8, NULL, NULL, 1),
+    (4, 'user', TRUE, FALSE, FALSE, 'Maria', 'Rodriguez', '5432198760', 'mariarod', 'mariarod', 40, 'F', NULL, NULL, NULL, 1),
     (5, 'user', FALSE, FALSE, TRUE, 'David', 'Hernandez', '1112223334', 'davidher', 'davidher', 22, 'M', NULL, NULL, NULL, 4),
     (6, 'user', FALSE, FALSE, TRUE, 'Richard', 'Prono', '433498492', 'richar', 'richar', 40, 'M', NULL, NULL, NULL, 10),
     (7, 'user', FALSE, FALSE, TRUE, 'Loro', 'Hernandez', '98789732', 'lorocal', 'lorocal', 10, 'M', NULL, NULL, NULL, 5),

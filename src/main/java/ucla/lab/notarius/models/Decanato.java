@@ -24,8 +24,9 @@ public class Decanato implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name="Decanato_Seq", allocationSize=1)
-    @GeneratedValue(strategy=SEQUENCE, generator="Decanato_Seq")
+    // @SequenceGenerator(name="Decanato_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="Decanato_Seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     // lista carreras

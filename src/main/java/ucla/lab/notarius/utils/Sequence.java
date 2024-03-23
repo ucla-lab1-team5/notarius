@@ -1,3 +1,5 @@
+package ucla.lab.notarius.utils;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -6,8 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import ucla.lab.notarius.utils.NotariusConfig;
 
-public class SequenceCreator {
-    public static void main(String[] args) {
+public class Sequence {
+    public Sequence() {
         NotariusConfig nc = new NotariusConfig();
         String dbUrl = nc.getPostgresUrl();
         String user = nc.getPostgresUsername();
@@ -16,14 +18,14 @@ public class SequenceCreator {
         try (Connection connection = DriverManager.getConnection(dbUrl, user, password)) {
             createSequenceIfNotExist(connection, "Calificacion_Seq");
             createSequenceIfNotExist(connection, "Carrera_Seq");
-createSequenceIfNotExist(connection, "Decanato_Seq");
-createSequenceIfNotExist(connection, "Estudiante_Seq");
-createSequenceIfNotExist(connection, "Inscripcion_Seq");
-createSequenceIfNotExist(connection, "Materia_Seq");
-createSequenceIfNotExist(connection, "PeriodoAcademico_Seq");
-createSequenceIfNotExist(connection, "Profesor_Seq");
-createSequenceIfNotExist(connection, "Usuario_Seq");
-// Example
+            createSequenceIfNotExist(connection, "Decanato_Seq");
+            createSequenceIfNotExist(connection, "Estudiante_Seq");
+            createSequenceIfNotExist(connection, "Inscripcion_Seq");
+            createSequenceIfNotExist(connection, "Materia_Seq");
+            createSequenceIfNotExist(connection, "PeriodoAcademico_Seq");
+            createSequenceIfNotExist(connection, "Profesor_Seq");
+            createSequenceIfNotExist(connection, "Usuario_Seq");
+            // Example
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -31,7 +33,7 @@ createSequenceIfNotExist(connection, "Usuario_Seq");
 
     private static void createSequenceIfNotExist(Connection connection, String sequenceName) throws SQLException {
         DatabaseMetaData metadata = connection.getMetaData();
-        ResultSet resultSet = metadata.getTables(null, null, sequenceName.toUpperCase(), new String[]{"SEQUENCE"});
+        ResultSet resultSet = metadata.getTables(null, null, sequenceName.toUpperCase(), new String[] { "SEQUENCE" });
 
         // Check if sequence exists
         if (!resultSet.next()) {

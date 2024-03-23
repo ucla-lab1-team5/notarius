@@ -32,6 +32,7 @@ public class InscripcionController {
     private List<Seccion> seccionesPaLaInscripcion;
     private List<String> seccionesSeleccioniadas;
     private PersistenceService ps;
+    private ArrayList<String> materiasDisponiblesString;
     public InscripcionController(InscripcionView view) {
         this.view = view;
         this.seccionesPaLaInscripcion = new ArrayList<>();
@@ -107,7 +108,7 @@ public class InscripcionController {
                 materiasDisponibles.add(s.getMateria());
             }
         }
-        ArrayList<String> materiasDisponiblesString = new ArrayList<>();
+        materiasDisponiblesString = new ArrayList<>();
         for (Materia m : materiasDisponibles) {
             materiasDisponiblesString.add(m.getNombre());
         }
@@ -124,7 +125,6 @@ public class InscripcionController {
         for (Seccion s : this.seccionesDisponibles) {
             if (s.getMateria().getNombre() == selectedItem) {
                 secciones.add(s.getCodigo());
-                
             }
         }
         this.view.setComboBoxSecciones(secciones.toArray(new String[0]));
@@ -171,8 +171,7 @@ public class InscripcionController {
         inscripcion.setSecciones(seccionesDisponibles);
         ps.inscripcion.create(inscripcion);
         
-       Reporte r =  new Reporte("jasper/Notarius_Students_Per_Career.jrxml");
-       r.showReport();
+     JOptionPane.showMessageDialog(view, "Estudiante Inscrito Exitosamente!", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
        
        
         

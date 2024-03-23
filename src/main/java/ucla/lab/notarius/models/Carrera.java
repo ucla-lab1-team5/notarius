@@ -26,8 +26,9 @@ public class Carrera implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name="Carrera_Seq", allocationSize=1)
-    @GeneratedValue(strategy=SEQUENCE, generator="Carrera_Seq")
+    // @SequenceGenerator(name="Carrera_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="Carrera_Seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     @ManyToMany

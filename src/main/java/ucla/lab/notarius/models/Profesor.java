@@ -29,7 +29,8 @@ public class Profesor extends Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=SEQUENCE, generator="Usuario_Seq")
+    // @GeneratedValue(strategy=SEQUENCE, generator="Usuario_Seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     //OneToMany calificaciones?

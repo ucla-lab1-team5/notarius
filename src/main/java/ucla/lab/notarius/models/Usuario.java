@@ -30,8 +30,9 @@ public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name="Usuario_Seq", allocationSize=1)
-    @GeneratedValue(strategy=SEQUENCE, generator="Usuario_Seq")
+    // @SequenceGenerator(name="Usuario_Seq", allocationSize=1)
+    // @GeneratedValue(strategy=SEQUENCE, generator="Usuario_Seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
     @Basic

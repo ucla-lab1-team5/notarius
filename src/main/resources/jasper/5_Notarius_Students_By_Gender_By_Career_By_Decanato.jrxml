@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05d6145b-f16d-4c4d-bdd3-d7e972cbd066">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Notarius"/>
+	<parameter name="career_id" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString language="plsql">
+		<![CDATA[SELECT 
+		u.id,
+		u.nombres, 
+		u.cedula,
+		u.apellidos,
+		case when u.genero = 'M' then 'Masculino' else 'Femenino' end as genero,
+		c.nombre as carrera, 
+		d.nombre as decanato
+FROM usuario u
+	JOIN carrera c 
+		ON c.id = u.carrera_id
+	JOIN decanato d 
+		ON d.id = c.decanato_id
+WHERE u.estudiante = TRUE
+ORDER BY d.nombre
+		,c.nombre
+		,u.genero
+;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cedula"/>
+		<property name="com.jaspersoft.studio.field.label" value="cedula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellidos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="usuario"/>
+	</field>
+	<field name="genero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="genero"/>
+		<property name="com.jaspersoft.studio.field.label" value="genero"/>
+	</field>
+	<field name="carrera" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="carrera"/>
+		<property name="com.jaspersoft.studio.field.label" value="carrera"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="carrera"/>
+	</field>
+	<field name="decanato" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="decanato"/>
+		<property name="com.jaspersoft.studio.field.label" value="decanato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="decanato"/>
+	</field>
+	<group name="Decanato">
+		<groupExpression><![CDATA[$F{decanato}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<textField>
+					<reportElement mode="Opaque" x="0" y="1" width="555" height="30" forecolor="#FFFFFF" backcolor="#8A7ECC" uuid="31bbd0c3-7996-4f02-aca6-fff353511435">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{decanato}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Carrera">
+		<groupExpression><![CDATA[$F{carrera}]]></groupExpression>
+		<groupHeader>
+			<band height="26">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="26" forecolor="#FFFFFF" backcolor="#9682FA" uuid="bc8088d4-b99f-416a-aeb1-430474c650ff">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html"/>
+					<textFieldExpression><![CDATA[$F{carrera}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Genero ">
+		<groupExpression><![CDATA[$F{genero}]]></groupExpression>
+		<groupHeader>
+			<band height="26">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="26" forecolor="#FFFFFF" backcolor="#9682FA" uuid="2bea4d2d-07fc-4cdb-8143-7124a1be86fb">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle" markup="html"/>
+					<textFieldExpression><![CDATA[$F{genero}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="162" y="18" width="230" height="30" uuid="cc2de72f-3cae-4ada-89a5-f45a08f1a4ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estudiantes por Genero de Carrera y Decanato]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="141" height="36" uuid="4367d761-308f-42df-b478-b87f47ecf264"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="138" height="36" uuid="c3af3ec5-e72e-419b-8b48-6493b9509f33">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f15c4526-aeed-45d2-825b-21dc853bcd71"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="138" height="36" uuid="18bcb30f-ce93-41f4-97fb-a2a3ba37f90f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d7997e8-10b2-4cca-a2d5-d888f8c69892"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="0" width="138" height="36" uuid="6276edcf-4691-401d-b48f-b13b5cf399ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db9877ec-d3af-4224-8d69-58e7ffd82adc"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[cedula]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="141" height="32" uuid="568a1fd1-82a3-4b26-958c-c55a38b02f86"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="0" width="138" height="32" uuid="b4b5b22b-23d4-4fe1-ba3c-a18800dcacd5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f15c4526-aeed-45d2-825b-21dc853bcd71"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="138" height="32" uuid="7c739792-e727-4b69-9377-cf68f0174418">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d7997e8-10b2-4cca-a2d5-d888f8c69892"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="417" y="0" width="138" height="32" uuid="1b591a2c-0f00-4f3c-a8a8-05b160c63055">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db9877ec-d3af-4224-8d69-58e7ffd82adc"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
